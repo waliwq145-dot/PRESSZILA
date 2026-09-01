@@ -1,3 +1,4 @@
+```js
 require("dotenv").config();
 
 const express = require("express");
@@ -60,12 +61,8 @@ app.use(
   })
 );
 
-/* Serve website files */
-app.use(
-  express.static(
-    path.join(__dirname, "public")
-  )
-);
+/* Serve website files from repository root */
+app.use(express.static(__dirname));
 
 /* =========================
    VALIDATION
@@ -372,7 +369,6 @@ for (const [route, file] of Object.entries(
     res.sendFile(
       path.join(
         __dirname,
-        "public",
         file
       )
     );
@@ -422,3 +418,4 @@ app.listen(PORT, () => {
   );
   console.log("");
 });
+```

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img">
+    <rect width="800" height="500" rx="30" fill="#0a111e"/>
+    <path d="M0 390L800 120" stroke="#65c9ff" stroke-width="2" opacity=".45"/>
+    <path d="M0 430L800 160" stroke="#dceeff" stroke-width="1" opacity=".18"/>
+    <circle cx="360" cy="270" r="89" fill="none" stroke="#65c9ff" stroke-width="3"/>
+    <circle cx="360" cy="270" r="18" fill="#65c9ff"/>
+    <text x="55" y="90" fill="#65c9ff" font-family="Arial" font-size="18" letter-spacing="4">CASE 02</text>
+    <text x="55" y="145" fill="#f7fbff" font-family="Arial" font-size="38" font-weight="700">Brand Authority</text>
+    <text x="55" y="450" fill="#91a4ba" font-family="Arial" font-size="17">PRESSZILA / STRATEGY + STORY</text>
+    </svg>

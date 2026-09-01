@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img">
+    <circle cx="100" cy="100" r="92" fill="#101c2d" stroke="#65c9ff" stroke-width="3"/>
+    <circle cx="100" cy="82" r="30" fill="#dceeff"/>
+    <path d="M48 164c10-38 94-38 104 0" fill="#dceeff"/>
+    <text x="100" y="195" text-anchor="middle" fill="#65c9ff" font-family="Arial" font-size="12" font-weight="700">DEMO</text>
+    </svg>

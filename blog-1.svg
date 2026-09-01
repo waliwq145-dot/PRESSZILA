@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img">
+    <rect width="800" height="500" rx="30" fill="#0b1322"/>
+    <rect x="70" y="75" width="660" height="350" rx="20" fill="none" stroke="#65c9ff" opacity=".6"/>
+    <path d="M120 345L245 220l85 70 135-145 110 90" fill="none" stroke="#f7fbff" stroke-width="7"/>
+    <circle cx="560" cy="160" r="28" fill="#65c9ff"/>
+    <text x="70" y="455" fill="#65c9ff" font-family="Arial" font-size="17" letter-spacing="3">FIELD NOTES 01</text>
+    <text x="500" y="455" fill="#91a4ba" font-family="Arial" font-size="17">Modern Brands</text>
+    </svg>

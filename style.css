@@ -5,8 +5,8 @@
   --bg-soft: #080c12;
   --panel: #0b1018;
   --panel-2: #101722;
-  --line: rgba(255,255,255,.10);
-  --line-soft: rgba(255,255,255,.06);
+  --line: rgba(255, 255, 255, 0.10);
+  --line-soft: rgba(255, 255, 255, 0.06);
   --text: #f7f9fc;
   --muted: #9ba7b7;
   --muted-2: #697586;
@@ -17,8 +17,12 @@
   --danger: #ff8e8e;
   --max: 1200px;
   --radius: 24px;
-  --shadow: 0 30px 90px rgba(0,0,0,.35);
+  --shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
 }
+
+/* =========================
+   RESET
+========================= */
 
 * {
   box-sizing: border-box;
@@ -32,8 +36,16 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 75% 0%, rgba(114,213,255,.08), transparent 28%),
-    radial-gradient(circle at 0% 30%, rgba(114,213,255,.035), transparent 25%),
+    radial-gradient(
+      circle at 75% 0%,
+      rgba(114, 213, 255, 0.08),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 0% 30%,
+      rgba(114, 213, 255, 0.035),
+      transparent 25%
+    ),
     var(--bg);
   color: var(--text);
   font-family: "DM Sans", sans-serif;
@@ -41,7 +53,7 @@ body {
   overflow-x: hidden;
 }
 
-body::selection {
+::selection {
   background: var(--accent);
   color: var(--accent-dark);
 }
@@ -76,11 +88,6 @@ button {
   margin: 0 auto;
 }
 
-::selection {
-  background: var(--accent);
-  color: #061018;
-}
-
 .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -110,37 +117,37 @@ button {
   padding: 12px 21px;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: rgba(255,255,255,.045);
+  background: rgba(255, 255, 255, 0.045);
   color: #fff;
   font-size: 14px;
   font-weight: 700;
-  letter-spacing: -.1px;
+  letter-spacing: -0.1px;
   transition:
-    transform .25s ease,
-    background .25s ease,
-    border-color .25s ease,
-    box-shadow .25s ease;
+    transform 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
 }
 
 .btn:hover {
   transform: translateY(-3px);
-  background: rgba(255,255,255,.08);
-  border-color: rgba(114,213,255,.35);
-  box-shadow: 0 12px 35px rgba(0,0,0,.25);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(114, 213, 255, 0.35);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
 }
 
 .btn-primary {
   background: var(--accent);
   border-color: var(--accent);
   color: var(--accent-dark);
-  box-shadow: 0 12px 40px rgba(114,213,255,.14);
+  box-shadow: 0 12px 40px rgba(114, 213, 255, 0.14);
 }
 
 .btn-primary:hover {
   background: #a2e5ff;
   border-color: #a2e5ff;
   color: #061018;
-  box-shadow: 0 16px 45px rgba(114,213,255,.22);
+  box-shadow: 0 16px 45px rgba(114, 213, 255, 0.22);
 }
 
 .actions {
@@ -159,8 +166,8 @@ button {
   position: sticky;
   top: 0;
   z-index: 100;
-  border-bottom: 1px solid rgba(255,255,255,.07);
-  background: rgba(5,7,11,.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  background: rgba(5, 7, 11, 0.78);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
@@ -195,7 +202,7 @@ button {
   color: #aeb8c6;
   font-size: 13px;
   font-weight: 500;
-  transition: color .2s ease;
+  transition: color 0.2s ease;
 }
 
 .nav-links a:not(.btn)::after {
@@ -206,7 +213,7 @@ button {
   bottom: -9px;
   height: 1px;
   background: var(--accent);
-  transition: right .25s ease;
+  transition: right 0.25s ease;
 }
 
 .nav-links a:hover,
@@ -232,7 +239,7 @@ button {
   margin-left: auto;
   border: 1px solid var(--line);
   border-radius: 12px;
-  background: rgba(255,255,255,.04);
+  background: rgba(255, 255, 255, 0.04);
   color: #fff;
   font-size: 23px;
   line-height: 1;
@@ -255,7 +262,7 @@ button {
   top: -300px;
   right: -220px;
   border-radius: 50%;
-  background: rgba(114,213,255,.08);
+  background: rgba(114, 213, 255, 0.08);
   filter: blur(90px);
   pointer-events: none;
 }
@@ -263,7 +270,7 @@ button {
 .hero-grid {
   position: relative;
   display: grid;
-  grid-template-columns: 1.05fr .95fr;
+  grid-template-columns: 1.05fr 0.95fr;
   gap: 75px;
   align-items: center;
 }
@@ -271,7 +278,7 @@ button {
 .hero h1 {
   max-width: 800px;
   margin: 0 0 28px;
-  font: 700 clamp(52px, 7vw, 90px)/.96 "Space Grotesk", sans-serif;
+  font: 700 clamp(52px, 7vw, 90px) / 0.96 "Space Grotesk", sans-serif;
   letter-spacing: -5px;
 }
 
@@ -290,7 +297,7 @@ button {
 .hero-visual {
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(114,213,255,.16);
+  border: 1px solid rgba(114, 213, 255, 0.16);
   border-radius: 32px;
   background: #080d14;
   box-shadow: var(--shadow);
@@ -303,15 +310,15 @@ button {
   pointer-events: none;
   background: linear-gradient(
     135deg,
-    rgba(114,213,255,.08),
+    rgba(114, 213, 255, 0.08),
     transparent 40%,
-    rgba(255,255,255,.025)
+    rgba(255, 255, 255, 0.025)
   );
 }
 
 .hero-visual img {
   width: 100%;
-  transition: transform .8s ease;
+  transition: transform 0.8s ease;
 }
 
 .hero-visual:hover img {
@@ -341,7 +348,7 @@ button {
 .stat strong {
   display: block;
   margin-bottom: 5px;
-  font: 700 30px/1 "Space Grotesk", sans-serif;
+  font: 700 30px / 1 "Space Grotesk", sans-serif;
   color: var(--accent);
   letter-spacing: -1px;
 }
@@ -370,7 +377,7 @@ button {
 .section-head h2,
 .page-title h1 {
   margin: 0;
-  font: 700 clamp(38px, 5vw, 64px)/1.04 "Space Grotesk", sans-serif;
+  font: 700 clamp(38px, 5vw, 64px) / 1.04 "Space Grotesk", sans-serif;
   letter-spacing: -3px;
 }
 
@@ -410,14 +417,14 @@ button {
   background:
     linear-gradient(
       145deg,
-      rgba(255,255,255,.045),
-      rgba(255,255,255,.012)
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.012)
     ),
     var(--panel);
   transition:
-    transform .3s ease,
-    border-color .3s ease,
-    box-shadow .3s ease;
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .card::before {
@@ -428,16 +435,16 @@ button {
   top: -100px;
   right: -100px;
   border-radius: 50%;
-  background: rgba(114,213,255,.08);
+  background: rgba(114, 213, 255, 0.08);
   filter: blur(35px);
   opacity: 0;
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-7px);
-  border-color: rgba(114,213,255,.25);
-  box-shadow: 0 22px 60px rgba(0,0,0,.25);
+  border-color: rgba(114, 213, 255, 0.25);
+  box-shadow: 0 22px 60px rgba(0, 0, 0, 0.25);
 }
 
 .card:hover::before {
@@ -455,8 +462,8 @@ button {
 .card h3 {
   position: relative;
   margin: 23px 0 10px;
-  font: 600 23px/1.2 "Space Grotesk", sans-serif;
-  letter-spacing: -.5px;
+  font: 600 23px / 1.2 "Space Grotesk", sans-serif;
+  letter-spacing: -0.5px;
 }
 
 .card p {
@@ -482,12 +489,14 @@ button {
   right: 28px;
   color: #4e6075;
   font-size: 23px;
-  transition: color .25s ease, transform .25s ease;
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
 }
 
 .service-card:hover::after {
   color: var(--accent);
-  transform: translate(3px,-3px);
+  transform: translate(3px, -3px);
 }
 
 /* =========================
@@ -500,10 +509,10 @@ button {
 
 .case-card img {
   width: 100%;
-  aspect-ratio: 1 / .82;
+  aspect-ratio: 1 / 0.82;
   object-fit: cover;
   border-bottom: 1px solid var(--line);
-  transition: transform .5s ease;
+  transition: transform 0.5s ease;
 }
 
 .case-card:hover img {
@@ -531,10 +540,10 @@ button {
   display: inline-flex;
   margin-top: 19px;
   padding: 6px 11px;
-  border: 1px solid rgba(114,213,255,.2);
+  border: 1px solid rgba(114, 213, 255, 0.2);
   border-radius: 999px;
   color: var(--accent-soft);
-  background: rgba(114,213,255,.035);
+  background: rgba(114, 213, 255, 0.035);
   font-size: 11px;
 }
 
@@ -550,9 +559,9 @@ button {
 
 .quote-mark {
   margin: 16px 0 2px;
-  font: 700 58px/.8 "Space Grotesk", sans-serif;
+  font: 700 58px / 0.8 "Space Grotesk", sans-serif;
   color: var(--accent);
-  opacity: .65;
+  opacity: 0.65;
 }
 
 .person {
@@ -569,6 +578,7 @@ button {
   height: 46px;
   border: 1px solid var(--line);
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .person strong {
@@ -594,7 +604,7 @@ button {
   margin-bottom: 23px;
   border: 1px solid var(--line);
   border-radius: 16px;
-  transition: transform .4s ease;
+  transition: transform 0.4s ease;
 }
 
 .card:hover .blog-img {
@@ -619,15 +629,15 @@ button {
   gap: 40px;
   margin: 25px 0 115px;
   padding: 75px;
-  border: 1px solid rgba(114,213,255,.2);
+  border: 1px solid rgba(114, 213, 255, 0.2);
   border-radius: 32px;
   background:
     radial-gradient(
       circle at 85% 20%,
-      rgba(114,213,255,.12),
+      rgba(114, 213, 255, 0.12),
       transparent 35%
     ),
-    linear-gradient(135deg,#0c1622,#080d14);
+    linear-gradient(135deg, #0c1622, #080d14);
 }
 
 .cta::before {
@@ -638,7 +648,7 @@ button {
   left: -220px;
   bottom: -250px;
   border-radius: 50%;
-  background: rgba(114,213,255,.08);
+  background: rgba(114, 213, 255, 0.08);
   filter: blur(70px);
 }
 
@@ -649,7 +659,7 @@ button {
 .cta h2 {
   max-width: 750px;
   margin: 0 0 15px;
-  font: 700 clamp(38px,5vw,62px)/1.04 "Space Grotesk", sans-serif;
+  font: 700 clamp(38px, 5vw, 62px) / 1.04 "Space Grotesk", sans-serif;
   letter-spacing: -3px;
 }
 
@@ -694,7 +704,7 @@ button {
 
 .values {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 18px;
 }
 
@@ -704,7 +714,7 @@ button {
 
 .portfolio {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 22px;
 }
 
@@ -722,7 +732,7 @@ button {
 
 .testimonial-grid {
   display: grid;
-  grid-template-columns: repeat(2,1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 18px;
 }
 
@@ -732,7 +742,7 @@ button {
 
 .contact-grid {
   display: grid;
-  grid-template-columns: .75fr 1.25fr;
+  grid-template-columns: 0.75fr 1.25fr;
   gap: 70px;
 }
 
@@ -761,7 +771,7 @@ button {
   border: 1px solid var(--line);
   border-radius: 26px;
   background: var(--panel);
-  box-shadow: 0 25px 70px rgba(0,0,0,.18);
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
 }
 
 .form-grid {
@@ -795,7 +805,9 @@ button {
   background: #070c13;
   color: #fff;
   padding: 13px 14px;
-  transition: border-color .2s ease, box-shadow .2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .field input::placeholder,
@@ -806,8 +818,8 @@ button {
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  border-color: rgba(114,213,255,.65);
-  box-shadow: 0 0 0 3px rgba(114,213,255,.08);
+  border-color: rgba(114, 213, 255, 0.65);
+  box-shadow: 0 0 0 3px rgba(114, 213, 255, 0.08);
 }
 
 .field textarea {
@@ -885,7 +897,7 @@ button {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr repeat(3,1fr);
+  grid-template-columns: 1.5fr repeat(3, 1fr);
   gap: 55px;
 }
 
@@ -903,7 +915,7 @@ button {
 .footer-col h4 {
   margin: 0 0 20px;
   font-size: 13px;
-  letter-spacing: .3px;
+  letter-spacing: 0.3px;
 }
 
 .footer-col a {
@@ -912,7 +924,9 @@ button {
   margin: 10px 0;
   color: var(--muted);
   font-size: 13px;
-  transition: color .2s ease, transform .2s ease;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .footer-col a:hover {
@@ -936,14 +950,14 @@ button {
   border-radius: 50%;
   color: #b9c7d6;
   font-size: 13px;
-  transition: all .25s ease;
+  transition: all 0.25s ease;
 }
 
 .socials a:hover {
   transform: translateY(-3px);
-  border-color: rgba(114,213,255,.4);
+  border-color: rgba(114, 213, 255, 0.4);
   color: var(--accent);
-  background: rgba(114,213,255,.05);
+  background: rgba(114, 213, 255, 0.05);
 }
 
 .footer-bottom {
@@ -965,8 +979,8 @@ button {
   opacity: 0;
   transform: translateY(22px);
   transition:
-    opacity .7s ease,
-    transform .7s ease;
+    opacity 0.7s ease,
+    transform 0.7s ease;
 }
 
 .reveal.visible {
@@ -979,7 +993,6 @@ button {
 ========================= */
 
 @media (max-width: 1100px) {
-
   .container {
     width: min(var(--max), calc(100% - 40px));
   }
@@ -997,7 +1010,7 @@ button {
   }
 
   .grid-4 {
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .footer-grid {
@@ -1018,13 +1031,12 @@ button {
 ========================= */
 
 @media (max-width: 760px) {
-
   .container {
     width: min(var(--max), calc(100% - 28px));
   }
 
   .site-header {
-    background: rgba(5,7,11,.9);
+    background: rgba(5, 7, 11, 0.9);
   }
 
   .nav {
@@ -1052,8 +1064,8 @@ button {
     padding: 12px;
     border: 1px solid var(--line);
     border-radius: 18px;
-    background: rgba(8,13,20,.98);
-    box-shadow: 0 25px 70px rgba(0,0,0,.55);
+    background: rgba(8, 13, 20, 0.98);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.55);
   }
 
   .nav-links.open {
@@ -1067,7 +1079,7 @@ button {
   }
 
   .nav-links a:hover {
-    background: rgba(255,255,255,.035);
+    background: rgba(255, 255, 255, 0.035);
   }
 
   .nav-links a:not(.btn)::after {
@@ -1230,7 +1242,6 @@ button {
 ========================= */
 
 @media (max-width: 420px) {
-
   .hero h1 {
     font-size: 46px;
     letter-spacing: -2.5px;
@@ -1272,7 +1283,6 @@ button {
 ========================= */
 
 @media (prefers-reduced-motion: reduce) {
-
   html {
     scroll-behavior: auto;
   }
@@ -1280,9 +1290,9 @@ button {
   *,
   *::before,
   *::after {
-    animation-duration: .01ms !important;
+    animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
-    transition-duration: .01ms !important;
+    transition-duration: 0.01ms !important;
   }
 
   .reveal {

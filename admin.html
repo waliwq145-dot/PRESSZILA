@@ -1,3 +1,21 @@
+ChatGPT said:
+Haan, error isliye aa raha hai kyunki tumhare pasted code ke end mein </style> ki jagah </script> aa gaya hai, aur HTML ka baaki body bhi missing hai.
+
+Neeche complete admin.html de raha hoon. Purani admin.html ko poora delete karke ye complete code paste karo.
+
+Isme:
+
+✅ Dark dashboard
+✅ Stats visible
+✅ Inquiry table visible
+✅ Search
+✅ Filter
+✅ Refresh
+✅ Logout
+✅ Admin Key show/hide 👁
+✅ Auto login
+✅ Mobile responsive
+✅ Existing /api/admin/inquiries backend same rahega
 <!doctype html>
 <html lang="en">
 
@@ -18,12 +36,16 @@
   <style>
     /* ================================
        PRESSZILA ADMIN DASHBOARD
-       ================================ */
+    ================================= */
 
     .admin-wrap {
       min-height: 75vh;
       padding: 70px 0 100px;
     }
+
+    /* ================================
+       TOPBAR
+    ================================= */
 
     .admin-topbar {
       display: flex;
@@ -39,23 +61,28 @@
 
     .admin-heading h1 {
       margin: 0 0 10px;
+      color: var(--text);
     }
 
     .admin-heading p {
       margin: 0;
-      opacity: .7;
+      color: var(--muted);
     }
+
+    /* ONLINE BADGE */
 
     .admin-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 9px 14px;
-      border: 1px solid rgba(0,0,0,.1);
+      border: 1px solid var(--line);
       border-radius: 999px;
       font-size: 13px;
       font-weight: 700;
-      background: #fff;
+      background: var(--panel);
+      color: var(--text);
+      white-space: nowrap;
     }
 
     .admin-badge span {
@@ -64,9 +91,12 @@
       border-radius: 50%;
       background: #20b26b;
       display: inline-block;
+      box-shadow: 0 0 10px rgba(32, 178, 107, .5);
     }
 
-    /* LOGIN */
+    /* ================================
+       LOGIN
+    ================================= */
 
     .admin-login {
       max-width: 620px;
@@ -79,11 +109,12 @@
 
     .admin-login-header h2 {
       margin: 0 0 8px;
+      color: var(--text);
     }
 
     .admin-login-header p {
       margin: 0;
-      opacity: .65;
+      color: var(--muted);
     }
 
     .admin-login-row {
@@ -96,11 +127,63 @@
       flex: 1;
     }
 
-    /* DASHBOARD */
+    /* ================================
+       PASSWORD SHOW / HIDE
+    ================================= */
+
+    .password-wrap {
+      position: relative;
+      width: 100%;
+    }
+
+    .password-wrap input {
+      padding-right: 50px !important;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 7px;
+      bottom: 6px;
+
+      width: 36px;
+      height: 36px;
+
+      padding: 0;
+
+      border: 0;
+      border-radius: 8px;
+
+      background: transparent;
+      color: var(--muted);
+
+      cursor: pointer;
+
+      display: grid;
+      place-items: center;
+
+      font-size: 17px;
+
+      transition:
+        background .2s ease,
+        color .2s ease;
+    }
+
+    .password-toggle:hover {
+      background: rgba(114, 213, 255, .08);
+      color: var(--accent);
+    }
+
+    /* ================================
+       DASHBOARD
+    ================================= */
 
     #dashboard {
       display: none;
     }
+
+    /* ================================
+       STATS
+    ================================= */
 
     .dashboard-stats {
       display: grid;
@@ -110,47 +193,91 @@
     }
 
     .stat-card {
-      background: #fff;
-      border: 1px solid rgba(0,0,0,.08);
+      position: relative;
+      overflow: hidden;
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255, 255, 255, .045),
+          rgba(255, 255, 255, .012)
+        ),
+        var(--panel);
+
+      border: 1px solid var(--line);
       border-radius: 18px;
+
       padding: 24px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.04);
+
+      box-shadow:
+        0 15px 45px rgba(0, 0, 0, .18);
+
+      color: var(--text);
+
+      transition:
+        transform .25s ease,
+        border-color .25s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(114, 213, 255, .25);
     }
 
     .stat-label {
-      font-size: 13px;
+      display: block;
+
+      color: var(--muted);
+
+      font-size: 11px;
       font-weight: 700;
-      opacity: .6;
+
       text-transform: uppercase;
       letter-spacing: .08em;
     }
 
     .stat-value {
       display: block;
-      font-size: 34px;
-      font-weight: 800;
+
       margin-top: 10px;
-      line-height: 1;
+
+      color: var(--accent);
+
+      font:
+        700 34px / 1
+        "Space Grotesk",
+        sans-serif;
     }
 
     .stat-card small {
       display: block;
+
       margin-top: 10px;
-      opacity: .55;
+
+      color: var(--muted-2);
     }
 
-    /* TOOLBAR */
+    /* ================================
+       TOOLBAR
+    ================================= */
 
     .admin-toolbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
+
       gap: 15px;
+
       margin-bottom: 20px;
       padding: 18px;
-      background: #fff;
-      border: 1px solid rgba(0,0,0,.08);
+
+      background: var(--panel);
+
+      border: 1px solid var(--line);
       border-radius: 16px;
+
+      box-shadow:
+        0 15px 45px rgba(0, 0, 0, .15);
     }
 
     .admin-search {
@@ -162,11 +289,34 @@
     .admin-filter select {
       width: 100%;
       height: 46px;
-      border: 1px solid rgba(0,0,0,.12);
+
+      border: 1px solid #1d2b3b;
       border-radius: 10px;
+
       padding: 0 14px;
+
       font: inherit;
-      background: #fff;
+
+      background: #070c13;
+      color: var(--text);
+
+      outline: none;
+
+      transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+    }
+
+    .admin-search input::placeholder {
+      color: var(--muted-2);
+    }
+
+    .admin-search input:focus,
+    .admin-filter select:focus {
+      border-color: rgba(114, 213, 255, .65);
+
+      box-shadow:
+        0 0 0 3px rgba(114, 213, 255, .08);
     }
 
     .admin-filter {
@@ -180,99 +330,185 @@
 
     .admin-action-btn {
       height: 46px;
+
       padding: 0 17px;
+
       border-radius: 10px;
-      border: 1px solid rgba(0,0,0,.1);
-      background: #fff;
+
+      border: 1px solid var(--line);
+
+      background: #0d141e;
+      color: var(--text);
+
       cursor: pointer;
+
       font-weight: 700;
+
+      transition:
+        background .2s ease,
+        color .2s ease,
+        border-color .2s ease;
     }
 
     .admin-action-btn:hover {
-      background: #f5f5f5;
+      background: #111c29;
+
+      border-color:
+        rgba(114, 213, 255, .35);
+
+      color: var(--accent);
     }
 
-    /* TABLE */
+    /* ================================
+       TABLE
+    ================================= */
 
     .admin-table-wrap {
       overflow-x: auto;
-      background: #fff;
-      border: 1px solid rgba(0,0,0,.08);
+
+      background: var(--panel);
+
+      border: 1px solid var(--line);
       border-radius: 18px;
-      box-shadow: 0 8px 30px rgba(0,0,0,.04);
+
+      box-shadow:
+        0 15px 45px rgba(0, 0, 0, .18);
     }
 
     .admin-table {
       width: 100%;
       min-width: 1100px;
+
       border-collapse: collapse;
+
+      color: var(--text);
     }
 
     .admin-table th {
       text-align: left;
+
       padding: 17px 18px;
-      background: #f7f8fa;
-      border-bottom: 1px solid rgba(0,0,0,.08);
+
+      background: #09111b;
+
+      color: var(--accent);
+
+      border-bottom:
+        1px solid var(--line);
+
       font-size: 12px;
+
       text-transform: uppercase;
       letter-spacing: .06em;
+
       white-space: nowrap;
     }
 
     .admin-table td {
       padding: 18px;
-      border-bottom: 1px solid rgba(0,0,0,.06);
+
+      background: var(--panel);
+
+      color: #c7d2de;
+
+      border-bottom:
+        1px solid var(--line-soft);
+
       vertical-align: top;
+
       font-size: 14px;
+    }
+
+    .admin-table td strong {
+      color: var(--text);
+    }
+
+    .admin-table tbody tr:hover td {
+      background: #101822;
     }
 
     .admin-table tr:last-child td {
       border-bottom: 0;
     }
 
-    .admin-table tbody tr:hover {
-      background: #fafafa;
-    }
+    /* ================================
+       TYPE BADGES
+    ================================= */
 
     .type-badge {
       display: inline-flex;
+
       padding: 6px 10px;
+
       border-radius: 999px;
+
       font-size: 11px;
       font-weight: 800;
+
       text-transform: uppercase;
     }
 
     .type-contact {
-      background: #eef4ff;
-      color: #1769ff;
+      background:
+        rgba(23, 105, 255, .12);
+
+      color: #69a0ff;
+
+      border:
+        1px solid rgba(23, 105, 255, .2);
     }
 
     .type-quote {
-      background: #eefbf5;
-      color: #168653;
+      background:
+        rgba(22, 134, 83, .12);
+
+      color: #63d69c;
+
+      border:
+        1px solid rgba(22, 134, 83, .2);
     }
+
+    /* ================================
+       EMPTY STATE
+    ================================= */
 
     .empty-state {
       text-align: center;
+
       padding: 70px 20px;
-      opacity: .6;
+
+      color: var(--muted);
     }
 
     .empty-state strong {
       display: block;
+
+      color: var(--text);
+
       font-size: 18px;
+
       margin-bottom: 7px;
-      opacity: 1;
     }
 
-    /* STATUS */
+    /* ================================
+       STATUS
+    ================================= */
 
     .form-status {
       margin-top: 12px;
     }
 
-    /* MOBILE */
+    .success {
+      color: var(--success);
+    }
+
+    .error {
+      color: var(--danger);
+    }
+
+    /* ================================
+       MOBILE
+    ================================= */
 
     @media (max-width: 900px) {
 
@@ -305,7 +541,6 @@
       .admin-action-btn {
         flex: 1;
       }
-
     }
 
     @media (max-width: 600px) {
@@ -335,7 +570,21 @@
       .admin-login-row .btn {
         width: 100%;
       }
+    }
 
+    @media (max-width: 420px) {
+
+      .dashboard-stats {
+        grid-template-columns: 1fr;
+      }
+
+      .admin-actions {
+        flex-direction: column;
+      }
+
+      .admin-action-btn {
+        width: 100%;
+      }
     }
   </style>
 
@@ -343,7 +592,9 @@
 
 <body>
 
-  <!-- ================= HEADER ================= -->
+  <!-- ================================
+       HEADER
+  ================================= -->
 
   <header class="site-header">
 
@@ -373,31 +624,52 @@
         aria-label="Main navigation"
       >
 
-        <a data-page="home.html" href="/home.html">
+        <a
+          data-page="home.html"
+          href="/home.html"
+        >
           Home
         </a>
 
-        <a data-page="about.html" href="/about.html">
+        <a
+          data-page="about.html"
+          href="/about.html"
+        >
           About
         </a>
 
-        <a data-page="solutions.html" href="/solutions.html">
+        <a
+          data-page="solutions.html"
+          href="/solutions.html"
+        >
           Solutions
         </a>
 
-        <a data-page="case-studies.html" href="/case-studies.html">
+        <a
+          data-page="case-studies.html"
+          href="/case-studies.html"
+        >
           Case Studies
         </a>
 
-        <a data-page="testimonials.html" href="/testimonials.html">
+        <a
+          data-page="testimonials.html"
+          href="/testimonials.html"
+        >
           Testimonials
         </a>
 
-        <a data-page="blogs.html" href="/blogs.html">
+        <a
+          data-page="blogs.html"
+          href="/blogs.html"
+        >
           Blogs
         </a>
 
-        <a data-page="contact.html" href="/contact.html">
+        <a
+          data-page="contact.html"
+          href="/contact.html"
+        >
           Contact Us
         </a>
 
@@ -415,12 +687,13 @@
   </header>
 
 
-  <!-- ================= ADMIN ================= -->
+  <!-- ================================
+       ADMIN
+  ================================= -->
 
   <main class="admin-wrap">
 
     <div class="container">
-
 
       <!-- TOP -->
 
@@ -443,14 +716,19 @@
         </div>
 
         <div class="admin-badge">
+
           <span></span>
+
           System Online
+
         </div>
 
       </div>
 
 
-      <!-- LOGIN CARD -->
+      <!-- ================================
+           LOGIN CARD
+      ================================= -->
 
       <form
         id="admin-login"
@@ -469,6 +747,7 @@
 
         </div>
 
+
         <div class="admin-login-row">
 
           <div class="field">
@@ -477,15 +756,30 @@
               Admin Key
             </label>
 
-            <input
-              id="admin-key"
-              type="password"
-              autocomplete="current-password"
-              placeholder="Enter admin key"
-              required
-            >
+            <div class="password-wrap">
+
+              <input
+                id="admin-key"
+                type="password"
+                autocomplete="current-password"
+                placeholder="Enter admin key"
+                required
+              >
+
+              <button
+                type="button"
+                id="toggle-admin-key"
+                class="password-toggle"
+                aria-label="Show admin key"
+                title="Show password"
+              >
+                👁
+              </button>
+
+            </div>
 
           </div>
+
 
           <button
             class="btn btn-primary"
@@ -496,6 +790,7 @@
 
         </div>
 
+
         <div
           id="admin-status"
           class="form-status"
@@ -505,7 +800,9 @@
       </form>
 
 
-      <!-- ================= DASHBOARD ================= -->
+      <!-- ================================
+           DASHBOARD
+      ================================= -->
 
       <section id="dashboard">
 
@@ -513,6 +810,7 @@
         <!-- STATS -->
 
         <div class="dashboard-stats">
+
 
           <div class="stat-card">
 
@@ -596,9 +894,12 @@
         </div>
 
 
-        <!-- TOOLBAR -->
+        <!-- ================================
+             TOOLBAR
+        ================================= -->
 
         <div class="admin-toolbar">
+
 
           <div class="admin-search">
 
@@ -609,6 +910,7 @@
             >
 
           </div>
+
 
           <div class="admin-filter">
 
@@ -629,6 +931,7 @@
             </select>
 
           </div>
+
 
           <div class="admin-actions">
 
@@ -653,7 +956,9 @@
         </div>
 
 
-        <!-- TABLE -->
+        <!-- ================================
+             TABLE
+        ================================= -->
 
         <div class="admin-table-wrap">
 
@@ -663,55 +968,36 @@
 
               <tr>
 
-                <th>
-                  Type
-                </th>
+                <th>Type</th>
 
-                <th>
-                  Name
-                </th>
+                <th>Name</th>
 
-                <th>
-                  Email
-                </th>
+                <th>Email</th>
 
-                <th>
-                  Phone
-                </th>
+                <th>Phone</th>
 
-                <th>
-                  Company
-                </th>
+                <th>Company</th>
 
-                <th>
-                  Service
-                </th>
+                <th>Service</th>
 
-                <th>
-                  Budget
-                </th>
+                <th>Budget</th>
 
-                <th>
-                  Timeline
-                </th>
+                <th>Timeline</th>
 
-                <th>
-                  Message
-                </th>
+                <th>Message</th>
 
-                <th>
-                  Date
-                </th>
+                <th>Date</th>
 
               </tr>
 
             </thead>
 
-            <tbody id="inquiry-body">
 
+            <tbody id="inquiry-body">
             </tbody>
 
           </table>
+
 
           <div
             id="empty-state"
@@ -738,13 +1024,16 @@
   </main>
 
 
-  <!-- ================= FOOTER ================= -->
+  <!-- ================================
+       FOOTER
+  ================================= -->
 
   <footer class="site-footer">
 
     <div class="container">
 
       <div class="footer-grid">
+
 
         <div class="footer-brand">
 
@@ -758,12 +1047,36 @@
             to make ambitious brands impossible to ignore.
           </p>
 
+
           <div class="socials">
 
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Instagram">◉</a>
-            <a href="#" aria-label="X">𝕏</a>
-            <a href="#" aria-label="LinkedIn">in</a>
+            <a
+              href="#"
+              aria-label="Facebook"
+            >
+              f
+            </a>
+
+            <a
+              href="#"
+              aria-label="Instagram"
+            >
+              ◉
+            </a>
+
+            <a
+              href="#"
+              aria-label="X"
+            >
+              𝕏
+            </a>
+
+            <a
+              href="#"
+              aria-label="LinkedIn"
+            >
+              in
+            </a>
 
           </div>
 
@@ -776,10 +1089,21 @@
             Explore
           </h4>
 
-          <a href="/about.html">About</a>
-          <a href="/solutions.html">Solutions</a>
-          <a href="/case-studies.html">Case Studies</a>
-          <a href="/blogs.html">Blogs</a>
+          <a href="/about.html">
+            About
+          </a>
+
+          <a href="/solutions.html">
+            Solutions
+          </a>
+
+          <a href="/case-studies.html">
+            Case Studies
+          </a>
+
+          <a href="/blogs.html">
+            Blogs
+          </a>
 
         </div>
 
@@ -790,9 +1114,17 @@
             Connect
           </h4>
 
-          <a href="/contact.html">Contact Us</a>
-          <a href="/quote.html">Get a Quote</a>
-          <a href="/testimonials.html">Testimonials</a>
+          <a href="/contact.html">
+            Contact Us
+          </a>
+
+          <a href="/quote.html">
+            Get a Quote
+          </a>
+
+          <a href="/testimonials.html">
+            Testimonials
+          </a>
 
         </div>
 
@@ -803,10 +1135,21 @@
             Services
           </h4>
 
-          <a href="/solutions.html">Digital PR</a>
-          <a href="/solutions.html">Brand Strategy</a>
-          <a href="/solutions.html">Media Relations</a>
-          <a href="/solutions.html">Reputation</a>
+          <a href="/solutions.html">
+            Digital PR
+          </a>
+
+          <a href="/solutions.html">
+            Brand Strategy
+          </a>
+
+          <a href="/solutions.html">
+            Media Relations
+          </a>
+
+          <a href="/solutions.html">
+            Reputation
+          </a>
 
         </div>
 
@@ -830,16 +1173,25 @@
   </footer>
 
 
-  <!-- ================= ADMIN SCRIPT ================= -->
+  <!-- ================================
+       ADMIN SCRIPT
+  ================================= -->
 
   <script>
 
     let allInquiries = [];
 
+
+    /* ================================
+       ESCAPE HTML
+    ================================= */
+
     function escapeHTML(value) {
+
       return String(value ?? "").replace(
         /[&<>"']/g,
         function (char) {
+
           return {
             "&": "&amp;",
             "<": "&lt;",
@@ -847,42 +1199,63 @@
             '"': "&quot;",
             "'": "&#39;"
           }[char];
+
         }
       );
+
     }
 
+
+    /* ================================
+       UPDATE STATS
+    ================================= */
 
     function updateStats(rows) {
 
       const total = rows.length;
 
-      const quotes = rows.filter(
-        item => item.type === "quote"
-      ).length;
+      const quotes =
+        rows.filter(
+          item => item.type === "quote"
+        ).length;
 
-      const contacts = rows.filter(
-        item => item.type === "contact"
-      ).length;
+      const contacts =
+        rows.filter(
+          item => item.type === "contact"
+        ).length;
 
-      document.querySelector("#stat-total").textContent = total;
-      document.querySelector("#stat-quotes").textContent = quotes;
-      document.querySelector("#stat-contacts").textContent = contacts;
+
+      document.querySelector("#stat-total").textContent =
+        total;
+
+      document.querySelector("#stat-quotes").textContent =
+        quotes;
+
+      document.querySelector("#stat-contacts").textContent =
+        contacts;
+
 
       if (rows.length) {
 
-        const latest = rows[0].created_at || "";
+        const latest =
+          rows[0].created_at || "";
 
         document.querySelector("#stat-latest").textContent =
           latest.substring(0, 10);
 
       } else {
 
-        document.querySelector("#stat-latest").textContent = "—";
+        document.querySelector("#stat-latest").textContent =
+          "—";
 
       }
 
     }
 
+
+    /* ================================
+       RENDER INQUIRIES
+    ================================= */
 
     function renderInquiries(rows) {
 
@@ -892,29 +1265,37 @@
       const empty =
         document.querySelector("#empty-state");
 
+
       tbody.innerHTML = "";
+
 
       if (!rows.length) {
 
         empty.style.display = "block";
+
         updateStats([]);
 
         return;
 
       }
 
+
       empty.style.display = "none";
 
       updateStats(rows);
 
+
       rows.forEach(item => {
 
-        const tr = document.createElement("tr");
+        const tr =
+          document.createElement("tr");
+
 
         const typeClass =
           item.type === "quote"
             ? "type-quote"
             : "type-contact";
+
 
         tr.innerHTML = `
 
@@ -964,6 +1345,7 @@
 
         `;
 
+
         tbody.appendChild(tr);
 
       });
@@ -971,30 +1353,52 @@
     }
 
 
+    /* ================================
+       LOAD INQUIRIES
+    ================================= */
+
     async function loadInquiries() {
 
       const key =
-        sessionStorage.getItem("presszilaAdminKey");
+        sessionStorage.getItem(
+          "presszilaAdminKey"
+        );
 
-      if (!key) return;
+
+      if (!key) {
+        return;
+      }
+
 
       const status =
         document.querySelector("#admin-status");
 
-      status.className = "form-status";
-      status.textContent = "Loading inquiries...";
+
+      status.className =
+        "form-status";
+
+      status.textContent =
+        "Loading inquiries...";
+
 
       try {
 
         const response =
-          await fetch("/api/admin/inquiries", {
-            headers: {
-              "x-admin-key": key
+          await fetch(
+            "/api/admin/inquiries",
+            {
+              method: "GET",
+
+              headers: {
+                "x-admin-key": key
+              }
             }
-          });
+          );
+
 
         const data =
           await response.json();
+
 
         if (!response.ok) {
 
@@ -1004,18 +1408,29 @@
 
         }
 
-        allInquiries = data.inquiries || [];
+
+        allInquiries =
+          data.inquiries || [];
+
 
         document.querySelector("#dashboard").style.display =
           "block";
 
+
         applyFilters();
+
 
         status.className =
           "form-status success";
 
+
         status.textContent =
-          `${allInquiries.length} inquiry${allInquiries.length === 1 ? "" : "ies"} loaded.`;
+          `${allInquiries.length} ${
+            allInquiries.length === 1
+              ? "inquiry"
+              : "inquiries"
+          } loaded.`;
+
 
       } catch (error) {
 
@@ -1023,39 +1438,58 @@
           "presszilaAdminKey"
         );
 
+
+        allInquiries = [];
+
+
         document.querySelector("#dashboard").style.display =
           "none";
+
 
         status.className =
           "form-status error";
 
+
         status.textContent =
-          error.message;
+          error.message ||
+          "Unable to load inquiries.";
 
       }
 
     }
 
 
+    /* ================================
+       FILTERS
+    ================================= */
+
     function applyFilters() {
 
       const search =
-        document.querySelector("#inquiry-search")
+        document
+          .querySelector("#inquiry-search")
           .value
           .toLowerCase()
           .trim();
 
+
       const filter =
-        document.querySelector("#inquiry-filter").value;
+        document
+          .querySelector("#inquiry-filter")
+          .value;
+
 
       const filtered =
         allInquiries.filter(item => {
+
 
           const matchesType =
             filter === "all" ||
             item.type === filter;
 
+
           const searchable = [
+
             item.name,
             item.email,
             item.phone,
@@ -1064,47 +1498,119 @@
             item.budget,
             item.timeline,
             item.message
+
           ]
             .join(" ")
             .toLowerCase();
+
 
           const matchesSearch =
             !search ||
             searchable.includes(search);
 
-          return matchesType && matchesSearch;
+
+          return (
+            matchesType &&
+            matchesSearch
+          );
 
         });
+
 
       renderInquiries(filtered);
 
     }
 
 
-    /* LOGIN */
+    /* ================================
+       PASSWORD SHOW / HIDE
+    ================================= */
+
+    document
+      .querySelector("#toggle-admin-key")
+      .addEventListener(
+        "click",
+        function () {
+
+          const input =
+            document.querySelector("#admin-key");
+
+
+          const isPassword =
+            input.type === "password";
+
+
+          input.type =
+            isPassword
+              ? "text"
+              : "password";
+
+
+          this.textContent =
+            isPassword
+              ? "🙈"
+              : "👁";
+
+
+          this.setAttribute(
+            "aria-label",
+            isPassword
+              ? "Hide admin key"
+              : "Show admin key"
+          );
+
+
+          this.setAttribute(
+            "title",
+            isPassword
+              ? "Hide password"
+              : "Show password"
+          );
+
+        }
+      );
+
+
+    /* ================================
+       LOGIN
+    ================================= */
 
     document
       .querySelector("#admin-login")
-      .addEventListener("submit", async function (event) {
+      .addEventListener(
+        "submit",
+        async function (event) {
 
-        event.preventDefault();
-
-        const key =
-          document.querySelector("#admin-key")
-            .value
-            .trim();
-
-        sessionStorage.setItem(
-          "presszilaAdminKey",
-          key
-        );
-
-        await loadInquiries();
-
-      });
+          event.preventDefault();
 
 
-    /* SEARCH */
+          const key =
+            document
+              .querySelector("#admin-key")
+              .value
+              .trim();
+
+
+          if (!key) {
+            return;
+          }
+
+
+          sessionStorage.setItem(
+            "presszilaAdminKey",
+            key
+          );
+
+
+          await loadInquiries();
+
+        }
+      );
+
+
+    /* ================================
+       SEARCH
+    ================================= */
 
     document
       .querySelector("#inquiry-search")
@@ -1114,7 +1620,9 @@
       );
 
 
-    /* FILTER */
+    /* ================================
+       FILTER
+    ================================= */
 
     document
       .querySelector("#inquiry-filter")
@@ -1124,7 +1632,9 @@
       );
 
 
-    /* REFRESH */
+    /* ================================
+       REFRESH
+    ================================= */
 
     document
       .querySelector("#refresh-inquiries")
@@ -1134,7 +1644,9 @@
       );
 
 
-    /* LOGOUT */
+    /* ================================
+       LOGOUT
+    ================================= */
 
     document
       .querySelector("#admin-logout")
@@ -1142,39 +1654,61 @@
         "click",
         function () {
 
+
           sessionStorage.removeItem(
             "presszilaAdminKey"
           );
 
+
           allInquiries = [];
 
-          document.querySelector("#dashboard").style.display =
-            "none";
 
-          document.querySelector("#admin-key").value = "";
+          document.querySelector(
+            "#dashboard"
+          ).style.display = "none";
 
-          document.querySelector("#admin-status").textContent =
+
+          document.querySelector(
+            "#admin-key"
+          ).value = "";
+
+
+          document.querySelector(
+            "#admin-status"
+          ).className =
+            "form-status success";
+
+
+          document.querySelector(
+            "#admin-status"
+          ).textContent =
             "Logged out successfully.";
 
         }
       );
 
 
-    /* AUTO LOGIN */
+    /* ================================
+       AUTO LOGIN
+    ================================= */
 
     document.addEventListener(
       "DOMContentLoaded",
       function () {
+
 
         const saved =
           sessionStorage.getItem(
             "presszilaAdminKey"
           );
 
+
         if (saved) {
 
-          document.querySelector("#admin-key").value =
-            saved;
+          document.querySelector(
+            "#admin-key"
+          ).value = saved;
+
 
           loadInquiries();
 
@@ -1186,8 +1720,12 @@
   </script>
 
 
-  <!-- MAIN WEBSITE SCRIPT -->
+  <!-- ================================
+       MAIN WEBSITE SCRIPT
+  ================================= -->
+
   <script src="/script.js"></script>
 
 </body>
+
 </html>

@@ -1,21 +1,3 @@
-ChatGPT said:
-Haan, error isliye aa raha hai kyunki tumhare pasted code ke end mein </style> ki jagah </script> aa gaya hai, aur HTML ka baaki body bhi missing hai.
-
-Neeche complete admin.html de raha hoon. Purani admin.html ko poora delete karke ye complete code paste karo.
-
-Isme:
-
-✅ Dark dashboard
-✅ Stats visible
-✅ Inquiry table visible
-✅ Search
-✅ Filter
-✅ Refresh
-✅ Logout
-✅ Admin Key show/hide 👁
-✅ Auto login
-✅ Mobile responsive
-✅ Existing /api/admin/inquiries backend same rahega
 <!doctype html>
 <html lang="en">
 
@@ -34,18 +16,14 @@ Isme:
   <title>Admin Dashboard | PRESSZILA</title>
 
   <style>
-    /* ================================
+    /* ========================================
        PRESSZILA ADMIN DASHBOARD
-    ================================= */
+    ======================================== */
 
     .admin-wrap {
       min-height: 75vh;
       padding: 70px 0 100px;
     }
-
-    /* ================================
-       TOPBAR
-    ================================= */
 
     .admin-topbar {
       display: flex;
@@ -62,6 +40,10 @@ Isme:
     .admin-heading h1 {
       margin: 0 0 10px;
       color: var(--text);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: clamp(42px, 6vw, 64px);
+      line-height: 1;
+      letter-spacing: -3px;
     }
 
     .admin-heading p {
@@ -82,7 +64,6 @@ Isme:
       font-weight: 700;
       background: var(--panel);
       color: var(--text);
-      white-space: nowrap;
     }
 
     .admin-badge span {
@@ -94,9 +75,9 @@ Isme:
       box-shadow: 0 0 10px rgba(32, 178, 107, .5);
     }
 
-    /* ================================
+    /* ========================================
        LOGIN
-    ================================= */
+    ======================================== */
 
     .admin-login {
       max-width: 620px;
@@ -110,6 +91,7 @@ Isme:
     .admin-login-header h2 {
       margin: 0 0 8px;
       color: var(--text);
+      font-family: "Space Grotesk", sans-serif;
     }
 
     .admin-login-header p {
@@ -120,16 +102,14 @@ Isme:
     .admin-login-row {
       display: flex;
       gap: 12px;
-      align-items: end;
+      align-items: flex-end;
     }
 
     .admin-login-row .field {
       flex: 1;
     }
 
-    /* ================================
-       PASSWORD SHOW / HIDE
-    ================================= */
+    /* PASSWORD */
 
     .password-wrap {
       position: relative;
@@ -137,35 +117,32 @@ Isme:
     }
 
     .password-wrap input {
+      width: 100%;
       padding-right: 50px !important;
     }
 
     .password-toggle {
       position: absolute;
       right: 7px;
-      bottom: 6px;
+      bottom: 7px;
 
       width: 36px;
       height: 36px;
 
       padding: 0;
 
+      display: grid;
+      place-items: center;
+
       border: 0;
-      border-radius: 8px;
+      border-radius: 9px;
 
       background: transparent;
       color: var(--muted);
 
       cursor: pointer;
-
-      display: grid;
-      place-items: center;
-
       font-size: 17px;
-
-      transition:
-        background .2s ease,
-        color .2s ease;
+      line-height: 1;
     }
 
     .password-toggle:hover {
@@ -173,17 +150,13 @@ Isme:
       color: var(--accent);
     }
 
-    /* ================================
+    /* ========================================
        DASHBOARD
-    ================================= */
+    ======================================== */
 
     #dashboard {
       display: none;
     }
-
-    /* ================================
-       STATS
-    ================================= */
 
     .dashboard-stats {
       display: grid;
@@ -196,21 +169,20 @@ Isme:
       position: relative;
       overflow: hidden;
 
-      background:
-        linear-gradient(
-          145deg,
-          rgba(255, 255, 255, .045),
-          rgba(255, 255, 255, .012)
-        ),
-        var(--panel);
+      padding: 24px;
 
       border: 1px solid var(--line);
       border-radius: 18px;
 
-      padding: 24px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.012)
+        ),
+        var(--panel);
 
-      box-shadow:
-        0 15px 45px rgba(0, 0, 0, .18);
+      box-shadow: 0 15px 45px rgba(0,0,0,.18);
 
       color: var(--text);
 
@@ -221,7 +193,7 @@ Isme:
 
     .stat-card:hover {
       transform: translateY(-3px);
-      border-color: rgba(114, 213, 255, .25);
+      border-color: rgba(114,213,255,.25);
     }
 
     .stat-label {
@@ -243,10 +215,7 @@ Isme:
 
       color: var(--accent);
 
-      font:
-        700 34px / 1
-        "Space Grotesk",
-        sans-serif;
+      font: 700 34px / 1 "Space Grotesk", sans-serif;
     }
 
     .stat-card small {
@@ -255,11 +224,12 @@ Isme:
       margin-top: 10px;
 
       color: var(--muted-2);
+      font-size: 12px;
     }
 
-    /* ================================
+    /* ========================================
        TOOLBAR
-    ================================= */
+    ======================================== */
 
     .admin-toolbar {
       display: flex;
@@ -276,8 +246,7 @@ Isme:
       border: 1px solid var(--line);
       border-radius: 16px;
 
-      box-shadow:
-        0 15px 45px rgba(0, 0, 0, .15);
+      box-shadow: 0 15px 45px rgba(0,0,0,.15);
     }
 
     .admin-search {
@@ -301,10 +270,6 @@ Isme:
       color: var(--text);
 
       outline: none;
-
-      transition:
-        border-color .2s ease,
-        box-shadow .2s ease;
     }
 
     .admin-search input::placeholder {
@@ -313,10 +278,10 @@ Isme:
 
     .admin-search input:focus,
     .admin-filter select:focus {
-      border-color: rgba(114, 213, 255, .65);
+      border-color: rgba(114,213,255,.65);
 
       box-shadow:
-        0 0 0 3px rgba(114, 213, 255, .08);
+        0 0 0 3px rgba(114,213,255,.08);
     }
 
     .admin-filter {
@@ -333,9 +298,8 @@ Isme:
 
       padding: 0 17px;
 
-      border-radius: 10px;
-
       border: 1px solid var(--line);
+      border-radius: 10px;
 
       background: #0d141e;
       color: var(--text);
@@ -343,25 +307,19 @@ Isme:
       cursor: pointer;
 
       font-weight: 700;
-
-      transition:
-        background .2s ease,
-        color .2s ease,
-        border-color .2s ease;
     }
 
     .admin-action-btn:hover {
       background: #111c29;
 
-      border-color:
-        rgba(114, 213, 255, .35);
+      border-color: rgba(114,213,255,.35);
 
       color: var(--accent);
     }
 
-    /* ================================
+    /* ========================================
        TABLE
-    ================================= */
+    ======================================== */
 
     .admin-table-wrap {
       overflow-x: auto;
@@ -371,8 +329,7 @@ Isme:
       border: 1px solid var(--line);
       border-radius: 18px;
 
-      box-shadow:
-        0 15px 45px rgba(0, 0, 0, .18);
+      box-shadow: 0 15px 45px rgba(0,0,0,.18);
     }
 
     .admin-table {
@@ -385,19 +342,16 @@ Isme:
     }
 
     .admin-table th {
-      text-align: left;
-
       padding: 17px 18px;
 
-      background: #09111b;
+      text-align: left;
 
+      background: #09111b;
       color: var(--accent);
 
-      border-bottom:
-        1px solid var(--line);
+      border-bottom: 1px solid var(--line);
 
       font-size: 12px;
-
       text-transform: uppercase;
       letter-spacing: .06em;
 
@@ -408,11 +362,9 @@ Isme:
       padding: 18px;
 
       background: var(--panel);
-
       color: #c7d2de;
 
-      border-bottom:
-        1px solid var(--line-soft);
+      border-bottom: 1px solid var(--line-soft);
 
       vertical-align: top;
 
@@ -431,9 +383,9 @@ Isme:
       border-bottom: 0;
     }
 
-    /* ================================
-       TYPE BADGES
-    ================================= */
+    /* ========================================
+       BADGES
+    ======================================== */
 
     .type-badge {
       display: inline-flex;
@@ -449,28 +401,22 @@ Isme:
     }
 
     .type-contact {
-      background:
-        rgba(23, 105, 255, .12);
-
+      background: rgba(23,105,255,.12);
       color: #69a0ff;
 
-      border:
-        1px solid rgba(23, 105, 255, .2);
+      border: 1px solid rgba(23,105,255,.2);
     }
 
     .type-quote {
-      background:
-        rgba(22, 134, 83, .12);
-
+      background: rgba(22,134,83,.12);
       color: #63d69c;
 
-      border:
-        1px solid rgba(22, 134, 83, .2);
+      border: 1px solid rgba(22,134,83,.2);
     }
 
-    /* ================================
-       EMPTY STATE
-    ================================= */
+    /* ========================================
+       EMPTY
+    ======================================== */
 
     .empty-state {
       text-align: center;
@@ -483,19 +429,21 @@ Isme:
     .empty-state strong {
       display: block;
 
+      margin-bottom: 7px;
+
       color: var(--text);
 
       font-size: 18px;
-
-      margin-bottom: 7px;
     }
 
-    /* ================================
+    /* ========================================
        STATUS
-    ================================= */
+    ======================================== */
 
     .form-status {
       margin-top: 12px;
+      min-height: 20px;
+      font-size: 13px;
     }
 
     .success {
@@ -506,9 +454,9 @@ Isme:
       color: var(--danger);
     }
 
-    /* ================================
+    /* ========================================
        MOBILE
-    ================================= */
+    ======================================== */
 
     @media (max-width: 900px) {
 
@@ -570,6 +518,10 @@ Isme:
       .admin-login-row .btn {
         width: 100%;
       }
+
+      .admin-heading h1 {
+        font-size: 44px;
+      }
     }
 
     @media (max-width: 420px) {
@@ -577,24 +529,16 @@ Isme:
       .dashboard-stats {
         grid-template-columns: 1fr;
       }
-
-      .admin-actions {
-        flex-direction: column;
-      }
-
-      .admin-action-btn {
-        width: 100%;
-      }
     }
   </style>
-
 </head>
+
 
 <body>
 
-  <!-- ================================
+  <!-- ========================================
        HEADER
-  ================================= -->
+  ======================================== -->
 
   <header class="site-header">
 
@@ -613,6 +557,7 @@ Isme:
 
       <button
         class="menu-btn"
+        type="button"
         aria-label="Open navigation"
         aria-expanded="false"
       >
@@ -624,52 +569,31 @@ Isme:
         aria-label="Main navigation"
       >
 
-        <a
-          data-page="home.html"
-          href="/home.html"
-        >
+        <a data-page="home.html" href="/home.html">
           Home
         </a>
 
-        <a
-          data-page="about.html"
-          href="/about.html"
-        >
+        <a data-page="about.html" href="/about.html">
           About
         </a>
 
-        <a
-          data-page="solutions.html"
-          href="/solutions.html"
-        >
+        <a data-page="solutions.html" href="/solutions.html">
           Solutions
         </a>
 
-        <a
-          data-page="case-studies.html"
-          href="/case-studies.html"
-        >
+        <a data-page="case-studies.html" href="/case-studies.html">
           Case Studies
         </a>
 
-        <a
-          data-page="testimonials.html"
-          href="/testimonials.html"
-        >
+        <a data-page="testimonials.html" href="/testimonials.html">
           Testimonials
         </a>
 
-        <a
-          data-page="blogs.html"
-          href="/blogs.html"
-        >
+        <a data-page="blogs.html" href="/blogs.html">
           Blogs
         </a>
 
-        <a
-          data-page="contact.html"
-          href="/contact.html"
-        >
+        <a data-page="contact.html" href="/contact.html">
           Contact Us
         </a>
 
@@ -687,9 +611,9 @@ Isme:
   </header>
 
 
-  <!-- ================================
+  <!-- ========================================
        ADMIN
-  ================================= -->
+  ======================================== -->
 
   <main class="admin-wrap">
 
@@ -716,19 +640,16 @@ Isme:
         </div>
 
         <div class="admin-badge">
-
           <span></span>
-
           System Online
-
         </div>
 
       </div>
 
 
-      <!-- ================================
-           LOGIN CARD
-      ================================= -->
+      <!-- ========================================
+           LOGIN
+      ======================================== -->
 
       <form
         id="admin-login"
@@ -767,10 +688,10 @@ Isme:
               >
 
               <button
-                type="button"
-                id="toggle-admin-key"
+                id="password-toggle"
                 class="password-toggle"
-                aria-label="Show admin key"
+                type="button"
+                aria-label="Show password"
                 title="Show password"
               >
                 👁
@@ -800,17 +721,15 @@ Isme:
       </form>
 
 
-      <!-- ================================
+      <!-- ========================================
            DASHBOARD
-      ================================= -->
+      ======================================== -->
 
       <section id="dashboard">
-
 
         <!-- STATS -->
 
         <div class="dashboard-stats">
-
 
           <div class="stat-card">
 
@@ -894,12 +813,9 @@ Isme:
         </div>
 
 
-        <!-- ================================
-             TOOLBAR
-        ================================= -->
+        <!-- TOOLBAR -->
 
         <div class="admin-toolbar">
-
 
           <div class="admin-search">
 
@@ -956,9 +872,7 @@ Isme:
         </div>
 
 
-        <!-- ================================
-             TABLE
-        ================================= -->
+        <!-- TABLE -->
 
         <div class="admin-table-wrap">
 
@@ -967,34 +881,21 @@ Isme:
             <thead>
 
               <tr>
-
                 <th>Type</th>
-
                 <th>Name</th>
-
                 <th>Email</th>
-
                 <th>Phone</th>
-
                 <th>Company</th>
-
                 <th>Service</th>
-
                 <th>Budget</th>
-
                 <th>Timeline</th>
-
                 <th>Message</th>
-
                 <th>Date</th>
-
               </tr>
 
             </thead>
 
-
-            <tbody id="inquiry-body">
-            </tbody>
+            <tbody id="inquiry-body"></tbody>
 
           </table>
 
@@ -1024,16 +925,15 @@ Isme:
   </main>
 
 
-  <!-- ================================
+  <!-- ========================================
        FOOTER
-  ================================= -->
+  ======================================== -->
 
   <footer class="site-footer">
 
     <div class="container">
 
       <div class="footer-grid">
-
 
         <div class="footer-brand">
 
@@ -1047,36 +947,12 @@ Isme:
             to make ambitious brands impossible to ignore.
           </p>
 
-
           <div class="socials">
 
-            <a
-              href="#"
-              aria-label="Facebook"
-            >
-              f
-            </a>
-
-            <a
-              href="#"
-              aria-label="Instagram"
-            >
-              ◉
-            </a>
-
-            <a
-              href="#"
-              aria-label="X"
-            >
-              𝕏
-            </a>
-
-            <a
-              href="#"
-              aria-label="LinkedIn"
-            >
-              in
-            </a>
+            <a href="#" aria-label="Facebook">f</a>
+            <a href="#" aria-label="Instagram">◉</a>
+            <a href="#" aria-label="X">𝕏</a>
+            <a href="#" aria-label="LinkedIn">in</a>
 
           </div>
 
@@ -1085,71 +961,35 @@ Isme:
 
         <div class="footer-col">
 
-          <h4>
-            Explore
-          </h4>
+          <h4>Explore</h4>
 
-          <a href="/about.html">
-            About
-          </a>
-
-          <a href="/solutions.html">
-            Solutions
-          </a>
-
-          <a href="/case-studies.html">
-            Case Studies
-          </a>
-
-          <a href="/blogs.html">
-            Blogs
-          </a>
+          <a href="/about.html">About</a>
+          <a href="/solutions.html">Solutions</a>
+          <a href="/case-studies.html">Case Studies</a>
+          <a href="/blogs.html">Blogs</a>
 
         </div>
 
 
         <div class="footer-col">
 
-          <h4>
-            Connect
-          </h4>
+          <h4>Connect</h4>
 
-          <a href="/contact.html">
-            Contact Us
-          </a>
-
-          <a href="/quote.html">
-            Get a Quote
-          </a>
-
-          <a href="/testimonials.html">
-            Testimonials
-          </a>
+          <a href="/contact.html">Contact Us</a>
+          <a href="/quote.html">Get a Quote</a>
+          <a href="/testimonials.html">Testimonials</a>
 
         </div>
 
 
         <div class="footer-col">
 
-          <h4>
-            Services
-          </h4>
+          <h4>Services</h4>
 
-          <a href="/solutions.html">
-            Digital PR
-          </a>
-
-          <a href="/solutions.html">
-            Brand Strategy
-          </a>
-
-          <a href="/solutions.html">
-            Media Relations
-          </a>
-
-          <a href="/solutions.html">
-            Reputation
-          </a>
+          <a href="/solutions.html">Digital PR</a>
+          <a href="/solutions.html">Brand Strategy</a>
+          <a href="/solutions.html">Media Relations</a>
+          <a href="/solutions.html">Reputation</a>
 
         </div>
 
@@ -1173,18 +1013,18 @@ Isme:
   </footer>
 
 
-  <!-- ================================
+  <!-- ========================================
        ADMIN SCRIPT
-  ================================= -->
+  ======================================== -->
 
   <script>
 
     let allInquiries = [];
 
 
-    /* ================================
+    /* ========================================
        ESCAPE HTML
-    ================================= */
+    ======================================== */
 
     function escapeHTML(value) {
 
@@ -1206,23 +1046,21 @@ Isme:
     }
 
 
-    /* ================================
-       UPDATE STATS
-    ================================= */
+    /* ========================================
+       STATS
+    ======================================== */
 
     function updateStats(rows) {
 
       const total = rows.length;
 
-      const quotes =
-        rows.filter(
-          item => item.type === "quote"
-        ).length;
+      const quotes = rows.filter(
+        item => item.type === "quote"
+      ).length;
 
-      const contacts =
-        rows.filter(
-          item => item.type === "contact"
-        ).length;
+      const contacts = rows.filter(
+        item => item.type === "contact"
+      ).length;
 
 
       document.querySelector("#stat-total").textContent =
@@ -1253,9 +1091,9 @@ Isme:
     }
 
 
-    /* ================================
-       RENDER INQUIRIES
-    ================================= */
+    /* ========================================
+       RENDER
+    ======================================== */
 
     function renderInquiries(rows) {
 
@@ -1353,9 +1191,9 @@ Isme:
     }
 
 
-    /* ================================
+    /* ========================================
        LOAD INQUIRIES
-    ================================= */
+    ======================================== */
 
     async function loadInquiries() {
 
@@ -1374,8 +1212,7 @@ Isme:
         document.querySelector("#admin-status");
 
 
-      status.className =
-        "form-status";
+      status.className = "form-status";
 
       status.textContent =
         "Loading inquiries...";
@@ -1403,7 +1240,7 @@ Isme:
         if (!response.ok) {
 
           throw new Error(
-            data.error || "Unauthorized"
+            data.error || "Invalid admin key"
           );
 
         }
@@ -1413,8 +1250,9 @@ Isme:
           data.inquiries || [];
 
 
-        document.querySelector("#dashboard").style.display =
-          "block";
+        document.querySelector(
+          "#dashboard"
+        ).style.display = "block";
 
 
         applyFilters();
@@ -1425,10 +1263,10 @@ Isme:
 
 
         status.textContent =
-          `${allInquiries.length} ${
+          `${allInquiries.length} inquiry${
             allInquiries.length === 1
-              ? "inquiry"
-              : "inquiries"
+              ? ""
+              : "ies"
           } loaded.`;
 
 
@@ -1439,11 +1277,9 @@ Isme:
         );
 
 
-        allInquiries = [];
-
-
-        document.querySelector("#dashboard").style.display =
-          "none";
+        document.querySelector(
+          "#dashboard"
+        ).style.display = "none";
 
 
         status.className =
@@ -1459,29 +1295,29 @@ Isme:
     }
 
 
-    /* ================================
-       FILTERS
-    ================================= */
+    /* ========================================
+       FILTER
+    ======================================== */
 
     function applyFilters() {
 
       const search =
-        document
-          .querySelector("#inquiry-search")
-          .value
-          .toLowerCase()
-          .trim();
+        document.querySelector(
+          "#inquiry-search"
+        )
+        .value
+        .toLowerCase()
+        .trim();
 
 
       const filter =
-        document
-          .querySelector("#inquiry-filter")
-          .value;
+        document.querySelector(
+          "#inquiry-filter"
+        ).value;
 
 
       const filtered =
         allInquiries.filter(item => {
-
 
           const matchesType =
             filter === "all" ||
@@ -1522,12 +1358,12 @@ Isme:
     }
 
 
-    /* ================================
+    /* ========================================
        PASSWORD SHOW / HIDE
-    ================================= */
+    ======================================== */
 
     document
-      .querySelector("#toggle-admin-key")
+      .querySelector("#password-toggle")
       .addEventListener(
         "click",
         function () {
@@ -1536,44 +1372,47 @@ Isme:
             document.querySelector("#admin-key");
 
 
-          const isPassword =
-            input.type === "password";
+          if (input.type === "password") {
 
+            input.type = "text";
 
-          input.type =
-            isPassword
-              ? "text"
-              : "password";
+            this.textContent = "🙈";
 
+            this.setAttribute(
+              "aria-label",
+              "Hide password"
+            );
 
-          this.textContent =
-            isPassword
-              ? "🙈"
-              : "👁";
+            this.setAttribute(
+              "title",
+              "Hide password"
+            );
 
+          } else {
 
-          this.setAttribute(
-            "aria-label",
-            isPassword
-              ? "Hide admin key"
-              : "Show admin key"
-          );
+            input.type = "password";
 
+            this.textContent = "👁";
 
-          this.setAttribute(
-            "title",
-            isPassword
-              ? "Hide password"
-              : "Show password"
-          );
+            this.setAttribute(
+              "aria-label",
+              "Show password"
+            );
+
+            this.setAttribute(
+              "title",
+              "Show password"
+            );
+
+          }
 
         }
       );
 
 
-    /* ================================
+    /* ========================================
        LOGIN
-    ================================= */
+    ======================================== */
 
     document
       .querySelector("#admin-login")
@@ -1585,10 +1424,11 @@ Isme:
 
 
           const key =
-            document
-              .querySelector("#admin-key")
-              .value
-              .trim();
+            document.querySelector(
+              "#admin-key"
+            )
+            .value
+            .trim();
 
 
           if (!key) {
@@ -1608,9 +1448,9 @@ Isme:
       );
 
 
-    /* ================================
+    /* ========================================
        SEARCH
-    ================================= */
+    ======================================== */
 
     document
       .querySelector("#inquiry-search")
@@ -1620,9 +1460,9 @@ Isme:
       );
 
 
-    /* ================================
+    /* ========================================
        FILTER
-    ================================= */
+    ======================================== */
 
     document
       .querySelector("#inquiry-filter")
@@ -1632,9 +1472,9 @@ Isme:
       );
 
 
-    /* ================================
+    /* ========================================
        REFRESH
-    ================================= */
+    ======================================== */
 
     document
       .querySelector("#refresh-inquiries")
@@ -1644,16 +1484,15 @@ Isme:
       );
 
 
-    /* ================================
+    /* ========================================
        LOGOUT
-    ================================= */
+    ======================================== */
 
     document
       .querySelector("#admin-logout")
       .addEventListener(
         "click",
         function () {
-
 
           sessionStorage.removeItem(
             "presszilaAdminKey"
@@ -1676,7 +1515,7 @@ Isme:
           document.querySelector(
             "#admin-status"
           ).className =
-            "form-status success";
+            "form-status";
 
 
           document.querySelector(
@@ -1688,14 +1527,13 @@ Isme:
       );
 
 
-    /* ================================
+    /* ========================================
        AUTO LOGIN
-    ================================= */
+    ======================================== */
 
     document.addEventListener(
       "DOMContentLoaded",
       function () {
-
 
         const saved =
           sessionStorage.getItem(
@@ -1720,12 +1558,9 @@ Isme:
   </script>
 
 
-  <!-- ================================
-       MAIN WEBSITE SCRIPT
-  ================================= -->
+  <!-- MAIN WEBSITE SCRIPT -->
 
   <script src="/script.js"></script>
 
 </body>
-
 </html>

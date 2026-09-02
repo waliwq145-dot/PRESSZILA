@@ -1,1602 +1,800 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
-
-/* =========================
-   ROOT
-========================= */
-
-:root {
-  --bg: #ffffff;
-  --bg-soft: #f7faff;
-  --panel: #ffffff;
-  --panel-2: #f2f6fb;
-
-  --line: #e5eaf1;
-  --line-soft: #edf1f6;
-
-  --text: #080b10;
-  --muted: #667085;
-  --muted-2: #8a94a3;
-
-  --accent: #1769ff;
-  --accent-light: #eaf2ff;
-  --accent-dark: #073b9e;
-
-  --max: 1200px;
-  --radius: 24px;
-
-  --shadow: 0 25px 70px rgba(20, 35, 60, 0.1);
-}
-
-
-/* =========================
-   RESET
-========================= */
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-  background: #ffffff;
-}
-
-body {
-  margin: 0;
-  background: #ffffff;
-  color: var(--text);
-  font-family: "DM Sans", sans-serif;
-  line-height: 1.7;
-  overflow-x: hidden;
-}
-
-::selection {
-  background: var(--accent);
-  color: #ffffff;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-button,
-input,
-select,
-textarea {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-
-/* =========================
-   GLOBAL
-========================= */
-
-.container {
-  width: min(var(--max), calc(100% - 48px));
-  margin: 0 auto;
-}
-
-.eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 22px;
-  color: var(--accent);
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-}
-
-.eyebrow::before {
-  content: "";
-  width: 24px;
-  height: 2px;
-  background: var(--accent);
-  flex-shrink: 0;
-}
-
-
-/* =========================
-   BUTTONS
-========================= */
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 9px;
-
-  min-height: 48px;
-  padding: 12px 21px;
-
-  border: 1px solid var(--line);
-  border-radius: 999px;
-
-  background: #ffffff;
-  color: var(--text);
-
-  font-size: 14px;
-  font-weight: 700;
-
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
+<!doctype html>
 
-.btn:hover {
-  transform: translateY(-3px);
-  border-color: #c7d5ea;
-  box-shadow: 0 12px 30px rgba(20, 40, 80, 0.1);
-}
+<html lang="en">
 
-.btn-primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: #ffffff;
-  box-shadow: 0 12px 30px rgba(23, 105, 255, 0.2);
-}
-
-.btn-primary:hover {
-  background: #0d58dc;
-  border-color: #0d58dc;
-  color: #ffffff;
-}
-
-.btn-light {
-  background: #ffffff;
-  color: var(--text);
-}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-.actions {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 32px;
-}
+```
+<meta name="description"
+    content="PRESSZILA — Digital PR & Branding Agency. Make Your Brand Impossible to Ignore.">
 
+<link rel="icon" href="/favicon.svg">
+<link rel="stylesheet" href="/style.css">
 
-/* =========================
-   HEADER
-========================= */
+<title>Digital PR & Branding Agency | PRESSZILA</title>
+```
 
-.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
+</head>
 
-  border-bottom: 1px solid #e8edf3;
+<body>
 
-  background: rgba(255, 255, 255, 0.94);
+<header class="site-header">
+    <div class="container nav">
 
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
+```
+    <a class="brand" href="/home.html" aria-label="PRESSZILA home">
+        <img src="/logo.svg" alt="PRESSZILA">
+    </a>
 
-.nav {
-  min-height: 78px;
+    <button class="menu-btn"
+            aria-label="Open navigation"
+            aria-expanded="false">
+        ☰
+    </button>
 
-  display: flex;
-  align-items: center;
+    <nav class="nav-links" aria-label="Main navigation">
+        <a data-page="home.html" href="/home.html">Home</a>
+        <a data-page="about.html" href="/about.html">About</a>
+        <a data-page="solutions.html" href="/solutions.html">Solutions</a>
+        <a data-page="case-studies.html" href="/case-studies.html">Case Studies</a>
+        <a data-page="testimonials.html" href="/testimonials.html">Testimonials</a>
+        <a data-page="blogs.html" href="/blogs.html">Blogs</a>
+        <a data-page="contact.html" href="/contact.html">Contact Us</a>
 
-  gap: 30px;
-}
+        <a class="btn btn-primary"
+           data-page="quote.html"
+           href="/quote.html">
+            Get a Quote
+        </a>
+    </nav>
 
-.brand {
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
-}
+</div>
+```
 
-.brand img {
-  width: 154px;
-  height: auto;
-}
+</header>
 
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  margin-left: auto;
-}
+<main>
 
-.nav-links a {
-  position: relative;
+<!-- HERO -->
 
-  color: #596579;
+<section class="hero">
 
-  font-size: 13px;
-  font-weight: 600;
+```
+<div class="container hero-grid">
 
-  transition: color 0.2s ease;
-}
+    <div class="hero-content reveal">
 
-.nav-links a:not(.btn)::after {
-  content: "";
+        <div class="eyebrow">
+            DIGITAL PR & BRANDING
+        </div>
 
-  position: absolute;
+        <h1>
+            Make Your Brand
+            <span>Impossible to Ignore.</span>
+        </h1>
 
-  left: 0;
-  right: 100%;
-  bottom: -9px;
+        <p>
+            PRESSZILA turns sharp strategy, compelling stories and meaningful
+            media relationships into attention that moves brands forward.
+        </p>
 
-  height: 2px;
+        <div class="actions">
 
-  background: var(--accent);
+            <a class="btn btn-primary" href="/quote.html">
+                Start a Project →
+            </a>
 
-  transition: right 0.25s ease;
-}
+            <a class="btn btn-light" href="/solutions.html">
+                Explore Solutions
+            </a>
 
-.nav-links a:hover,
-.nav-links a.active {
-  color: var(--text);
-}
+        </div>
 
-.nav-links a:hover::after,
-.nav-links a.active::after {
-  right: 0;
-}
+    </div>
 
-.nav-links .btn {
-  margin-left: 4px;
-  padding-left: 19px;
-  padding-right: 19px;
-}
 
-.menu-btn {
-  display: none;
+    <!-- SPOTLIGHT -->
+    <div class="hero-visual reveal">
 
-  width: 44px;
-  height: 44px;
+        <div class="spotlight-ring ring-one"></div>
+        <div class="spotlight-ring ring-two"></div>
 
-  margin-left: auto;
+        <div class="spotlight-content">
 
-  border: 1px solid var(--line);
-  border-radius: 12px;
+            <div class="spotlight-label">
+                YOUR BRAND. YOUR MOMENT.
+            </div>
 
-  background: #ffffff;
-  color: var(--text);
+            <h2>
+                Ready to Own
+                <span>Your Spotlight?</span>
+            </h2>
 
-  font-size: 23px;
-  line-height: 1;
-}
+            <p>
+                Turn attention into influence, ideas into impact,
+                and your brand story into something people remember.
+            </p>
 
+            <a href="/quote.html" class="spotlight-btn">
+                Own Your Spotlight →
+            </a>
 
-/* =========================
-   HERO
-========================= */
+        </div>
 
-.hero {
-  position: relative;
+    </div>
 
-  padding: 110px 0 85px;
+</div>
+```
 
-  background:
-    radial-gradient(
-      circle at 80% 15%,
-      rgba(23, 105, 255, 0.08),
-      transparent 30%
-    ),
-    #ffffff;
-}
+</section>
 
-.hero::before {
-  content: "";
+<!-- STATS -->
 
-  position: absolute;
+<div class="container stats reveal">
 
-  width: 500px;
-  height: 500px;
+```
+<div class="stat">
+    <strong>360°</strong>
+    <span>PR & Brand Thinking</span>
+</div>
 
-  top: -250px;
-  right: -180px;
+<div class="stat">
+    <strong>24/7</strong>
+    <span>Always-on Momentum</span>
+</div>
 
-  border-radius: 50%;
+<div class="stat">
+    <strong>8+</strong>
+    <span>Core Solutions</span>
+</div>
 
-  background: rgba(23, 105, 255, 0.07);
+<div class="stat">
+    <strong>01</strong>
+    <span>Clear Strategic Partner</span>
+</div>
+```
 
-  filter: blur(90px);
+</div>
 
-  pointer-events: none;
-}
+<!-- SERVICES -->
 
-.hero-grid {
-  position: relative;
+<section class="section">
 
-  display: grid;
+```
+<div class="container">
 
-  grid-template-columns: 1.05fr 0.95fr;
+    <div class="section-head reveal">
 
-  gap: 75px;
+        <div>
+            <div class="eyebrow">
+                WHAT WE DO
+            </div>
 
-  align-items: center;
-}
+            <h2>
+                Visibility With a Purpose.
+            </h2>
+        </div>
 
-.hero h1 {
-  max-width: 800px;
+        <p>
+            We connect positioning, publicity and creative execution so
+            attention has somewhere meaningful to go.
+        </p>
 
-  margin: 0 0 28px;
+    </div>
 
-  font:
-    700 clamp(52px, 7vw, 90px) / 0.96
-    "Space Grotesk",
-    sans-serif;
 
-  letter-spacing: -5px;
+    <div class="grid-3">
 
-  color: #080b10;
-}
+        <div class="card service-card reveal">
+            <div class="num">01 / PR</div>
 
-.hero h1 span {
-  display: block;
-  color: var(--accent);
-}
+            <h3>Digital PR</h3>
 
-.hero p {
-  max-width: 640px;
+            <p>
+                Earned attention, newsroom-ready narratives and digital
+                visibility designed around your business goals.
+            </p>
+        </div>
 
-  margin: 0;
 
-  color: var(--muted);
+        <div class="card service-card reveal">
+            <div class="num">02 / BRAND</div>
 
-  font-size: 18px;
-  line-height: 1.75;
-}
+            <h3>Brand Strategy</h3>
 
+            <p>
+                Sharper positioning and a distinctive point of view that
+                makes the right audience lean in.
+            </p>
+        </div>
 
-/* =========================
-   SPOTLIGHT
-========================= */
 
-.hero-visual {
-  position: relative;
+        <div class="card service-card reveal">
+            <div class="num">03 / MEDIA</div>
 
-  min-height: 450px;
+            <h3>Media Relations</h3>
 
-  overflow: hidden;
+            <p>
+                Thoughtful outreach and credible relationships that put
+                your story in the conversations that matter.
+            </p>
+        </div>
 
-  border: 1px solid #dce8fb;
-  border-radius: 32px;
+    </div>
 
-  background:
-    radial-gradient(
-      circle at 75% 20%,
-      rgba(23, 105, 255, 0.18),
-      transparent 32%
-    ),
-    linear-gradient(
-      145deg,
-      #ffffff 0%,
-      #f5f9ff 55%,
-      #e9f1ff 100%
-    );
+</div>
+```
 
-  box-shadow: 0 30px 80px rgba(23, 70, 140, 0.12);
+</section>
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+<!-- CASE STUDIES -->
 
-.spotlight-content {
-  position: relative;
-  z-index: 3;
+<section class="section section-small">
 
-  width: 100%;
-  max-width: 440px;
+```
+<div class="container">
 
-  padding: 45px;
+    <div class="section-head reveal">
 
-  text-align: center;
-}
+        <div>
+            <div class="eyebrow">
+                SELECTED WORK
+            </div>
 
-.spotlight-label {
-  margin-bottom: 20px;
+            <h2>
+                Stories That Created Movement.
+            </h2>
+        </div>
 
-  color: #64748b;
+        <a class="btn btn-light" href="/case-studies.html">
+            View Case Studies
+        </a>
 
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 3px;
-}
+    </div>
 
-.spotlight-content h2 {
-  margin: 0 0 20px;
 
-  color: #080b10;
+    <div class="grid-4">
 
-  font:
-    700 clamp(38px, 5vw, 62px) / 0.98
-    "Space Grotesk",
-    sans-serif;
+        <div class="card case-card reveal">
 
-  letter-spacing: -3px;
-}
+            <img src="/case-1.svg" alt="Launch Visibility">
 
-.spotlight-content h2 span {
-  display: block;
-  color: var(--accent);
-}
+            <div class="case-body">
 
-.spotlight-content p {
-  max-width: 400px;
+                <span class="tag">
+                    Launch / Consumer
+                </span>
 
-  margin: 0 auto 28px;
+                <h3>
+                    Launch Visibility
+                </h3>
 
-  color: #667085;
+                <p>
+                    A launch narrative engineered to move beyond
+                    announcement day.
+                </p>
 
-  font-size: 15px;
-  line-height: 1.75;
-}
+                <span class="result">
+                    Demo result: market entry
+                </span>
 
-.spotlight-btn {
-  display: inline-flex;
+            </div>
 
-  align-items: center;
-  justify-content: center;
+        </div>
 
-  padding: 14px 24px;
 
-  border-radius: 999px;
+        <div class="card case-card reveal">
 
-  background: var(--accent);
-  color: #ffffff;
+            <img src="/case-2.svg" alt="Brand Authority">
 
-  font-weight: 700;
+            <div class="case-body">
 
-  box-shadow: 0 12px 30px rgba(23, 105, 255, 0.2);
+                <span class="tag">
+                    B2B / Technology
+                </span>
 
-  transition: 0.3s ease;
-}
+                <h3>
+                    Brand Authority
+                </h3>
 
-.spotlight-btn:hover {
-  transform: translateY(-3px);
+                <p>
+                    Executive positioning built to make expertise
+                    visible and credible.
+                </p>
 
-  background: #0d58dc;
-}
+                <span class="result">
+                    Demo result: authority lift
+                </span>
 
-.spotlight-ring {
-  position: absolute;
+            </div>
 
-  border-radius: 50%;
+        </div>
 
-  border: 1px solid rgba(23, 105, 255, 0.15);
 
-  pointer-events: none;
-}
+        <div class="card case-card reveal">
 
-.ring-one {
-  width: 270px;
-  height: 270px;
+            <img src="/case-3.svg" alt="Digital Momentum">
 
-  top: -100px;
-  right: -70px;
-}
+            <div class="case-body">
 
-.ring-two {
-  width: 420px;
-  height: 420px;
+                <span class="tag">
+                    Digital / Culture
+                </span>
 
-  bottom: -290px;
-  left: -150px;
-}
+                <h3>
+                    Digital Momentum
+                </h3>
 
+                <p>
+                    Story systems that turn individual moments into
+                    sustained attention.
+                </p>
 
-/* =========================
-   STATS
-========================= */
+                <span class="result">
+                    Demo result: momentum
+                </span>
 
-.stats {
-  display: grid;
+            </div>
 
-  grid-template-columns: repeat(4, 1fr);
+        </div>
 
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
 
-.stat {
-  position: relative;
+        <div class="card case-card reveal">
 
-  padding: 32px 25px;
-}
+            <img src="/case-4.svg" alt="Reputation Growth">
 
-.stat + .stat {
-  border-left: 1px solid var(--line-soft);
-}
+            <div class="case-body">
 
-.stat strong {
-  display: block;
+                <span class="tag">
+                    Reputation / Leadership
+                </span>
 
-  margin-bottom: 5px;
+                <h3>
+                    Reputation Growth
+                </h3>
 
-  font:
-    700 30px / 1
-    "Space Grotesk",
-    sans-serif;
+                <p>
+                    Clear, consistent communications for high-stakes
+                    brand moments.
+                </p>
 
-  color: var(--accent);
+                <span class="result">
+                    Demo result: trust
+                </span>
 
-  letter-spacing: -1px;
-}
+            </div>
 
-.stat span {
-  color: var(--muted-2);
-  font-size: 12px;
-}
+        </div>
 
+    </div>
 
-/* =========================
-   SECTIONS
-========================= */
+</div>
+```
 
-.section {
-  padding: 115px 0;
-}
+</section>
 
-.section-small {
-  padding-top: 20px;
-}
+<!-- TESTIMONIALS -->
 
-.section-head {
-  display: flex;
+<section class="section">
 
-  justify-content: space-between;
-  align-items: end;
+```
+<div class="container">
 
-  gap: 40px;
+    <div class="section-head reveal">
 
-  margin-bottom: 45px;
-}
+        <div>
+            <div class="eyebrow">
+                CLIENT VOICE
+            </div>
 
-.section-head h2,
-.page-title h1 {
-  margin: 0;
+            <h2>
+                Good work travels.
+            </h2>
+        </div>
 
-  font:
-    700 clamp(38px, 5vw, 64px) / 1.04
-    "Space Grotesk",
-    sans-serif;
+        <a class="btn btn-light" href="/testimonials.html">
+            All Testimonials
+        </a>
 
-  letter-spacing: -3px;
+    </div>
 
-  color: var(--text);
-}
 
-.section-head p {
-  max-width: 510px;
+    <div class="grid-3">
 
-  margin: 0;
+        <div class="card reveal">
 
-  color: var(--muted);
+            <div class="stars">★★★★★</div>
 
-  font-size: 15px;
-}
+            <div class="quote-mark">“</div>
 
+            <p>
+                PRESSZILA helped us find the sharpest version of our
+                story and turn it into momentum.
+            </p>
 
-/* =========================
-   GRIDS
-========================= */
+            <div class="person">
 
-.grid-3 {
-  display: grid;
+                <img src="/avatar-1.svg" alt="Amelia Carter">
 
-  grid-template-columns: repeat(3, 1fr);
+                <div>
+                    <strong>Amelia Carter</strong>
+                    <small>CMO, Northstar Labs</small>
+                </div>
 
-  gap: 18px;
-}
+            </div>
 
-.grid-4 {
-  display: grid;
+        </div>
 
-  grid-template-columns: repeat(4, 1fr);
 
-  gap: 18px;
-}
+        <div class="card reveal">
 
+            <div class="stars">★★★★★</div>
 
-/* =========================
-   CARDS
-========================= */
+            <div class="quote-mark">“</div>
 
-.card {
-  position: relative;
+            <p>
+                The team brought strategic calm, creative energy and
+                a genuinely useful media lens.
+            </p>
 
-  overflow: hidden;
+            <div class="person">
 
-  padding: 30px;
+                <img src="/avatar-2.svg" alt="Daniel Brooks">
 
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
+                <div>
+                    <strong>Daniel Brooks</strong>
+                    <small>Founder, Field & Form</small>
+                </div>
 
-  background: #ffffff;
+            </div>
 
-  box-shadow: 0 8px 30px rgba(20, 35, 60, 0.035);
+        </div>
 
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
-}
 
-.card:hover {
-  transform: translateY(-7px);
+        <div class="card reveal">
 
-  border-color: #c9d9ef;
+            <div class="stars">★★★★★</div>
 
-  box-shadow: 0 22px 55px rgba(20, 45, 90, 0.1);
-}
+            <div class="quote-mark">“</div>
 
-.card .num {
-  position: relative;
+            <p>
+                We stopped trying to say everything and started saying
+                the right thing — consistently.
+            </p>
 
-  color: var(--accent);
+            <div class="person">
 
-  font-size: 11px;
-  font-weight: 700;
+                <img src="/avatar-3.svg" alt="Sofia Malik">
 
-  letter-spacing: 2px;
-}
+                <div>
+                    <strong>Sofia Malik</strong>
+                    <small>Brand Director, Lumen</small>
+                </div>
 
-.card h3 {
-  position: relative;
+            </div>
 
-  margin: 23px 0 10px;
+        </div>
 
-  font:
-    600 23px / 1.2
-    "Space Grotesk",
-    sans-serif;
+    </div>
 
-  letter-spacing: -0.5px;
+</div>
+```
 
-  color: var(--text);
-}
+</section>
 
-.card p {
-  position: relative;
+<!-- BLOG -->
 
-  margin: 0;
+<section class="section section-small">
 
-  color: var(--muted);
+```
+<div class="container">
 
-  font-size: 14px;
+    <div class="section-head reveal">
 
-  line-height: 1.75;
-}
+        <div>
+            <div class="eyebrow">
+                FROM THE JOURNAL
+            </div>
 
+            <h2>
+                Ideas worth circulating.
+            </h2>
+        </div>
 
-/* =========================
-   SERVICES
-========================= */
+        <a class="btn btn-light" href="/blogs.html">
+            Read the Blog
+        </a>
 
-.service-card {
-  min-height: 250px;
-}
+    </div>
 
-.service-card::after {
-  content: "↗";
 
-  position: absolute;
+    <div class="grid-3">
 
-  top: 25px;
-  right: 28px;
+        <div class="card reveal">
 
-  color: #9aa8ba;
+            <img class="blog-img"
+                 src="/blog-1.svg"
+                 alt="How Modern Brands Earn Attention">
 
-  font-size: 23px;
+            <span class="tag">
+                PR / 6 MIN
+            </span>
 
-  transition:
-    color 0.25s ease,
-    transform 0.25s ease;
-}
+            <h3>
+                How Modern Brands Earn Attention
+            </h3>
 
-.service-card:hover::after {
-  color: var(--accent);
+            <p>
+                Why relevance, timing and a strong point of view beat volume.
+            </p>
 
-  transform: translate(3px, -3px);
-}
+            <a class="btn btn-light" href="/blogs.html">
+                Read article →
+            </a>
 
+        </div>
 
-/* =========================
-   CASE STUDIES
-========================= */
 
-.case-card {
-  padding: 0;
-}
+        <div class="card reveal">
 
-.case-card img {
-  width: 100%;
+            <img class="blog-img"
+                 src="/blog-2.svg"
+                 alt="Building Stories Journalists Want">
 
-  aspect-ratio: 1 / 0.82;
+            <span class="tag">
+                MEDIA / 5 MIN
+            </span>
 
-  object-fit: cover;
+            <h3>
+                Building Stories Journalists Want
+            </h3>
 
-  border-bottom: 1px solid var(--line);
+            <p>
+                A practical lens for making your expertise useful to
+                the newsroom.
+            </p>
 
-  transition: transform 0.5s ease;
-}
+            <a class="btn btn-light" href="/blogs.html">
+                Read article →
+            </a>
 
-.case-card:hover img {
-  transform: scale(1.025);
-}
+        </div>
 
-.case-body {
-  padding: 26px;
-}
 
-.tag {
-  display: inline-block;
+        <div class="card reveal">
 
-  color: var(--accent);
+            <img class="blog-img"
+                 src="/blog-3.svg"
+                 alt="Turning Ideas Into Narratives">
 
-  font-size: 10px;
-  font-weight: 700;
+            <span class="tag">
+                BRAND / 7 MIN
+            </span>
 
-  letter-spacing: 1.5px;
+            <h3>
+                Turning Ideas Into Narratives
+            </h3>
 
-  text-transform: uppercase;
-}
+            <p>
+                How to turn a good idea into a repeatable communications
+                platform.
+            </p>
 
-.case-body h3 {
-  margin-top: 14px;
-}
+            <a class="btn btn-light" href="/blogs.html">
+                Read article →
+            </a>
 
-.result {
-  display: inline-flex;
+        </div>
 
-  margin-top: 19px;
+    </div>
 
-  padding: 6px 11px;
+</div>
+```
 
-  border: 1px solid #cfe0fb;
-  border-radius: 999px;
+</section>
 
-  color: var(--accent-dark);
+<!-- CTA -->
 
-  background: #f1f6ff;
+<div class="container">
 
-  font-size: 11px;
-}
+```
+<section class="cta reveal">
 
+    <div>
 
-/* =========================
-   TESTIMONIALS
-========================= */
+        <div class="eyebrow">
+            LET'S MAKE NOISE, INTENTIONALLY.
+        </div>
 
-.stars {
-  color: var(--accent);
+        <h2>
+            Have Something Worth Saying?
+        </h2>
 
-  font-size: 13px;
+        <p>
+            Tell us what you are building, launching or changing.
+            We’ll help shape the story and the plan around it.
+        </p>
 
-  letter-spacing: 3px;
-}
+    </div>
 
-.quote-mark {
-  margin: 16px 0 2px;
+    <div class="actions">
 
-  font:
-    700 58px / 0.8
-    "Space Grotesk",
-    sans-serif;
+        <a class="btn btn-primary" href="/quote.html">
+            Get a Quote
+        </a>
 
-  color: var(--accent);
+        <a class="btn btn-light" href="/contact.html">
+            Talk to Us
+        </a>
 
-  opacity: 0.65;
-}
+    </div>
 
-.person {
-  display: flex;
+</section>
+```
 
-  align-items: center;
+</div>
 
-  gap: 12px;
+</main>
 
-  margin-top: 27px;
+<!-- FOOTER -->
 
-  padding-top: 20px;
+<footer class="site-footer">
 
-  border-top: 1px solid var(--line-soft);
-}
+```
+<div class="container">
 
-.person img {
-  width: 46px;
-  height: 46px;
+    <div class="footer-grid">
 
-  flex-shrink: 0;
+        <div class="footer-brand">
 
-  border: 1px solid var(--line);
+            <img src="/logo.svg" alt="PRESSZILA">
 
-  border-radius: 50%;
+            <p>
+                Digital PR, brand strategy and storytelling built to make
+                ambitious brands impossible to ignore.
+            </p>
 
-  object-fit: cover;
-}
+            <div class="socials">
 
-.person strong {
-  display: block;
+                <a href="https://www.facebook.com/share/1Jgj4YyDNM/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Facebook"
+                   title="Facebook">
 
-  font-size: 14px;
-}
+                    <svg viewBox="0 0 24 24"
+                         width="20"
+                         height="20"
+                         fill="currentColor">
+                        <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+                    </svg>
 
-.person small {
-  display: block;
+                </a>
 
-  margin-top: 2px;
 
-  color: var(--muted-2);
+                <a href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw="
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label="Instagram"
+                   title="Instagram">
 
-  font-size: 12px;
-}
+                    <svg viewBox="0 0 24 24"
+                         width="20"
+                         height="20"
+                         fill="none"
+                         stroke="currentColor"
+                         stroke-width="2">
 
+                        <rect x="3" y="3"
+                              width="18"
+                              height="18"
+                              rx="5"/>
 
-/* =========================
-   BLOG
-========================= */
+                        <circle cx="12" cy="12" r="4"/>
 
-.blog-img {
-  width: 100%;
+                        <circle cx="17.5"
+                                cy="6.5"
+                                r="1"
+                                fill="currentColor"
+                                stroke="none"/>
+                    </svg>
 
-  aspect-ratio: 16 / 9;
+                </a>
 
-  object-fit: cover;
 
-  margin-bottom: 23px;
+                <a href="#"
+                   aria-label="X"
+                   title="X">
 
-  border: 1px solid var(--line);
+                    <svg viewBox="0 0 24 24"
+                         width="20"
+                         height="20"
+                         fill="currentColor">
 
-  border-radius: 16px;
+                        <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.39L6.48 22H3.36l7.24-8.28L3 2h6.4l4.42 5.82L18.9 2zm-1.1 17.8h1.73L8.47 4.08H6.61L17.8 19.8z"/>
 
-  transition: transform 0.4s ease;
-}
+                    </svg>
 
-.card:hover .blog-img {
-  transform: scale(1.015);
-}
+                </a>
 
-.blog-meta {
-  color: var(--muted-2);
 
-  font-size: 11px;
-}
+                <a href="#"
+                   aria-label="LinkedIn"
+                   title="LinkedIn">
 
+                    <svg viewBox="0 0 24 24"
+                         width="20"
+                         height="20"
+                         fill="currentColor">
 
-/* =========================
-   CTA
-========================= */
+                        <path d="M6.5 8.5H3V21h3.5V8.5zM4.75 3A2.1 2.1 0 1 0 4.75 7.2 2.1 2.1 0 0 0 4.75 3zM21 13.85c0-3.75-2-5.5-4.7-5.5-2.15 0-3.1 1.18-3.65 2.01V8.5H9.15V21h3.5v-6.2c0-1.64.31-3.23 2.35-3.23 2.01 0 2.04 1.88 2.04 3.35V21H21v-7.15z"/>
 
-.cta {
-  position: relative;
+                    </svg>
 
-  overflow: hidden;
+                </a>
 
-  display: flex;
+            </div>
 
-  align-items: center;
-  justify-content: space-between;
+        </div>
 
-  gap: 40px;
 
-  margin: 25px 0 115px;
+        <div class="footer-col">
 
-  padding: 75px;
+            <h4>Explore</h4>
 
-  border: 1px solid #cfe0fb;
+            <a href="/about.html">About</a>
+            <a href="/solutions.html">Solutions</a>
+            <a href="/case-studies.html">Case Studies</a>
+            <a href="/blogs.html">Blogs</a>
 
-  border-radius: 32px;
+        </div>
 
-  background:
-    radial-gradient(
-      circle at 85% 20%,
-      rgba(23, 105, 255, 0.12),
-      transparent 35%
-    ),
-    linear-gradient(
-      135deg,
-      #f8fbff,
-      #eef5ff
-    );
-}
 
-.cta h2 {
-  max-width: 750px;
+        <div class="footer-col">
 
-  margin: 0 0 15px;
+            <h4>Connect</h4>
 
-  font:
-    700 clamp(38px, 5vw, 62px) / 1.04
-    "Space Grotesk",
-    sans-serif;
+            <a href="/contact.html">Contact Us</a>
+            <a href="/quote.html">Get a Quote</a>
+            <a href="/testimonials.html">Testimonials</a>
 
-  letter-spacing: -3px;
-}
+        </div>
 
-.cta p {
-  max-width: 620px;
 
-  margin: 0;
+        <div class="footer-col">
 
-  color: var(--muted);
+            <h4>Services</h4>
 
-  font-size: 15px;
-}
+            <a href="/solutions.html">Digital PR</a>
+            <a href="/solutions.html">Brand Strategy</a>
+            <a href="/solutions.html">Media Relations</a>
+            <a href="/solutions.html">Reputation</a>
 
+        </div>
 
-/* =========================
-   INNER PAGES
-========================= */
+    </div>
 
-.page-title {
-  padding: 90px 0 60px;
 
-  border-bottom: 1px solid var(--line);
-}
+    <div class="footer-bottom">
 
-.page-title p {
-  max-width: 700px;
+        <span>
+            © 2026 PRESSZILA. All rights reserved.
+        </span>
 
-  margin-top: 22px;
+        <span>
+            Built for ambitious brands.
+        </span>
 
-  color: var(--muted);
+    </div>
 
-  font-size: 17px;
-}
+</div>
+```
 
+</footer>
 
-/* =========================
-   CONTACT
-========================= */
+<script src="/script.js"></script>
 
-.contact-grid {
-  display: grid;
-
-  grid-template-columns: 0.75fr 1.25fr;
-
-  gap: 70px;
-}
-
-.contact-list {
-  display: grid;
-
-  gap: 0;
-
-  margin-top: 35px;
-}
-
-.contact-item {
-  padding: 21px 0;
-
-  border-bottom: 1px solid var(--line);
-}
-
-.contact-item strong {
-  display: block;
-
-  margin-bottom: 4px;
-}
-
-.contact-item span {
-  color: var(--muted);
-}
-
-.form-card {
-  padding: 32px;
-
-  border: 1px solid var(--line);
-
-  border-radius: 26px;
-
-  background: #ffffff;
-
-  box-shadow: var(--shadow);
-}
-
-.form-grid {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr;
-
-  gap: 17px;
-}
-
-.field {
-  display: grid;
-
-  gap: 8px;
-}
-
-.field.full {
-  grid-column: 1 / -1;
-}
-
-.field label {
-  color: #344054;
-
-  font-size: 12px;
-  font-weight: 600;
-}
-
-.field input,
-.field select,
-.field textarea {
-  width: 100%;
-
-  border: 1px solid #d9e0e9;
-
-  border-radius: 12px;
-
-  outline: none;
-
-  background: #ffffff;
-
-  color: var(--text);
-
-  padding: 13px 14px;
-
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.field input::placeholder,
-.field textarea::placeholder {
-  color: #98a2b3;
-}
-
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  border-color: var(--accent);
-
-  box-shadow:
-    0 0 0 3px rgba(23, 105, 255, 0.1);
-}
-
-.field textarea {
-  min-height: 155px;
-
-  resize: vertical;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-.site-footer {
-  padding: 70px 0 25px;
-
-  border-top: 1px solid var(--line);
-
-  background: #f7f9fc;
-}
-
-.footer-grid {
-  display: grid;
-
-  grid-template-columns: 1.5fr repeat(3, 1fr);
-
-  gap: 55px;
-}
-
-.footer-brand img {
-  width: 150px;
-}
-
-.footer-brand p {
-  max-width: 370px;
-
-  margin-top: 20px;
-
-  color: var(--muted);
-
-  font-size: 13px;
-}
-
-.footer-col h4 {
-  margin: 0 0 20px;
-
-  font-size: 13px;
-}
-
-.footer-col a {
-  display: block;
-
-  width: fit-content;
-
-  margin: 10px 0;
-
-  color: var(--muted);
-
-  font-size: 13px;
-
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.footer-col a:hover {
-  color: var(--accent);
-
-  transform: translateX(3px);
-}
-
-
-/* =========================
-   SOCIAL ICONS
-========================= */
-
-.socials {
-  display: flex;
-
-  gap: 9px;
-
-  margin-top: 24px;
-}
-
-.socials a {
-  display: grid;
-
-  place-items: center;
-
-  width: 38px;
-  height: 38px;
-
-  margin: 0;
-
-  border: 1px solid #dce3ec;
-
-  border-radius: 50%;
-
-  color: #596579;
-
-  background: #ffffff;
-
-  transition: all 0.25s ease;
-}
-
-.socials a:hover {
-  transform: translateY(-3px);
-
-  border-color: var(--accent);
-
-  color: var(--accent);
-
-  box-shadow:
-    0 8px 20px rgba(23, 105, 255, 0.12);
-}
-
-.socials svg {
-  width: 20px;
-  height: 20px;
-}
-
-
-/* =========================
-   FOOTER BOTTOM
-========================= */
-
-.footer-bottom {
-  display: flex;
-
-  justify-content: space-between;
-
-  gap: 20px;
-
-  margin-top: 55px;
-
-  padding-top: 21px;
-
-  border-top: 1px solid var(--line);
-
-  color: #7d8999;
-
-  font-size: 11px;
-}
-
-
-/* =========================
-   REVEAL ANIMATION
-========================= */
-
-.reveal {
-  opacity: 0;
-
-  transform: translateY(22px);
-
-  transition:
-    opacity 0.7s ease,
-    transform 0.7s ease;
-}
-
-.reveal.visible {
-  opacity: 1;
-
-  transform: none;
-}
-
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 1100px) {
-
-  .container {
-    width: min(
-      var(--max),
-      calc(100% - 40px)
-    );
-  }
-
-  .nav-links {
-    gap: 16px;
-  }
-
-  .nav-links a {
-    font-size: 12px;
-  }
-
-  .hero-grid {
-    gap: 45px;
-  }
-
-  .grid-4 {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .footer-grid {
-    grid-template-columns: 2fr 1fr 1fr;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .contact-grid {
-    gap: 40px;
-  }
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 760px) {
-
-  .container {
-    width: min(
-      var(--max),
-      calc(100% - 28px)
-    );
-  }
-
-  .nav {
-    min-height: 68px;
-  }
-
-  .brand img {
-    width: 136px;
-  }
-
-  .menu-btn {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-
-    top: 76px;
-
-    left: 14px;
-    right: 14px;
-
-    display: none;
-
-    flex-direction: column;
-
-    align-items: stretch;
-
-    gap: 3px;
-
-    margin: 0;
-
-    padding: 12px;
-
-    border: 1px solid var(--line);
-
-    border-radius: 18px;
-
-    background: #ffffff;
-
-    box-shadow:
-      0 25px 70px rgba(20, 35, 60, 0.15);
-  }
-
-  .nav-links.open {
-    display: flex;
-  }
-
-  .nav-links a {
-    padding: 11px 12px;
-
-    font-size: 14px;
-
-    border-radius: 9px;
-  }
-
-  .nav-links a:hover {
-    background: #f4f7fb;
-  }
-
-  .nav-links a:not(.btn)::after {
-    display: none;
-  }
-
-  .nav-links .btn {
-    margin-top: 7px;
-  }
-
-  .hero {
-    padding: 70px 0 55px;
-  }
-
-  .hero-grid {
-    grid-template-columns: 1fr;
-
-    gap: 45px;
-  }
-
-  .hero h1 {
-    font-size: clamp(
-      48px,
-      15vw,
-      70px
-    );
-
-    letter-spacing: -3px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  .hero-visual {
-    min-height: 420px;
-
-    border-radius: 23px;
-  }
-
-  .spotlight-content {
-    padding: 30px;
-  }
-
-  .spotlight-content h2 {
-    font-size: clamp(
-      36px,
-      11vw,
-      52px
-    );
-  }
-
-  .stats {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .stat {
-    padding: 22px 16px;
-  }
-
-  .stat:nth-child(3) {
-    border-left: 0;
-
-    border-top: 1px solid var(--line-soft);
-  }
-
-  .stat:nth-child(4) {
-    border-top: 1px solid var(--line-soft);
-  }
-
-  .section {
-    padding: 78px 0;
-  }
-
-  .section-head {
-    display: block;
-
-    margin-bottom: 32px;
-  }
-
-  .section-head h2,
-  .page-title h1 {
-    letter-spacing: -2px;
-  }
-
-  .section-head p {
-    margin-top: 17px;
-  }
-
-  .section-head > .btn {
-    margin-top: 20px;
-  }
-
-  .grid-3,
-  .grid-4 {
-    grid-template-columns: 1fr;
-  }
-
-  .card {
-    padding: 25px;
-
-    border-radius: 20px;
-  }
-
-  .service-card {
-    min-height: 220px;
-  }
-
-  .case-body {
-    padding: 24px;
-  }
-
-  .cta {
-    display: block;
-
-    margin: 20px 0 80px;
-
-    padding: 43px 25px;
-
-    border-radius: 24px;
-  }
-
-  .cta h2 {
-    letter-spacing: -2px;
-  }
-
-  .cta .actions {
-    margin-top: 25px;
-  }
-
-  .page-title {
-    padding: 65px 0 42px;
-  }
-
-  .contact-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .form-card {
-    padding: 24px;
-
-    border-radius: 20px;
-  }
-
-  .form-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .field.full {
-    grid-column: auto;
-  }
-
-  .site-footer {
-    padding-top: 55px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-
-    gap: 35px 25px;
-  }
-
-  .footer-brand {
-    grid-column: 1 / -1;
-  }
-
-  .footer-bottom {
-    display: block;
-
-    margin-top: 40px;
-  }
-
-  .footer-bottom span {
-    display: block;
-
-    margin-top: 8px;
-  }
-}
-
-
-/* =========================
-   SMALL MOBILE
-========================= */
-
-@media (max-width: 420px) {
-
-  .hero h1 {
-    font-size: 46px;
-
-    letter-spacing: -2.5px;
-  }
-
-  .actions {
-    flex-direction: column;
-
-    align-items: stretch;
-  }
-
-  .actions .btn {
-    width: 100%;
-  }
-
-  .stat strong {
-    font-size: 25px;
-  }
-
-  .stat span {
-    font-size: 11px;
-  }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .footer-brand {
-    grid-column: auto;
-  }
-
-  .spotlight-content {
-    padding: 25px 20px;
-  }
-
-  .spotlight-label {
-    font-size: 9px;
-
-    letter-spacing: 2px;
-  }
-}
-
-
-/* =========================
-   REDUCED MOTION
-========================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-
-    animation-iteration-count: 1 !important;
-
-    transition-duration: 0.01ms !important;
-  }
-
-  .reveal {
-    opacity: 1;
-
-    transform: none;
-  }
-}
+</body>
+</html>

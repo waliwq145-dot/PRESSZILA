@@ -1,0 +1,725 @@
+```html
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Contact PRESSZILA — Digital PR, brand strategy, media relations and reputation."
+  >
+
+  <meta name="theme-color" content="#080b10">
+
+  <link
+    rel="icon"
+    href="/assets/images/favicon.svg"
+  >
+
+  <link
+    rel="stylesheet"
+    href="/style.css"
+  >
+
+  <title>Contact Us | PRESSZILA</title>
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="site-header">
+
+  <div class="container nav">
+
+    <a
+      class="brand"
+      href="/home.html"
+      aria-label="PRESSZILA Home"
+    >
+      <img
+        src="/assets/images/logo.svg"
+        alt="PRESSZILA"
+      >
+    </a>
+
+    <button
+      class="menu-btn"
+      type="button"
+      aria-label="Open navigation"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <nav
+      class="nav-links"
+      aria-label="Main navigation"
+    >
+
+      <a data-page="home.html" href="/home.html">
+        Home
+      </a>
+
+      <a data-page="about.html" href="/about.html">
+        About
+      </a>
+
+      <a data-page="solutions.html" href="/solutions.html">
+        Solutions
+      </a>
+
+      <a data-page="case-studies.html" href="/case-studies.html">
+        Case Studies
+      </a>
+
+      <a data-page="testimonials.html" href="/testimonials.html">
+        Testimonials
+      </a>
+
+      <a data-page="blogs.html" href="/blogs.html">
+        Blogs
+      </a>
+
+      <a data-page="contact.html" href="/contact.html">
+        Contact Us
+      </a>
+
+      <a
+        class="btn btn-primary"
+        data-page="quote.html"
+        href="/quote.html"
+      >
+        Get a Quote
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+  <!-- PAGE HERO -->
+
+  <section class="page-title">
+
+    <div class="container reveal">
+
+      <div class="eyebrow">
+        CONTACT PRESSZILA
+      </div>
+
+      <h1>
+        Let's start
+        something meaningful.
+      </h1>
+
+      <p>
+        Have a project, launch or brand challenge in mind?
+        Tell us what you are working on and our team will
+        get back to you.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- CONTACT AREA -->
+
+  <section class="section">
+
+    <div class="container contact-grid">
+
+
+      <!-- CONTACT INFORMATION -->
+
+      <div class="contact-info reveal">
+
+        <div class="eyebrow">
+          GET IN TOUCH
+        </div>
+
+        <h2>
+          Tell us
+          what you're building.
+        </h2>
+
+        <p>
+          Whether you are launching a new brand, looking for
+          stronger visibility or need a clearer communication
+          strategy, we would love to hear from you.
+        </p>
+
+
+        <div class="contact-details">
+
+          <div class="contact-detail">
+
+            <span class="contact-label">
+              EMAIL
+            </span>
+
+            <a href="mailto:contact@presszila.com">
+              contact@presszila.com
+            </a>
+
+          </div>
+
+
+          <div class="contact-detail">
+
+            <span class="contact-label">
+              INSTAGRAM
+            </span>
+
+            <a
+              href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw="
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              @presszila
+            </a>
+
+          </div>
+
+
+          <div class="contact-detail">
+
+            <span class="contact-label">
+              FACEBOOK
+            </span>
+
+            <a
+              href="https://www.facebook.com/share/1Jgj4YyDNM/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              PRESSZILA
+            </a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- CONTACT FORM -->
+
+      <div class="contact-form-wrap reveal">
+
+        <form
+          class="contact-form"
+          id="contactForm"
+          action="/api/contact"
+          method="POST"
+        >
+
+          <div class="form-row">
+
+            <div class="form-group">
+
+              <label for="name">
+                Your Name
+              </label>
+
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Enter your name"
+                autocomplete="name"
+                required
+              >
+
+            </div>
+
+
+            <div class="form-group">
+
+              <label for="email">
+                Email Address
+              </label>
+
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                autocomplete="email"
+                required
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="company">
+              Company
+            </label>
+
+            <input
+              id="company"
+              name="company"
+              type="text"
+              placeholder="Company name"
+              autocomplete="organization"
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="service">
+              What do you need help with?
+            </label>
+
+            <select
+              id="service"
+              name="service"
+              required
+            >
+
+              <option value="">
+                Select a service
+              </option>
+
+              <option value="digital-pr">
+                Digital PR
+              </option>
+
+              <option value="brand-strategy">
+                Brand Strategy
+              </option>
+
+              <option value="media-relations">
+                Media Relations
+              </option>
+
+              <option value="reputation">
+                Reputation
+              </option>
+
+              <option value="other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="message">
+              Tell us about your project
+            </label>
+
+            <textarea
+              id="message"
+              name="message"
+              rows="7"
+              placeholder="Tell us about your project, goals or challenge..."
+              required
+            ></textarea>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn btn-primary form-submit"
+          >
+            Send Message
+          </button>
+
+
+          <p
+            id="formMessage"
+            class="form-message"
+            aria-live="polite"
+          ></p>
+
+        </form>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- SOCIAL CTA -->
+
+  <section class="section section-light">
+
+    <div class="container">
+
+      <div class="section-heading reveal">
+
+        <div class="eyebrow">
+          FOLLOW PRESSZILA
+        </div>
+
+        <h2>
+          Stay connected.
+        </h2>
+
+        <p>
+          Follow PRESSZILA for ideas, updates and insights
+          around PR, branding and communication.
+        </p>
+
+      </div>
+
+
+      <div class="social-contact-grid">
+
+        <a
+          class="social-contact-card reveal"
+          href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw="
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="social-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"
+              />
+
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+              />
+
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1"
+                class="instagram-dot"
+              />
+
+            </svg>
+
+          </span>
+
+          <span>
+            <strong>
+              Instagram
+            </strong>
+
+            <small>
+              Follow @presszila
+            </small>
+          </span>
+
+        </a>
+
+
+        <a
+          class="social-contact-card reveal"
+          href="https://www.facebook.com/share/1Jgj4YyDNM/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+
+          <span class="social-icon">
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+
+              <path
+                d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"
+              />
+
+            </svg>
+
+          </span>
+
+          <span>
+            <strong>
+              Facebook
+            </strong>
+
+            <small>
+              Follow PRESSZILA
+            </small>
+          </span>
+
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL CTA -->
+
+  <section class="cta-section">
+
+    <div class="container cta-inner reveal">
+
+      <div>
+
+        <div class="eyebrow">
+          READY TO MOVE
+        </div>
+
+        <h2>
+          Your brand has
+          a story to tell.
+        </h2>
+
+        <p>
+          Let's turn it into communication people notice.
+        </p>
+
+      </div>
+
+      <a
+        href="/quote.html"
+        class="btn btn-primary"
+      >
+        Get a Quote
+      </a>
+
+    </div>
+
+  </section>
+
+</main>
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+  <div class="container">
+
+    <div class="footer-grid">
+
+
+      <!-- BRAND -->
+
+      <div class="footer-brand">
+
+        <img
+          src="/assets/images/logo.svg"
+          alt="PRESSZILA"
+        >
+
+        <p>
+          Digital PR, brand strategy and storytelling
+          built to make ambitious brands impossible to ignore.
+        </p>
+
+
+        <div class="socials">
+
+          <!-- INSTAGRAM -->
+
+          <a
+            href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw="
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="PRESSZILA on Instagram"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+
+              <rect
+                x="3"
+                y="3"
+                width="18"
+                height="18"
+                rx="5"
+              />
+
+              <circle
+                cx="12"
+                cy="12"
+                r="4"
+              />
+
+              <circle
+                cx="17.5"
+                cy="6.5"
+                r="1"
+                class="instagram-dot"
+              />
+
+            </svg>
+
+          </a>
+
+
+          <!-- FACEBOOK -->
+
+          <a
+            href="https://www.facebook.com/share/1Jgj4YyDNM/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="PRESSZILA on Facebook"
+          >
+
+            <svg
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+
+              <path
+                d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"
+              />
+
+            </svg>
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- EXPLORE -->
+
+      <div class="footer-col">
+
+        <h4>
+          Explore
+        </h4>
+
+        <a href="/home.html">
+          Home
+        </a>
+
+        <a href="/about.html">
+          About
+        </a>
+
+        <a href="/solutions.html">
+          Solutions
+        </a>
+
+        <a href="/case-studies.html">
+          Case Studies
+        </a>
+
+      </div>
+
+
+      <!-- CONNECT -->
+
+      <div class="footer-col">
+
+        <h4>
+          Connect
+        </h4>
+
+        <a href="/testimonials.html">
+          Testimonials
+        </a>
+
+        <a href="/blogs.html">
+          Blogs
+        </a>
+
+        <a href="/contact.html">
+          Contact Us
+        </a>
+
+        <a href="/quote.html">
+          Get a Quote
+        </a>
+
+      </div>
+
+
+      <!-- SERVICES -->
+
+      <div class="footer-col">
+
+        <h4>
+          Services
+        </h4>
+
+        <a href="/solutions.html#digital-pr">
+          Digital PR
+        </a>
+
+        <a href="/solutions.html#brand-strategy">
+          Brand Strategy
+        </a>
+
+        <a href="/solutions.html#media-relations">
+          Media Relations
+        </a>
+
+        <a href="/solutions.html#reputation">
+          Reputation
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+      <span>
+        © 2026 PRESSZILA. All rights reserved.
+      </span>
+
+      <span>
+        Built for ambitious brands.
+      </span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script src="/script.js"></script>
+
+</body>
+</html>
+```

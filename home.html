@@ -1,11 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
 
     <meta name="viewport"
-          content="width=device-width, initial-scale=1">
+          content="width=device-width, initial-scale=1.0">
 
     <meta name="description"
           content="PRESSZILA — Digital PR, brand strategy and media relations built to make ambitious brands impossible to ignore.">
@@ -20,7 +20,9 @@
     <title>PRESSZILA — Digital PR & Branding Agency</title>
 </head>
 
+
 <body>
+
 
 <!-- =========================================================
      HEADER
@@ -28,17 +30,15 @@
 
 <header class="site-header">
 
-    <div class="container nav">
+    <div class="container nav-wrap">
 
-        <a class="brand"
-           href="/home.html"
+        <a href="/home.html"
+           class="brand"
            aria-label="PRESSZILA Home">
 
             <img src="/logo.svg"
                  alt="PRESSZILA"
-                 width="154"
-                 height="auto">
-
+                 class="brand-logo">
         </a>
 
 
@@ -47,7 +47,9 @@
                 aria-label="Open navigation"
                 aria-expanded="false">
 
-            ☰
+            <span></span>
+            <span></span>
+            <span></span>
 
         </button>
 
@@ -55,45 +57,33 @@
         <nav class="nav-links"
              aria-label="Main navigation">
 
-            <a data-page="home.html"
-               href="/home.html">
+            <a href="/home.html"
+               class="active">
                 Home
             </a>
 
-            <a data-page="about.html"
-               href="/about.html">
+            <a href="/about.html">
                 About
             </a>
 
-            <a data-page="solutions.html"
-               href="/solutions.html">
+            <a href="/solutions.html">
                 Solutions
             </a>
 
-            <a data-page="case-studies.html"
-               href="/case-studies.html">
+            <a href="/case-studies.html">
                 Case Studies
             </a>
 
-            <a data-page="testimonials.html"
-               href="/testimonials.html">
+            <a href="/testimonials.html">
                 Testimonials
             </a>
 
-            <a data-page="blogs.html"
-               href="/blogs.html">
+            <a href="/blogs.html">
                 Blogs
             </a>
 
-            <a data-page="contact.html"
-               href="/contact.html">
+            <a href="/contact.html">
                 Contact Us
-            </a>
-
-            <a class="btn btn-primary"
-               data-page="quote.html"
-               href="/quote.html">
-                Get a Quote
             </a>
 
         </nav>
@@ -101,6 +91,7 @@
     </div>
 
 </header>
+
 
 
 <!-- =========================================================
@@ -118,8 +109,6 @@
 
     <div class="container hero-grid">
 
-
-        <!-- HERO CONTENT -->
 
         <div class="hero-content reveal">
 
@@ -142,16 +131,20 @@
 
             <div class="actions">
 
-                <a class="btn btn-primary"
-                   href="/quote.html">
-                    Start a Project
+                <a href="/contact.html"
+                   class="btn btn-primary">
+
+                    Start a Conversation
                     <span aria-hidden="true">→</span>
+
                 </a>
 
 
-                <a class="btn btn-light"
-                   href="/solutions.html">
+                <a href="/solutions.html"
+                   class="btn btn-light">
+
                     Explore Solutions
+
                 </a>
 
             </div>
@@ -159,9 +152,8 @@
         </div>
 
 
-        <!-- =====================================================
-             HERO SPOTLIGHT
-        ====================================================== -->
+
+        <!-- HERO VISUAL -->
 
         <div class="hero-visual reveal"
              aria-label="PRESSZILA brand spotlight">
@@ -190,10 +182,10 @@
                 </p>
 
 
-                <a href="/quote.html"
+                <a href="/contact.html"
                    class="spotlight-btn">
 
-                    Own Your Spotlight
+                    Let's Talk
                     <span aria-hidden="true">→</span>
 
                 </a>
@@ -207,6 +199,7 @@
 </section>
 
 
+
 <!-- =========================================================
      STATS
 ========================================================= -->
@@ -215,6 +208,7 @@
          aria-label="PRESSZILA capabilities">
 
     <div class="stats reveal">
+
 
         <div class="stat">
 
@@ -264,6 +258,7 @@
 </section>
 
 
+
 <!-- =========================================================
      SERVICES
 ========================================================= -->
@@ -296,10 +291,9 @@
         </div>
 
 
+
         <div class="grid-3">
 
-
-            <!-- SERVICE 01 -->
 
             <article class="card service-card reveal">
 
@@ -319,7 +313,6 @@
             </article>
 
 
-            <!-- SERVICE 02 -->
 
             <article class="card service-card reveal">
 
@@ -339,7 +332,6 @@
             </article>
 
 
-            <!-- SERVICE 03 -->
 
             <article class="card service-card reveal">
 
@@ -363,6 +355,7 @@
     </div>
 
 </section>
+
 
 
 <!-- =========================================================
@@ -389,12 +382,15 @@
             </div>
 
 
-            <a class="btn btn-light"
-               href="/case-studies.html">
+            <a href="/case-studies.html"
+               class="btn btn-light">
+
                 View Case Studies
+
             </a>
 
         </div>
+
 
 
         <div class="grid-4">
@@ -404,14 +400,19 @@
 
             <article class="card case-card reveal">
 
-                <img src="/case-1.svg"
-                     alt="Launch Visibility case study"
-                     loading="lazy">
+                <div class="case-image">
+
+                    <img src="/case-1.svg"
+                         alt="Launch Visibility"
+                         loading="lazy">
+
+                </div>
+
 
                 <div class="case-body">
 
                     <span class="tag">
-                        Launch / Consumer
+                        LAUNCH / CONSUMER
                     </span>
 
                     <h3>
@@ -432,18 +433,24 @@
             </article>
 
 
+
             <!-- CASE 02 -->
 
             <article class="card case-card reveal">
 
-                <img src="/case-2.svg"
-                     alt="Brand Authority case study"
-                     loading="lazy">
+                <div class="case-image">
+
+                    <img src="/case-2.svg"
+                         alt="Brand Authority"
+                         loading="lazy">
+
+                </div>
+
 
                 <div class="case-body">
 
                     <span class="tag">
-                        B2B / Technology
+                        B2B / TECHNOLOGY
                     </span>
 
                     <h3>
@@ -464,18 +471,24 @@
             </article>
 
 
+
             <!-- CASE 03 -->
 
             <article class="card case-card reveal">
 
-                <img src="/case-3.svg"
-                     alt="Digital Momentum case study"
-                     loading="lazy">
+                <div class="case-image">
+
+                    <img src="/case-3.svg"
+                         alt="Digital Momentum"
+                         loading="lazy">
+
+                </div>
+
 
                 <div class="case-body">
 
                     <span class="tag">
-                        Digital / Culture
+                        DIGITAL / CULTURE
                     </span>
 
                     <h3>
@@ -496,18 +509,24 @@
             </article>
 
 
+
             <!-- CASE 04 -->
 
             <article class="card case-card reveal">
 
-                <img src="/case-4.svg"
-                     alt="Reputation Growth case study"
-                     loading="lazy">
+                <div class="case-image">
+
+                    <img src="/case-4.svg"
+                         alt="Reputation Growth"
+                         loading="lazy">
+
+                </div>
+
 
                 <div class="case-body">
 
                     <span class="tag">
-                        Reputation / Leadership
+                        REPUTATION / LEADERSHIP
                     </span>
 
                     <h3>
@@ -534,6 +553,7 @@
 </section>
 
 
+
 <!-- =========================================================
      TESTIMONIALS
 ========================================================= -->
@@ -558,12 +578,15 @@
             </div>
 
 
-            <a class="btn btn-light"
-               href="/testimonials.html">
+            <a href="/testimonials.html"
+               class="btn btn-light">
+
                 All Testimonials
+
             </a>
 
         </div>
+
 
 
         <div class="grid-3">
@@ -571,7 +594,7 @@
 
             <!-- TESTIMONIAL 01 -->
 
-            <article class="card reveal">
+            <article class="card testimonial-card reveal">
 
                 <div class="stars"
                      aria-label="5 out of 5 stars">
@@ -614,9 +637,10 @@
             </article>
 
 
+
             <!-- TESTIMONIAL 02 -->
 
-            <article class="card reveal">
+            <article class="card testimonial-card reveal">
 
                 <div class="stars"
                      aria-label="5 out of 5 stars">
@@ -659,9 +683,10 @@
             </article>
 
 
+
             <!-- TESTIMONIAL 03 -->
 
-            <article class="card reveal">
+            <article class="card testimonial-card reveal">
 
                 <div class="stars"
                      aria-label="5 out of 5 stars">
@@ -710,6 +735,7 @@
 </section>
 
 
+
 <!-- =========================================================
      BLOG
 ========================================================= -->
@@ -734,12 +760,15 @@
             </div>
 
 
-            <a class="btn btn-light"
-               href="/blogs.html">
+            <a href="/blogs.html"
+               class="btn btn-light">
+
                 Read the Blog
+
             </a>
 
         </div>
+
 
 
         <div class="grid-3">
@@ -747,92 +776,121 @@
 
             <!-- BLOG 01 -->
 
-            <article class="card reveal">
+            <article class="card blog-card reveal">
 
-                <img class="blog-img"
-                     src="/blog-1.svg"
-                     alt="How Modern Brands Earn Attention"
-                     loading="lazy">
+                <div class="blog-image">
+
+                    <img src="/blog-1.svg"
+                         alt="How Modern Brands Earn Attention"
+                         loading="lazy">
+
+                </div>
+
 
                 <span class="tag">
                     PR / 6 MIN
                 </span>
 
+
                 <h3>
                     How Modern Brands Earn Attention
                 </h3>
+
 
                 <p>
                     Why relevance, timing and a strong point of view
                     beat volume.
                 </p>
 
-                <a class="btn btn-light"
-                   href="/blogs.html">
+
+                <a href="/blogs.html"
+                   class="text-link">
+
                     Read Article
                     <span aria-hidden="true">→</span>
+
                 </a>
 
             </article>
 
 
+
             <!-- BLOG 02 -->
 
-            <article class="card reveal">
+            <article class="card blog-card reveal">
 
-                <img class="blog-img"
-                     src="/blog-2.svg"
-                     alt="Building Stories Journalists Want"
-                     loading="lazy">
+                <div class="blog-image">
+
+                    <img src="/blog-2.svg"
+                         alt="Building Stories Journalists Want"
+                         loading="lazy">
+
+                </div>
+
 
                 <span class="tag">
                     MEDIA / 5 MIN
                 </span>
 
+
                 <h3>
                     Building Stories Journalists Want
                 </h3>
+
 
                 <p>
                     A practical lens for making your expertise useful
                     to the newsroom.
                 </p>
 
-                <a class="btn btn-light"
-                   href="/blogs.html">
+
+                <a href="/blogs.html"
+                   class="text-link">
+
                     Read Article
                     <span aria-hidden="true">→</span>
+
                 </a>
 
             </article>
 
 
+
             <!-- BLOG 03 -->
 
-            <article class="card reveal">
+            <article class="card blog-card reveal">
 
-                <img class="blog-img"
-                     src="/blog-3.svg"
-                     alt="Turning Ideas Into Narratives"
-                     loading="lazy">
+                <div class="blog-image">
+
+                    <img src="/blog-3.svg"
+                         alt="Turning Ideas Into Narratives"
+                         loading="lazy">
+
+                </div>
+
 
                 <span class="tag">
                     BRAND / 7 MIN
                 </span>
 
+
                 <h3>
                     Turning Ideas Into Narratives
                 </h3>
+
 
                 <p>
                     How to turn a good idea into a repeatable
                     communications platform.
                 </p>
 
-                <a class="btn btn-light"
-                   href="/blogs.html">
+
+                <a href="/blogs.html"
+                   class="text-link">
+
                     Read Article
                     <span aria-hidden="true">→</span>
+
                 </a>
 
             </article>
@@ -844,13 +902,14 @@
 </section>
 
 
+
 <!-- =========================================================
-     FINAL SPOTLIGHT CTA
+     FINAL CTA
 ========================================================= -->
 
-<div class="container">
+<section class="container">
 
-    <section class="cta reveal">
+    <div class="cta reveal">
 
         <div>
 
@@ -866,7 +925,7 @@
 
             <p>
                 Tell us what you are building, launching or changing.
-                We will help shape the story and the strategy around it.
+                We will help shape the story and strategy around it.
             </p>
 
         </div>
@@ -874,25 +933,31 @@
 
         <div class="actions">
 
-            <a class="btn btn-primary"
-               href="/quote.html">
-                Get a Quote
+            <a href="/contact.html"
+               class="btn btn-primary">
+
+                Contact PRESSZILA
                 <span aria-hidden="true">→</span>
+
             </a>
 
 
-            <a class="btn btn-light"
-               href="/contact.html">
-                Talk to Us
+            <a href="/about.html"
+               class="btn btn-light">
+
+                Learn About Us
+
             </a>
 
         </div>
 
-    </section>
+    </div>
 
-</div>
+</section>
+
 
 </main>
+
 
 
 <!-- =========================================================
@@ -910,9 +975,15 @@
 
             <div class="footer-brand">
 
-                <img src="/logo.svg"
-                     alt="PRESSZILA"
-                     width="150">
+                <a href="/home.html"
+                   aria-label="PRESSZILA Home">
+
+                    <img src="/logo.svg"
+                         alt="PRESSZILA"
+                         class="footer-logo">
+
+                </a>
+
 
                 <p>
                     Digital PR, brand strategy and storytelling built
@@ -920,7 +991,7 @@
                 </p>
 
 
-                <!-- SOCIAL ICONS -->
+                <!-- SOCIALS -->
 
                 <div class="socials">
 
@@ -930,13 +1001,9 @@
                     <a href="https://www.facebook.com/share/1Jgj4YyDNM/"
                        target="_blank"
                        rel="noopener noreferrer"
-                       aria-label="PRESSZILA on Facebook"
-                       title="Facebook">
+                       aria-label="PRESSZILA on Facebook">
 
                         <svg viewBox="0 0 24 24"
-                             width="20"
-                             height="20"
-                             fill="currentColor"
                              aria-hidden="true">
 
                             <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/>
@@ -946,53 +1013,44 @@
                     </a>
 
 
+
                     <!-- INSTAGRAM -->
 
                     <a href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw="
                        target="_blank"
                        rel="noopener noreferrer"
-                       aria-label="PRESSZILA on Instagram"
-                       title="Instagram">
+                       aria-label="PRESSZILA on Instagram">
 
                         <svg viewBox="0 0 24 24"
-                             width="20"
-                             height="20"
-                             fill="none"
-                             stroke="currentColor"
-                             stroke-width="2"
                              aria-hidden="true">
 
                             <rect x="3"
                                   y="3"
                                   width="18"
                                   height="18"
-                                  rx="5"/>
+                                  rx="5"></rect>
 
                             <circle cx="12"
                                     cy="12"
-                                    r="4"/>
+                                    r="4"></circle>
 
                             <circle cx="17.5"
                                     cy="6.5"
                                     r="1"
-                                    fill="currentColor"
-                                    stroke="none"/>
+                                    class="instagram-dot"></circle>
 
                         </svg>
 
                     </a>
 
 
+
                     <!-- X -->
 
                     <a href="#"
-                       aria-label="PRESSZILA on X"
-                       title="X">
+                       aria-label="PRESSZILA on X">
 
                         <svg viewBox="0 0 24 24"
-                             width="20"
-                             height="20"
-                             fill="currentColor"
                              aria-hidden="true">
 
                             <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.39L6.48 22H3.36l7.24-8.28L3 2h6.4l4.42 5.82L18.9 2zm-1.1 17.8h1.73L8.47 4.08H6.61L17.8 19.8z"/>
@@ -1002,16 +1060,13 @@
                     </a>
 
 
+
                     <!-- LINKEDIN -->
 
                     <a href="#"
-                       aria-label="PRESSZILA on LinkedIn"
-                       title="LinkedIn">
+                       aria-label="PRESSZILA on LinkedIn">
 
                         <svg viewBox="0 0 24 24"
-                             width="20"
-                             height="20"
-                             fill="currentColor"
                              aria-hidden="true">
 
                             <path d="M6.5 8.5H3V21h3.5V8.5zM4.75 3A2.1 2.1 0 1 0 4.75 7.2 2.1 2.1 0 0 0 4.75 3zM21 13.85c0-3.75-2-5.5-4.7-5.5-2.15 0-3.1 1.18-3.65 2.01V8.5H9.15V21h3.5v-6.2c0-1.64.31-3.23 2.35-3.23 2.01 0 2.04 1.88 2.04 3.35V21H21v-7.15z"/>
@@ -1025,6 +1080,7 @@
             </div>
 
 
+
             <!-- EXPLORE -->
 
             <div class="footer-col">
@@ -1032,6 +1088,10 @@
                 <h4>
                     Explore
                 </h4>
+
+                <a href="/home.html">
+                    Home
+                </a>
 
                 <a href="/about.html">
                     About
@@ -1045,11 +1105,8 @@
                     Case Studies
                 </a>
 
-                <a href="/blogs.html">
-                    Blogs
-                </a>
-
             </div>
+
 
 
             <!-- CONNECT -->
@@ -1064,15 +1121,16 @@
                     Contact Us
                 </a>
 
-                <a href="/quote.html">
-                    Get a Quote
-                </a>
-
                 <a href="/testimonials.html">
                     Testimonials
                 </a>
 
+                <a href="/blogs.html">
+                    Blogs
+                </a>
+
             </div>
+
 
 
             <!-- SERVICES -->
@@ -1104,6 +1162,7 @@
         </div>
 
 
+
         <!-- FOOTER BOTTOM -->
 
         <div class="footer-bottom">
@@ -1121,6 +1180,7 @@
     </div>
 
 </footer>
+
 
 
 <!-- =========================================================

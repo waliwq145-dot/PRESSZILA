@@ -7,281 +7,380 @@
 
   <meta
     name="description"
-    content="PRESSZILA Admin Dashboard"
+    content="PRESSZILA secure administration dashboard"
   >
+
+  <meta name="robots" content="noindex,nofollow,noarchive">
 
   <link rel="icon" href="/favicon.svg">
   <link rel="stylesheet" href="/style.css">
 
-  <title>Admin Dashboard | PRESSZILA</title>
+  <title>Admin | PRESSZILA</title>
 
   <style>
-    /* ========================================
-       PRESSZILA ADMIN DASHBOARD
-    ======================================== */
+    /* =========================================================
+       PRESSZILA — ADMIN PANEL
+       Page-specific CSS only
+    ========================================================= */
+
+    :root {
+      --admin-bg: #06090d;
+      --admin-panel: #0b1118;
+      --admin-panel-2: #0f1721;
+      --admin-line: rgba(255,255,255,.09);
+      --admin-line-soft: rgba(255,255,255,.055);
+      --admin-text: #f5f8fc;
+      --admin-muted: #8b99a8;
+      --admin-blue: #1769ff;
+      --admin-blue-light: #69a0ff;
+      --admin-green: #24c77a;
+      --admin-red: #ff5b68;
+      --admin-orange: #ffb020;
+    }
+
+    body.admin-page {
+      background:
+        radial-gradient(
+          circle at 80% 0%,
+          rgba(23,105,255,.10),
+          transparent 30%
+        ),
+        var(--admin-bg);
+    }
 
     .admin-wrap {
-      min-height: 75vh;
-      padding: 70px 0 100px;
+      min-height: calc(100vh - 76px);
+      padding: 65px 0 100px;
     }
+
+    /* HEADER */
 
     .admin-topbar {
       display: flex;
+      align-items: flex-end;
       justify-content: space-between;
-      align-items: center;
       gap: 30px;
-      margin-bottom: 45px;
+      margin-bottom: 40px;
     }
 
     .admin-heading .eyebrow {
       margin-bottom: 12px;
+      color: var(--admin-blue-light);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .14em;
     }
 
     .admin-heading h1 {
-      margin: 0 0 10px;
-      color: var(--text);
+      margin: 0 0 12px;
+      color: var(--admin-text);
       font-family: "Space Grotesk", sans-serif;
-      font-size: clamp(42px, 6vw, 64px);
-      line-height: 1;
+      font-size: clamp(42px, 6vw, 68px);
+      line-height: .95;
       letter-spacing: -3px;
     }
 
     .admin-heading p {
       margin: 0;
-      color: var(--muted);
+      color: var(--admin-muted);
+      font-size: 15px;
     }
 
-    /* ONLINE BADGE */
+    /* SECURITY STATUS */
 
-    .admin-badge {
-      display: inline-flex;
+    .security-status {
+      display: flex;
       align-items: center;
-      gap: 8px;
-      padding: 9px 14px;
-      border: 1px solid var(--line);
-      border-radius: 999px;
+      gap: 12px;
+      padding: 13px 17px;
+      border: 1px solid rgba(36,199,122,.18);
+      border-radius: 12px;
+      background: rgba(36,199,122,.055);
+      color: #b9f5d7;
       font-size: 13px;
       font-weight: 700;
-      background: var(--panel);
-      color: var(--text);
+      white-space: nowrap;
     }
 
-    .admin-badge span {
-      width: 8px;
-      height: 8px;
+    .security-dot {
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background: #20b26b;
-      display: inline-block;
-      box-shadow: 0 0 10px rgba(32, 178, 107, .5);
+      background: var(--admin-green);
+      box-shadow: 0 0 15px rgba(36,199,122,.65);
     }
 
-    /* ========================================
-       LOGIN
-    ======================================== */
+    /* LOGIN */
 
     .admin-login {
-      max-width: 620px;
-      margin-bottom: 45px;
-    }
-
-    .admin-login-header {
-      margin-bottom: 25px;
-    }
-
-    .admin-login-header h2 {
-      margin: 0 0 8px;
-      color: var(--text);
-      font-family: "Space Grotesk", sans-serif;
-    }
-
-    .admin-login-header p {
-      margin: 0;
-      color: var(--muted);
-    }
-
-    .admin-login-row {
-      display: flex;
-      gap: 12px;
-      align-items: flex-end;
-    }
-
-    .admin-login-row .field {
-      flex: 1;
-    }
-
-    /* PASSWORD */
-
-    .password-wrap {
-      position: relative;
-      width: 100%;
-    }
-
-    .password-wrap input {
-      width: 100%;
-      padding-right: 50px !important;
-    }
-
-    .password-toggle {
-      position: absolute;
-      right: 7px;
-      bottom: 7px;
-
-      width: 36px;
-      height: 36px;
-
-      padding: 0;
-
-      display: grid;
-      place-items: center;
-
-      border: 0;
-      border-radius: 9px;
-
-      background: transparent;
-      color: var(--muted);
-
-      cursor: pointer;
-      font-size: 17px;
-      line-height: 1;
-    }
-
-    .password-toggle:hover {
-      background: rgba(114, 213, 255, .08);
-      color: var(--accent);
-    }
-
-    /* ========================================
-       DASHBOARD
-    ======================================== */
-
-    #dashboard {
-      display: none;
-    }
-
-    .dashboard-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 18px;
-      margin-bottom: 35px;
-    }
-
-    .stat-card {
-      position: relative;
-      overflow: hidden;
-
-      padding: 24px;
-
-      border: 1px solid var(--line);
-      border-radius: 18px;
-
+      max-width: 680px;
+      padding: 30px;
+      margin-bottom: 40px;
+      border: 1px solid var(--admin-line);
+      border-radius: 20px;
       background:
         linear-gradient(
           145deg,
           rgba(255,255,255,.045),
           rgba(255,255,255,.012)
         ),
-        var(--panel);
-
-      box-shadow: 0 15px 45px rgba(0,0,0,.18);
-
-      color: var(--text);
-
-      transition:
-        transform .25s ease,
-        border-color .25s ease;
+        var(--admin-panel);
+      box-shadow: 0 25px 70px rgba(0,0,0,.30);
     }
 
-    .stat-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(114,213,255,.25);
+    .login-security {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 22px;
+      padding: 11px 13px;
+      border-radius: 10px;
+      background: rgba(23,105,255,.07);
+      border: 1px solid rgba(23,105,255,.14);
+      color: #9dbfff;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .login-security-icon {
+      width: 28px;
+      height: 28px;
+      display: grid;
+      place-items: center;
+      border-radius: 8px;
+      background: rgba(23,105,255,.13);
+      color: var(--admin-blue-light);
+    }
+
+    .admin-login-header {
+      margin-bottom: 24px;
+    }
+
+    .admin-login-header h2 {
+      margin: 0 0 7px;
+      color: var(--admin-text);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 27px;
+    }
+
+    .admin-login-header p {
+      margin: 0;
+      color: var(--admin-muted);
+      font-size: 14px;
+    }
+
+    .admin-login-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+    }
+
+    .admin-login-row .field {
+      flex: 1;
+    }
+
+    .admin-login-row label {
+      display: block;
+      margin-bottom: 8px;
+      color: #cbd5df;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .password-wrap {
+      position: relative;
+    }
+
+    .password-wrap input {
+      width: 100%;
+      height: 48px;
+      padding: 0 48px 0 14px;
+      box-sizing: border-box;
+      border: 1px solid #1d2b3b;
+      border-radius: 10px;
+      outline: none;
+      background: #070c13;
+      color: var(--admin-text);
+      font: inherit;
+      transition: .2s ease;
+    }
+
+    .password-wrap input::placeholder {
+      color: #5d6b79;
+    }
+
+    .password-wrap input:focus {
+      border-color: rgba(23,105,255,.75);
+      box-shadow: 0 0 0 3px rgba(23,105,255,.10);
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 6px;
+      top: 6px;
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border: 0;
+      border-radius: 8px;
+      background: transparent;
+      color: #718091;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .password-toggle:hover {
+      background: rgba(23,105,255,.08);
+      color: var(--admin-blue-light);
+    }
+
+    .admin-login .btn {
+      height: 48px;
+      white-space: nowrap;
+    }
+
+    /* DASHBOARD */
+
+    #dashboard {
+      display: none;
+    }
+
+    .dashboard-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .dashboard-title h2 {
+      margin: 0 0 5px;
+      color: var(--admin-text);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 25px;
+    }
+
+    .dashboard-title p {
+      margin: 0;
+      color: var(--admin-muted);
+      font-size: 13px;
+    }
+
+    .session-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 12px;
+      border: 1px solid var(--admin-line);
+      border-radius: 999px;
+      color: #9eabb8;
+      background: rgba(255,255,255,.025);
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    /* STATS */
+
+    .dashboard-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .stat-card {
+      position: relative;
+      overflow: hidden;
+      padding: 23px;
+      border: 1px solid var(--admin-line);
+      border-radius: 17px;
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,.045),
+          rgba(255,255,255,.012)
+        ),
+        var(--admin-panel);
+      box-shadow: 0 15px 45px rgba(0,0,0,.20);
+    }
+
+    .stat-card::after {
+      content: "";
+      position: absolute;
+      width: 90px;
+      height: 90px;
+      right: -35px;
+      top: -35px;
+      border-radius: 50%;
+      background: rgba(23,105,255,.09);
+      filter: blur(4px);
     }
 
     .stat-label {
       display: block;
-
-      color: var(--muted);
-
+      color: var(--admin-muted);
       font-size: 11px;
-      font-weight: 700;
-
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: .08em;
     }
 
     .stat-value {
       display: block;
-
       margin-top: 10px;
-
-      color: var(--accent);
-
-      font: 700 34px / 1 "Space Grotesk", sans-serif;
+      color: var(--admin-blue-light);
+      font: 700 35px/1 "Space Grotesk", sans-serif;
     }
 
     .stat-card small {
       display: block;
-
-      margin-top: 10px;
-
-      color: var(--muted-2);
+      margin-top: 9px;
+      color: #667584;
       font-size: 12px;
     }
 
-    /* ========================================
-       TOOLBAR
-    ======================================== */
+    /* TOOLBAR */
 
     .admin-toolbar {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-
-      gap: 15px;
-
-      margin-bottom: 20px;
-      padding: 18px;
-
-      background: var(--panel);
-
-      border: 1px solid var(--line);
+      gap: 12px;
+      padding: 15px;
+      margin-bottom: 15px;
+      border: 1px solid var(--admin-line);
       border-radius: 16px;
-
-      box-shadow: 0 15px 45px rgba(0,0,0,.15);
+      background: var(--admin-panel);
     }
 
     .admin-search {
       flex: 1;
-      max-width: 430px;
     }
 
     .admin-search input,
     .admin-filter select {
       width: 100%;
-      height: 46px;
-
+      height: 44px;
+      box-sizing: border-box;
       border: 1px solid #1d2b3b;
-      border-radius: 10px;
-
-      padding: 0 14px;
-
-      font: inherit;
-
-      background: #070c13;
-      color: var(--text);
-
+      border-radius: 9px;
+      padding: 0 13px;
       outline: none;
+      background: #070c13;
+      color: var(--admin-text);
+      font: inherit;
     }
 
     .admin-search input::placeholder {
-      color: var(--muted-2);
+      color: #596878;
     }
 
     .admin-search input:focus,
     .admin-filter select:focus {
-      border-color: rgba(114,213,255,.65);
-
-      box-shadow:
-        0 0 0 3px rgba(114,213,255,.08);
+      border-color: rgba(23,105,255,.7);
+      box-shadow: 0 0 0 3px rgba(23,105,255,.08);
     }
 
     .admin-filter {
@@ -290,192 +389,207 @@
 
     .admin-actions {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
     .admin-action-btn {
-      height: 46px;
-
-      padding: 0 17px;
-
-      border: 1px solid var(--line);
-      border-radius: 10px;
-
+      height: 44px;
+      padding: 0 15px;
+      border: 1px solid var(--admin-line);
+      border-radius: 9px;
       background: #0d141e;
-      color: var(--text);
-
+      color: #dce4eb;
       cursor: pointer;
-
       font-weight: 700;
+      transition: .2s ease;
     }
 
     .admin-action-btn:hover {
+      border-color: rgba(23,105,255,.35);
+      color: var(--admin-blue-light);
       background: #111c29;
-
-      border-color: rgba(114,213,255,.35);
-
-      color: var(--accent);
     }
 
-    /* ========================================
-       TABLE
-    ======================================== */
+    .logout-btn:hover {
+      border-color: rgba(255,91,104,.35);
+      color: #ff7c86;
+    }
+
+    /* TABLE */
 
     .admin-table-wrap {
+      overflow: hidden;
       overflow-x: auto;
-
-      background: var(--panel);
-
-      border: 1px solid var(--line);
-      border-radius: 18px;
-
-      box-shadow: 0 15px 45px rgba(0,0,0,.18);
+      border: 1px solid var(--admin-line);
+      border-radius: 17px;
+      background: var(--admin-panel);
+      box-shadow: 0 20px 55px rgba(0,0,0,.25);
     }
 
     .admin-table {
       width: 100%;
-      min-width: 1100px;
-
+      min-width: 1050px;
       border-collapse: collapse;
-
-      color: var(--text);
+      color: var(--admin-text);
     }
 
     .admin-table th {
-      padding: 17px 18px;
-
+      padding: 15px 17px;
       text-align: left;
-
       background: #09111b;
-      color: var(--accent);
-
-      border-bottom: 1px solid var(--line);
-
-      font-size: 12px;
+      color: #80aaff;
+      border-bottom: 1px solid var(--admin-line);
+      font-size: 10px;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: .06em;
-
+      letter-spacing: .08em;
       white-space: nowrap;
     }
 
     .admin-table td {
-      padding: 18px;
-
-      background: var(--panel);
-      color: #c7d2de;
-
-      border-bottom: 1px solid var(--line-soft);
-
+      padding: 17px;
+      background: var(--admin-panel);
+      color: #aebbc8;
+      border-bottom: 1px solid var(--admin-line-soft);
       vertical-align: top;
-
-      font-size: 14px;
+      font-size: 13px;
     }
 
     .admin-table td strong {
-      color: var(--text);
+      color: #f0f4f8;
+    }
+
+    .admin-table tbody tr {
+      transition: background .18s ease;
     }
 
     .admin-table tbody tr:hover td {
-      background: #101822;
+      background: #101923;
     }
 
     .admin-table tr:last-child td {
       border-bottom: 0;
     }
 
-    /* ========================================
-       BADGES
-    ======================================== */
+    .message-cell {
+      max-width: 300px;
+      line-height: 1.55;
+    }
+
+    /* TYPE */
 
     .type-badge {
       display: inline-flex;
-
-      padding: 6px 10px;
-
+      align-items: center;
+      padding: 6px 9px;
       border-radius: 999px;
-
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 800;
-
       text-transform: uppercase;
+      letter-spacing: .04em;
     }
 
     .type-contact {
-      background: rgba(23,105,255,.12);
-      color: #69a0ff;
-
-      border: 1px solid rgba(23,105,255,.2);
+      color: #76a9ff;
+      background: rgba(23,105,255,.10);
+      border: 1px solid rgba(23,105,255,.20);
     }
 
-    .type-quote {
-      background: rgba(22,134,83,.12);
-      color: #63d69c;
-
-      border: 1px solid rgba(22,134,83,.2);
-    }
-
-    /* ========================================
-       EMPTY
-    ======================================== */
+    /* EMPTY */
 
     .empty-state {
+      padding: 75px 20px;
       text-align: center;
+      color: var(--admin-muted);
+    }
 
-      padding: 70px 20px;
-
-      color: var(--muted);
+    .empty-icon {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 15px;
+      border: 1px solid var(--admin-line);
+      border-radius: 14px;
+      color: #687888;
+      background: #0d141c;
+      font-size: 21px;
     }
 
     .empty-state strong {
       display: block;
-
       margin-bottom: 7px;
-
-      color: var(--text);
-
+      color: var(--admin-text);
       font-size: 18px;
     }
 
-    /* ========================================
-       STATUS
-    ======================================== */
+    /* STATUS */
 
     .form-status {
+      min-height: 19px;
       margin-top: 12px;
-      min-height: 20px;
-      font-size: 13px;
+      font-size: 12px;
+      font-weight: 600;
     }
 
     .success {
-      color: var(--success);
+      color: var(--admin-green);
     }
 
     .error {
-      color: var(--danger);
+      color: var(--admin-red);
     }
 
-    /* ========================================
-       MOBILE
-    ======================================== */
+    .warning {
+      color: var(--admin-orange);
+    }
+
+    /* LOADING */
+
+    .loading-row {
+      text-align: center;
+      padding: 40px !important;
+      color: var(--admin-muted) !important;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 15px;
+      height: 15px;
+      margin-right: 8px;
+      vertical-align: -3px;
+      border: 2px solid rgba(255,255,255,.12);
+      border-top-color: var(--admin-blue);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    /* RESPONSIVE */
 
     @media (max-width: 900px) {
-
-      .dashboard-stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
 
       .admin-topbar {
         align-items: flex-start;
         flex-direction: column;
       }
 
+      .security-status {
+        width: fit-content;
+      }
+
+      .dashboard-stats {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
       .admin-toolbar {
         flex-direction: column;
         align-items: stretch;
-      }
-
-      .admin-search {
-        max-width: none;
       }
 
       .admin-filter {
@@ -491,7 +605,7 @@
       }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
 
       .admin-wrap {
         padding: 45px 0 70px;
@@ -499,15 +613,10 @@
 
       .dashboard-stats {
         grid-template-columns: 1fr 1fr;
-        gap: 10px;
       }
 
-      .stat-card {
-        padding: 18px;
-      }
-
-      .stat-value {
-        font-size: 27px;
+      .admin-login {
+        padding: 22px;
       }
 
       .admin-login-row {
@@ -519,90 +628,82 @@
         width: 100%;
       }
 
-      .admin-heading h1 {
-        font-size: 44px;
+      .dashboard-header {
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 430px) {
 
       .dashboard-stats {
         grid-template-columns: 1fr;
+      }
+
+      .admin-heading h1 {
+        font-size: 46px;
+      }
+
+      .security-status {
+        width: 100%;
+        box-sizing: border-box;
       }
     }
   </style>
 </head>
 
 
-<body>
+<body class="admin-page">
 
-  <!-- ========================================
+  <!-- ======================================================
        HEADER
-  ======================================== -->
+  ======================================================= -->
 
   <header class="site-header">
 
-    <div class="container nav">
+    <div class="container nav-wrap">
 
       <a
-        class="brand"
         href="/home.html"
-        aria-label="PRESSZILA home"
+        class="brand"
+        aria-label="PRESSZILA Home"
       >
         <img
           src="/logo.svg"
           alt="PRESSZILA"
+          class="brand-logo"
+          width="155"
+          height="48"
         >
       </a>
+
 
       <button
         class="menu-btn"
         type="button"
         aria-label="Open navigation"
         aria-expanded="false"
+        aria-controls="main-navigation"
       >
-        ☰
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
 
+
       <nav
+        id="main-navigation"
         class="nav-links"
         aria-label="Main navigation"
       >
 
-        <a data-page="home.html" href="/home.html">
-          Home
-        </a>
-
-        <a data-page="about.html" href="/about.html">
-          About
-        </a>
-
-        <a data-page="solutions.html" href="/solutions.html">
-          Solutions
-        </a>
-
-        <a data-page="case-studies.html" href="/case-studies.html">
-          Case Studies
-        </a>
-
-        <a data-page="testimonials.html" href="/testimonials.html">
-          Testimonials
-        </a>
-
-        <a data-page="blogs.html" href="/blogs.html">
-          Blogs
-        </a>
-
-        <a data-page="contact.html" href="/contact.html">
-          Contact Us
-        </a>
-
-        <a
-          class="btn btn-primary"
-          href="/quote.html"
-        >
-          Get a Quote
-        </a>
+        <a href="/home.html">Home</a>
+        <a href="/about.html">About</a>
+        <a href="/solutions.html">Solutions</a>
+        <a href="/case-studies.html">Case Studies</a>
+        <a href="/testimonials.html">Testimonials</a>
+        <a href="/blogs.html">Blogs</a>
+        <a href="/contact.html">Contact Us</a>
 
       </nav>
 
@@ -611,13 +712,14 @@
   </header>
 
 
-  <!-- ========================================
-       ADMIN
-  ======================================== -->
+  <!-- ======================================================
+       ADMIN CONTENT
+  ======================================================= -->
 
   <main class="admin-wrap">
 
     <div class="container">
+
 
       <!-- TOP -->
 
@@ -626,7 +728,7 @@
         <div class="admin-heading">
 
           <div class="eyebrow">
-            PRIVATE DASHBOARD
+            PRESSZILA / PRIVATE ADMIN
           </div>
 
           <h1>
@@ -634,36 +736,54 @@
           </h1>
 
           <p>
-            Manage contact requests and project inquiries.
+            Secure control center for PRESSZILA contact requests.
           </p>
 
         </div>
 
-        <div class="admin-badge">
-          <span></span>
-          System Online
+
+        <div class="security-status">
+
+          <span class="security-dot"></span>
+
+          Secure System Online
+
         </div>
 
       </div>
 
 
-      <!-- ========================================
+      <!-- ==================================================
            LOGIN
-      ======================================== -->
+      =================================================== -->
 
       <form
         id="admin-login"
-        class="form-card admin-login"
+        class="admin-login"
+        autocomplete="off"
       >
+
+        <div class="login-security">
+
+          <span class="login-security-icon">
+            🔒
+          </span>
+
+          <span>
+            Protected administrator area · Authorized access only
+          </span>
+
+        </div>
+
 
         <div class="admin-login-header">
 
           <h2>
-            Admin Access
+            Administrator Access
           </h2>
 
           <p>
-            Enter your administrator key to access submissions.
+            Enter your administrator key to continue.
           </p>
 
         </div>
@@ -681,9 +801,13 @@
 
               <input
                 id="admin-key"
+                name="admin-key"
                 type="password"
-                autocomplete="current-password"
-                placeholder="Enter admin key"
+                autocomplete="off"
+                autocapitalize="none"
+                spellcheck="false"
+                placeholder="Enter administrator key"
+                maxlength="256"
                 required
               >
 
@@ -703,6 +827,7 @@
 
 
           <button
+            id="login-button"
             class="btn btn-primary"
             type="submit"
           >
@@ -721,11 +846,41 @@
       </form>
 
 
-      <!-- ========================================
+      <!-- ==================================================
            DASHBOARD
-      ======================================== -->
+      =================================================== -->
 
-      <section id="dashboard">
+      <section
+        id="dashboard"
+        aria-label="Admin dashboard"
+      >
+
+
+        <div class="dashboard-header">
+
+          <div class="dashboard-title">
+
+            <h2>
+              Overview
+            </h2>
+
+            <p>
+              Monitor incoming customer inquiries.
+            </p>
+
+          </div>
+
+
+          <div class="session-badge">
+
+            <span class="security-dot"></span>
+
+            Authenticated Session
+
+          </div>
+
+        </div>
+
 
         <!-- STATS -->
 
@@ -746,26 +901,6 @@
 
             <small>
               All inquiries
-            </small>
-
-          </div>
-
-
-          <div class="stat-card">
-
-            <span class="stat-label">
-              Quotes
-            </span>
-
-            <strong
-              id="stat-quotes"
-              class="stat-value"
-            >
-              0
-            </strong>
-
-            <small>
-              Project requests
             </small>
 
           </div>
@@ -822,7 +957,9 @@
             <input
               id="inquiry-search"
               type="search"
+              autocomplete="off"
               placeholder="Search name, email, company..."
+              aria-label="Search inquiries"
             >
 
           </div>
@@ -830,14 +967,13 @@
 
           <div class="admin-filter">
 
-            <select id="inquiry-filter">
+            <select
+              id="inquiry-filter"
+              aria-label="Filter inquiries"
+            >
 
               <option value="all">
                 All inquiries
-              </option>
-
-              <option value="quote">
-                Quote requests
               </option>
 
               <option value="contact">
@@ -859,10 +995,11 @@
               ↻ Refresh
             </button>
 
+
             <button
               id="admin-logout"
               type="button"
-              class="admin-action-btn"
+              class="admin-action-btn logout-btn"
             >
               Logout
             </button>
@@ -887,7 +1024,6 @@
                 <th>Phone</th>
                 <th>Company</th>
                 <th>Service</th>
-                <th>Budget</th>
                 <th>Timeline</th>
                 <th>Message</th>
                 <th>Date</th>
@@ -895,7 +1031,20 @@
 
             </thead>
 
-            <tbody id="inquiry-body"></tbody>
+
+            <tbody id="inquiry-body">
+
+              <tr>
+                <td
+                  colspan="9"
+                  class="loading-row"
+                >
+                  <span class="spinner"></span>
+                  Waiting for secure access...
+                </td>
+              </tr>
+
+            </tbody>
 
           </table>
 
@@ -906,12 +1055,16 @@
             style="display:none"
           >
 
+            <div class="empty-icon">
+              ✓
+            </div>
+
             <strong>
               No inquiries found
             </strong>
 
             <span>
-              New submissions will appear here automatically.
+              New contact requests will appear here.
             </span>
 
           </div>
@@ -925,9 +1078,9 @@
   </main>
 
 
-  <!-- ========================================
+  <!-- ======================================================
        FOOTER
-  ======================================== -->
+  ======================================================= -->
 
   <footer class="site-footer">
 
@@ -937,22 +1090,76 @@
 
         <div class="footer-brand">
 
-          <img
-            src="/logo.svg"
-            alt="PRESSZILA"
+          <a
+            href="/home.html"
+            aria-label="PRESSZILA Home"
           >
+
+            <img
+              src="/logo.svg"
+              alt="PRESSZILA"
+              class="footer-logo"
+              width="155"
+              height="50"
+            >
+
+          </a>
+
 
           <p>
             Digital PR, brand strategy and storytelling built
             to make ambitious brands impossible to ignore.
           </p>
 
+
           <div class="socials">
 
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Instagram">◉</a>
-            <a href="#" aria-label="X">𝕏</a>
-            <a href="#" aria-label="LinkedIn">in</a>
+            <a
+              href="https://www.facebook.com/share/1Jgj4YyDNM/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="PRESSZILA on Facebook"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"></path>
+              </svg>
+            </a>
+
+
+            <a
+              href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw=="
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="PRESSZILA on Instagram"
+            >
+              <svg
+                viewBox="0 0 24 24"
+                class="instagram-icon"
+                aria-hidden="true"
+              >
+                <rect
+                  x="3"
+                  y="3"
+                  width="18"
+                  height="18"
+                  rx="5"
+                ></rect>
+
+                <circle
+                  cx="12"
+                  cy="12"
+                  r="4"
+                ></circle>
+
+                <circle
+                  cx="17.5"
+                  cy="6.5"
+                  r="1"
+                  class="instagram-dot"
+                ></circle>
+
+              </svg>
+            </a>
 
           </div>
 
@@ -963,10 +1170,10 @@
 
           <h4>Explore</h4>
 
+          <a href="/home.html">Home</a>
           <a href="/about.html">About</a>
           <a href="/solutions.html">Solutions</a>
           <a href="/case-studies.html">Case Studies</a>
-          <a href="/blogs.html">Blogs</a>
 
         </div>
 
@@ -976,8 +1183,8 @@
           <h4>Connect</h4>
 
           <a href="/contact.html">Contact Us</a>
-          <a href="/quote.html">Get a Quote</a>
           <a href="/testimonials.html">Testimonials</a>
+          <a href="/blogs.html">Blogs</a>
 
         </div>
 
@@ -1013,114 +1220,250 @@
   </footer>
 
 
-  <!-- ========================================
-       ADMIN SCRIPT
-  ======================================== -->
+  <!-- ======================================================
+       ADMIN JAVASCRIPT
+  ======================================================= -->
 
   <script>
+    "use strict";
+
+    /*
+      IMPORTANT SECURITY NOTE:
+
+      The frontend should NOT be responsible for authenticating
+      the administrator.
+
+      The backend endpoint:
+
+        GET /api/admin/inquiries
+
+      must verify the administrator session/key securely.
+
+      Ideally use:
+      - HTTPS
+      - HttpOnly + Secure + SameSite cookies
+      - server-side authentication
+      - rate limiting
+      - CSRF protection where applicable
+      - strong password/key hashing
+      - authorization checks
+    */
+
 
     let allInquiries = [];
+    let isLoading = false;
 
 
-    /* ========================================
-       ESCAPE HTML
-    ======================================== */
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
 
-    function escapeHTML(value) {
+    const loginForm =
+      document.getElementById("admin-login");
 
-      return String(value ?? "").replace(
-        /[&<>"']/g,
-        function (char) {
+    const adminKey =
+      document.getElementById("admin-key");
 
-          return {
-            "&": "&amp;",
-            "<": "&lt;",
-            ">": "&gt;",
-            '"': "&quot;",
-            "'": "&#39;"
-          }[char];
+    const adminStatus =
+      document.getElementById("admin-status");
 
-        }
-      );
+    const dashboard =
+      document.getElementById("dashboard");
 
+    const loginButton =
+      document.getElementById("login-button");
+
+    const passwordToggle =
+      document.getElementById("password-toggle");
+
+    const searchInput =
+      document.getElementById("inquiry-search");
+
+    const filterSelect =
+      document.getElementById("inquiry-filter");
+
+    const tableBody =
+      document.getElementById("inquiry-body");
+
+    const emptyState =
+      document.getElementById("empty-state");
+
+    const refreshButton =
+      document.getElementById("refresh-inquiries");
+
+    const logoutButton =
+      document.getElementById("admin-logout");
+
+
+    /* =====================================================
+       STATUS
+    ====================================================== */
+
+    function setStatus(message, type = "") {
+
+      adminStatus.textContent = message;
+
+      adminStatus.className =
+        "form-status " + type;
     }
 
 
-    /* ========================================
+    /* =====================================================
+       SAFE TEXT
+       No innerHTML for customer data.
+    ====================================================== */
+
+    function safeText(value) {
+
+      if (
+        value === null ||
+        value === undefined ||
+        value === ""
+      ) {
+        return "—";
+      }
+
+      return String(value);
+    }
+
+
+    /* =====================================================
+       DATE
+    ====================================================== */
+
+    function formatDate(value) {
+
+      if (!value) {
+        return "—";
+      }
+
+      const date = new Date(value);
+
+      if (Number.isNaN(date.getTime())) {
+        return safeText(value);
+      }
+
+      return date.toLocaleString(
+        undefined,
+        {
+          year: "numeric",
+          month: "short",
+          day: "2-digit",
+          hour: "2-digit",
+          minute: "2-digit"
+        }
+      );
+    }
+
+
+    /* =====================================================
        STATS
-    ======================================== */
+    ====================================================== */
 
     function updateStats(rows) {
 
-      const total = rows.length;
+      const total =
+        rows.length;
 
-      const quotes = rows.filter(
-        item => item.type === "quote"
-      ).length;
-
-      const contacts = rows.filter(
-        item => item.type === "contact"
-      ).length;
+      const contacts =
+        rows.filter(
+          item => item.type === "contact"
+        ).length;
 
 
-      document.querySelector("#stat-total").textContent =
-        total;
+      document.getElementById(
+        "stat-total"
+      ).textContent = total;
 
-      document.querySelector("#stat-quotes").textContent =
-        quotes;
 
-      document.querySelector("#stat-contacts").textContent =
-        contacts;
+      document.getElementById(
+        "stat-contacts"
+      ).textContent = contacts;
 
 
       if (rows.length) {
 
-        const latest =
-          rows[0].created_at || "";
-
-        document.querySelector("#stat-latest").textContent =
-          latest.substring(0, 10);
+        document.getElementById(
+          "stat-latest"
+        ).textContent =
+          formatDate(
+            rows[0].created_at
+          );
 
       } else {
 
-        document.querySelector("#stat-latest").textContent =
-          "—";
+        document.getElementById(
+          "stat-latest"
+        ).textContent = "—";
 
       }
 
     }
 
 
-    /* ========================================
+    /* =====================================================
+       TABLE CELL
+    ====================================================== */
+
+    function createCell(value, strong = false) {
+
+      const td =
+        document.createElement("td");
+
+      const content =
+        safeText(value);
+
+
+      if (strong) {
+
+        const element =
+          document.createElement("strong");
+
+        element.textContent =
+          content;
+
+        td.appendChild(element);
+
+      } else {
+
+        td.textContent =
+          content;
+
+      }
+
+      return td;
+    }
+
+
+    /* =====================================================
        RENDER
-    ======================================== */
+    ====================================================== */
 
     function renderInquiries(rows) {
 
-      const tbody =
-        document.querySelector("#inquiry-body");
-
-      const empty =
-        document.querySelector("#empty-state");
-
-
-      tbody.innerHTML = "";
+      tableBody.replaceChildren();
 
 
       if (!rows.length) {
 
-        empty.style.display = "block";
+        emptyState.style.display =
+          "block";
 
         updateStats([]);
 
         return;
-
       }
 
 
-      empty.style.display = "none";
+      emptyState.style.display =
+        "none";
+
 
       updateStats(rows);
+
+
+      const fragment =
+        document.createDocumentFragment();
 
 
       rows.forEach(item => {
@@ -1129,191 +1472,131 @@
           document.createElement("tr");
 
 
-        const typeClass =
-          item.type === "quote"
-            ? "type-quote"
-            : "type-contact";
+        /* TYPE */
+
+        const typeTd =
+          document.createElement("td");
+
+        const badge =
+          document.createElement("span");
+
+        badge.className =
+          "type-badge type-contact";
+
+        badge.textContent =
+          safeText(item.type)
+            .toUpperCase();
+
+        typeTd.appendChild(badge);
+
+        tr.appendChild(typeTd);
 
 
-        tr.innerHTML = `
+        /* NAME */
 
-          <td>
-            <span class="type-badge ${typeClass}">
-              ${escapeHTML(item.type)}
-            </span>
-          </td>
-
-          <td>
-            <strong>
-              ${escapeHTML(item.name)}
-            </strong>
-          </td>
-
-          <td>
-            ${escapeHTML(item.email)}
-          </td>
-
-          <td>
-            ${escapeHTML(item.phone || "—")}
-          </td>
-
-          <td>
-            ${escapeHTML(item.company || "—")}
-          </td>
-
-          <td>
-            ${escapeHTML(item.service || "—")}
-          </td>
-
-          <td>
-            ${escapeHTML(item.budget || "—")}
-          </td>
-
-          <td>
-            ${escapeHTML(item.timeline || "—")}
-          </td>
-
-          <td>
-            ${escapeHTML(item.message || "—")}
-          </td>
-
-          <td>
-            ${escapeHTML(item.created_at || "—")}
-          </td>
-
-        `;
+        tr.appendChild(
+          createCell(
+            item.name,
+            true
+          )
+        );
 
 
-        tbody.appendChild(tr);
+        /* EMAIL */
+
+        tr.appendChild(
+          createCell(
+            item.email
+          )
+        );
+
+
+        /* PHONE */
+
+        tr.appendChild(
+          createCell(
+            item.phone
+          )
+        );
+
+
+        /* COMPANY */
+
+        tr.appendChild(
+          createCell(
+            item.company
+          )
+        );
+
+
+        /* SERVICE */
+
+        tr.appendChild(
+          createCell(
+            item.service
+          )
+        );
+
+
+        /* TIMELINE */
+
+        tr.appendChild(
+          createCell(
+            item.timeline
+          )
+        );
+
+
+        /* MESSAGE */
+
+        const messageTd =
+          createCell(
+            item.message
+          );
+
+        messageTd.className =
+          "message-cell";
+
+        tr.appendChild(messageTd);
+
+
+        /* DATE */
+
+        tr.appendChild(
+          createCell(
+            formatDate(
+              item.created_at
+            )
+          )
+        );
+
+
+        fragment.appendChild(tr);
 
       });
 
-    }
 
-
-    /* ========================================
-       LOAD INQUIRIES
-    ======================================== */
-
-    async function loadInquiries() {
-
-      const key =
-        sessionStorage.getItem(
-          "presszilaAdminKey"
-        );
-
-
-      if (!key) {
-        return;
-      }
-
-
-      const status =
-        document.querySelector("#admin-status");
-
-
-      status.className = "form-status";
-
-      status.textContent =
-        "Loading inquiries...";
-
-
-      try {
-
-        const response =
-          await fetch(
-            "/api/admin/inquiries",
-            {
-              method: "GET",
-
-              headers: {
-                "x-admin-key": key
-              }
-            }
-          );
-
-
-        const data =
-          await response.json();
-
-
-        if (!response.ok) {
-
-          throw new Error(
-            data.error || "Invalid admin key"
-          );
-
-        }
-
-
-        allInquiries =
-          data.inquiries || [];
-
-
-        document.querySelector(
-          "#dashboard"
-        ).style.display = "block";
-
-
-        applyFilters();
-
-
-        status.className =
-          "form-status success";
-
-
-        status.textContent =
-          `${allInquiries.length} inquiry${
-            allInquiries.length === 1
-              ? ""
-              : "ies"
-          } loaded.`;
-
-
-      } catch (error) {
-
-        sessionStorage.removeItem(
-          "presszilaAdminKey"
-        );
-
-
-        document.querySelector(
-          "#dashboard"
-        ).style.display = "none";
-
-
-        status.className =
-          "form-status error";
-
-
-        status.textContent =
-          error.message ||
-          "Unable to load inquiries.";
-
-      }
+      tableBody.appendChild(
+        fragment
+      );
 
     }
 
 
-    /* ========================================
+    /* =====================================================
        FILTER
-    ======================================== */
+    ====================================================== */
 
     function applyFilters() {
 
       const search =
-        document.querySelector(
-          "#inquiry-search"
-        )
-        .value
-        .toLowerCase()
-        .trim();
+        searchInput.value
+          .toLowerCase()
+          .trim();
 
 
       const filter =
-        document.querySelector(
-          "#inquiry-filter"
-        ).value;
+        filterSelect.value;
 
 
       const filtered =
@@ -1325,17 +1608,15 @@
 
 
           const searchable = [
-
             item.name,
             item.email,
             item.phone,
             item.company,
             item.service,
-            item.budget,
             item.timeline,
             item.message
-
           ]
+            .map(value => safeText(value))
             .join(" ")
             .toLowerCase();
 
@@ -1358,178 +1639,424 @@
     }
 
 
-    /* ========================================
-       PASSWORD SHOW / HIDE
-    ======================================== */
+    /* =====================================================
+       LOADING STATE
+    ====================================================== */
 
-    document
-      .querySelector("#password-toggle")
-      .addEventListener(
-        "click",
-        function () {
+    function setLoading(loading) {
 
-          const input =
-            document.querySelector("#admin-key");
+      isLoading = loading;
+
+      refreshButton.disabled =
+        loading;
+
+      loginButton.disabled =
+        loading;
 
 
-          if (input.type === "password") {
+      if (loading) {
 
-            input.type = "text";
+        loginButton.textContent =
+          "Authenticating...";
 
-            this.textContent = "🙈";
+        refreshButton.textContent =
+          "↻ Loading...";
 
-            this.setAttribute(
-              "aria-label",
-              "Hide password"
-            );
+      } else {
 
-            this.setAttribute(
-              "title",
-              "Hide password"
-            );
+        loginButton.textContent =
+          "Access Dashboard";
 
-          } else {
+        refreshButton.textContent =
+          "↻ Refresh";
 
-            input.type = "password";
+      }
 
-            this.textContent = "👁";
+    }
 
-            this.setAttribute(
-              "aria-label",
-              "Show password"
-            );
 
-            this.setAttribute(
-              "title",
-              "Show password"
+    /* =====================================================
+       LOAD INQUIRIES
+    ====================================================== */
+
+    async function loadInquiries() {
+
+      if (isLoading) {
+        return;
+      }
+
+
+      /*
+        Current implementation keeps compatibility
+        with your existing backend.
+
+        For production, replace this with a server-side
+        HttpOnly session cookie.
+      */
+
+      const key =
+        sessionStorage.getItem(
+          "presszilaAdminKey"
+        );
+
+
+      if (!key) {
+
+        dashboard.style.display =
+          "none";
+
+        return;
+      }
+
+
+      setLoading(true);
+
+      setStatus(
+        "Authenticating secure session...",
+        ""
+      );
+
+
+      try {
+
+        const response =
+          await fetch(
+            "/api/admin/inquiries",
+            {
+              method: "GET",
+
+              headers: {
+                "Accept":
+                  "application/json",
+                "x-admin-key":
+                  key
+              },
+
+              cache: "no-store",
+
+              credentials: "same-origin"
+            }
+          );
+
+
+        let data = null;
+
+
+        try {
+
+          data =
+            await response.json();
+
+        } catch {
+
+          data = {};
+
+        }
+
+
+        if (!response.ok) {
+
+          if (
+            response.status === 401 ||
+            response.status === 403
+          ) {
+
+            throw new Error(
+              "Access denied. Invalid administrator key."
             );
 
           }
 
+          throw new Error(
+            data.error ||
+            "Unable to load inquiries."
+          );
+
         }
-      );
 
 
-    /* ========================================
+        if (
+          !data ||
+          !Array.isArray(
+            data.inquiries
+          )
+        ) {
+
+          throw new Error(
+            "Invalid server response."
+          );
+
+        }
+
+
+        allInquiries =
+          data.inquiries;
+
+
+        dashboard.style.display =
+          "block";
+
+
+        applyFilters();
+
+
+        setStatus(
+          `${allInquiries.length} inquiry${
+            allInquiries.length === 1
+              ? ""
+              : "ies"
+          } loaded securely.`,
+          "success"
+        );
+
+
+      } catch (error) {
+
+        sessionStorage.removeItem(
+          "presszilaAdminKey"
+        );
+
+
+        allInquiries = [];
+
+
+        dashboard.style.display =
+          "none";
+
+
+        setStatus(
+          error.message ||
+          "Unable to authenticate.",
+          "error"
+        );
+
+      } finally {
+
+        setLoading(false);
+
+      }
+
+    }
+
+
+    /* =====================================================
+       PASSWORD TOGGLE
+    ====================================================== */
+
+    passwordToggle.addEventListener(
+      "click",
+      function () {
+
+        const isPassword =
+          adminKey.type === "password";
+
+
+        adminKey.type =
+          isPassword
+            ? "text"
+            : "password";
+
+
+        this.textContent =
+          isPassword
+            ? "🙈"
+            : "👁";
+
+
+        this.setAttribute(
+          "aria-label",
+          isPassword
+            ? "Hide password"
+            : "Show password"
+        );
+
+      }
+    );
+
+
+    /* =====================================================
        LOGIN
-    ======================================== */
+    ====================================================== */
 
-    document
-      .querySelector("#admin-login")
-      .addEventListener(
-        "submit",
-        async function (event) {
+    loginForm.addEventListener(
+      "submit",
+      async function (event) {
 
-          event.preventDefault();
+        event.preventDefault();
 
+
+        if (isLoading) {
+          return;
+        }
+
+
+        const key =
+          adminKey.value.trim();
+
+
+        if (!key) {
+
+          setStatus(
+            "Please enter your administrator key.",
+            "error"
+          );
+
+          return;
+        }
+
+
+        if (key.length > 256) {
+
+          setStatus(
+            "Invalid administrator key.",
+            "error"
+          );
+
+          return;
+        }
+
+
+        /*
+          Temporary compatibility with your
+          existing API.
+
+          Better production setup:
+          backend creates an HttpOnly session
+          after authentication.
+        */
+
+        sessionStorage.setItem(
+          "presszilaAdminKey",
+          key
+        );
+
+
+        await loadInquiries();
+
+      }
+    );
+
+
+    /* =====================================================
+       SEARCH
+    ====================================================== */
+
+    searchInput.addEventListener(
+      "input",
+      applyFilters
+    );
+
+
+    /* =====================================================
+       FILTER
+    ====================================================== */
+
+    filterSelect.addEventListener(
+      "change",
+      applyFilters
+    );
+
+
+    /* =====================================================
+       REFRESH
+    ====================================================== */
+
+    refreshButton.addEventListener(
+      "click",
+      async function () {
+
+        if (!isLoading) {
+          await loadInquiries();
+        }
+
+      }
+    );
+
+
+    /* =====================================================
+       LOGOUT
+    ====================================================== */
+
+    logoutButton.addEventListener(
+      "click",
+      function () {
+
+        sessionStorage.removeItem(
+          "presszilaAdminKey"
+        );
+
+
+        allInquiries = [];
+
+
+        dashboard.style.display =
+          "none";
+
+
+        adminKey.value = "";
+
+
+        searchInput.value = "";
+
+
+        filterSelect.value =
+          "all";
+
+
+        tableBody.replaceChildren();
+
+
+        setStatus(
+          "You have been securely logged out.",
+          "success"
+        );
+
+
+        adminKey.focus();
+
+      }
+    );
+
+
+    /* =====================================================
+       TAB VISIBILITY
+       Reload data when returning to tab.
+    ====================================================== */
+
+    document.addEventListener(
+      "visibilitychange",
+      function () {
+
+        if (
+          document.visibilityState ===
+          "visible"
+        ) {
 
           const key =
-            document.querySelector(
-              "#admin-key"
-            )
-            .value
-            .trim();
+            sessionStorage.getItem(
+              "presszilaAdminKey"
+            );
 
 
-          if (!key) {
-            return;
+          if (
+            key &&
+            dashboard.style.display ===
+              "block"
+          ) {
+
+            loadInquiries();
+
           }
 
-
-          sessionStorage.setItem(
-            "presszilaAdminKey",
-            key
-          );
-
-
-          await loadInquiries();
-
         }
-      );
+
+      }
+    );
 
 
-    /* ========================================
-       SEARCH
-    ======================================== */
-
-    document
-      .querySelector("#inquiry-search")
-      .addEventListener(
-        "input",
-        applyFilters
-      );
-
-
-    /* ========================================
-       FILTER
-    ======================================== */
-
-    document
-      .querySelector("#inquiry-filter")
-      .addEventListener(
-        "change",
-        applyFilters
-      );
-
-
-    /* ========================================
-       REFRESH
-    ======================================== */
-
-    document
-      .querySelector("#refresh-inquiries")
-      .addEventListener(
-        "click",
-        loadInquiries
-      );
-
-
-    /* ========================================
-       LOGOUT
-    ======================================== */
-
-    document
-      .querySelector("#admin-logout")
-      .addEventListener(
-        "click",
-        function () {
-
-          sessionStorage.removeItem(
-            "presszilaAdminKey"
-          );
-
-
-          allInquiries = [];
-
-
-          document.querySelector(
-            "#dashboard"
-          ).style.display = "none";
-
-
-          document.querySelector(
-            "#admin-key"
-          ).value = "";
-
-
-          document.querySelector(
-            "#admin-status"
-          ).className =
-            "form-status";
-
-
-          document.querySelector(
-            "#admin-status"
-          ).textContent =
-            "Logged out successfully.";
-
-        }
-      );
-
-
-    /* ========================================
+    /* =====================================================
        AUTO LOGIN
-    ======================================== */
+    ====================================================== */
 
     document.addEventListener(
       "DOMContentLoaded",
@@ -1543,10 +2070,8 @@
 
         if (saved) {
 
-          document.querySelector(
-            "#admin-key"
-          ).value = saved;
-
+          adminKey.value =
+            saved;
 
           loadInquiries();
 
@@ -1563,4 +2088,5 @@
   <script src="/script.js"></script>
 
 </body>
+
 </html>

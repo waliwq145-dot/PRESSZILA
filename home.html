@@ -1,118 +1,87 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
 
     <meta name="description"
-        content="PRESSZILA — Digital PR, brand strategy and media relations built to make ambitious brands impossible to ignore.">
+          content="PRESSZILA — Digital PR, brand strategy and storytelling built to make ambitious brands impossible to ignore.">
 
-    <meta name="theme-color" content="#1769ff">
+    <meta name="theme-color"
+          content="#ffffff">
 
     <link rel="icon" href="/favicon.svg">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
     <link rel="stylesheet" href="/style.css">
 
     <title>PRESSZILA — Digital PR & Branding Agency</title>
 
     <style>
-        /* =====================================================
-           NAVBAR
-        ===================================================== */
+        /* =========================================================
+           HEADER
+           ========================================================= */
 
         .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 9999;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.96);
-            border-bottom: 1px solid rgba(8, 11, 16, 0.08);
-            backdrop-filter: blur(14px);
-            -webkit-backdrop-filter: blur(14px);
+            position: relative;
+            z-index: 1000;
         }
 
         .nav-wrap {
-            min-height: 76px;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            min-height: 78px;
             gap: 30px;
         }
 
-        /* BRAND */
-
+        /* LOGO ONLY — NO EXTRA TEXT */
         .brand {
             display: inline-flex;
             align-items: center;
+            justify-content: flex-start;
             flex-shrink: 0;
+            width: auto;
+            margin: 0;
+            padding: 0;
             text-decoration: none;
             line-height: 1;
         }
 
         .brand-logo {
             display: block;
-            width: 170px;
-            height: auto;
-            max-height: 49px;
+            width: 155px;
+            height: 48px;
+            max-width: 155px;
             object-fit: contain;
-            object-position: left;
+            object-position: left center;
+            margin: 0;
+            padding: 0;
         }
-
-        /* If logo SVG contains only the icon, this keeps it compact */
-
-        .brand-name {
-            display: inline-block;
-            margin-left: 10px;
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 22px;
-            font-weight: 700;
-            letter-spacing: -0.6px;
-            color: #080b10;
-            white-space: nowrap;
-        }
-
-        .brand-name span {
-            color: #1769ff;
-        }
-
-        /* NAV LINKS */
 
         .nav-links {
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            gap: 6px;
-            margin-left: auto;
+            gap: 28px;
         }
 
         .nav-links a {
-            position: relative;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 40px;
-            padding: 0 12px;
+            text-decoration: none;
             color: #080b10;
             font-family: "DM Sans", sans-serif;
             font-size: 14px;
             font-weight: 600;
-            text-decoration: none;
-            white-space: nowrap;
-            transition: color 0.25s ease;
-        }
-
-        .nav-links a::after {
-            content: "";
-            position: absolute;
-            left: 12px;
-            right: 12px;
-            bottom: 3px;
-            height: 2px;
-            background: #1769ff;
-            border-radius: 99px;
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.25s ease;
+            transition: color .2s ease;
         }
 
         .nav-links a:hover,
@@ -120,74 +89,115 @@
             color: #1769ff;
         }
 
-        .nav-links a:hover::after,
-        .nav-links a.active::after {
-            transform: scaleX(1);
-        }
-
-        /* MENU BUTTON */
-
         .menu-btn {
             display: none;
             width: 44px;
             height: 44px;
-            padding: 9px;
-            border: 1px solid rgba(8, 11, 16, 0.12);
-            border-radius: 10px;
-            background: #fff;
+            padding: 0;
+            border: 0;
+            background: transparent;
             cursor: pointer;
         }
 
         .menu-btn span {
             display: block;
-            width: 100%;
+            width: 23px;
             height: 2px;
-            margin: 5px 0;
+            margin: 5px auto;
             background: #080b10;
-            border-radius: 10px;
-            transition: 0.25s ease;
+            border-radius: 2px;
         }
 
+        /* =========================================================
+           MOBILE NAVIGATION
+           ========================================================= */
 
-        /* =====================================================
-           SOCIAL ICONS
-        ===================================================== */
+        @media (max-width: 900px) {
+
+            .nav-wrap {
+                min-height: 72px;
+            }
+
+            .brand-logo {
+                width: 145px;
+                height: 46px;
+                max-width: 145px;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: flex-start;
+                gap: 0;
+                padding: 14px 20px 20px;
+                background: #ffffff;
+                border-top: 1px solid rgba(8, 11, 16, .08);
+                border-bottom: 1px solid rgba(8, 11, 16, .08);
+                box-shadow: 0 18px 40px rgba(8, 11, 16, .08);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 13px 4px;
+            }
+        }
+
+        /* =========================================================
+           FOOTER
+           ========================================================= */
+
+        .footer-logo {
+            display: block;
+            width: 155px;
+            height: 50px;
+            object-fit: contain;
+            object-position: left center;
+        }
 
         .socials {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-top: 22px;
+            margin-top: 20px;
         }
 
         .socials a {
-            width: 40px;
-            height: 40px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            border: 1px solid rgba(255, 255, 255, 0.16);
+            width: 38px;
+            height: 38px;
+            border: 1px solid rgba(8, 11, 16, .12);
             border-radius: 50%;
-            color: #fff;
-            background: rgba(255, 255, 255, 0.06);
-            transition: all 0.25s ease;
+            color: #080b10;
+            transition: all .2s ease;
         }
 
         .socials a:hover {
-            color: #fff;
-            background: #1769ff;
+            color: #1769ff;
             border-color: #1769ff;
-            transform: translateY(-3px);
         }
 
         .socials svg {
-            width: 19px;
-            height: 19px;
+            width: 18px;
+            height: 18px;
             fill: currentColor;
-            stroke: none;
         }
 
-        .socials .instagram-icon {
+        .socials svg.instagram-icon {
             fill: none;
             stroke: currentColor;
             stroke-width: 1.8;
@@ -198,181 +208,16 @@
             stroke: none;
         }
 
+        /* =========================================================
+           BLOG IMAGE
+           ========================================================= */
 
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        .site-footer {
-            margin-top: 90px;
-            background: #080b10;
-            color: #fff;
-            overflow: hidden;
-        }
-
-        .site-footer .footer-grid {
-            display: grid;
-            grid-template-columns: 1.7fr 1fr 1fr 1fr;
-            gap: 55px;
-            padding: 70px 0 55px;
-        }
-
-        .footer-brand {
-            max-width: 390px;
-        }
-
-        .footer-logo {
+        .blog-img {
             display: block;
-            width: 155px;
+            width: 100%;
             height: auto;
-            max-height: 50px;
-            object-fit: contain;
-            object-position: left center;
-        }
-
-        .footer-brand p {
-            margin: 20px 0 0;
-            color: rgba(255, 255, 255, 0.66);
-            line-height: 1.75;
-            font-size: 14px;
-            max-width: 360px;
-        }
-
-        .footer-col {
-            display: flex;
-            flex-direction: column;
-            gap: 11px;
-        }
-
-        .footer-col h4 {
-            margin: 0 0 10px;
-            color: #fff;
-            font-family: "Space Grotesk", sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-        }
-
-        .footer-col a {
-            width: fit-content;
-            color: rgba(255, 255, 255, 0.62);
-            font-size: 14px;
-            text-decoration: none;
-            transition: color 0.2s ease, transform 0.2s ease;
-        }
-
-        .footer-col a:hover {
-            color: #fff;
-            transform: translateX(3px);
-        }
-
-        .footer-bottom {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 22px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.48);
-            font-size: 12px;
-        }
-
-
-        /* =====================================================
-           MOBILE NAVBAR
-        ===================================================== */
-
-        @media (max-width: 1050px) {
-
-            .nav-links {
-                gap: 2px;
-            }
-
-            .nav-links a {
-                padding: 0 8px;
-                font-size: 13px;
-            }
-
-            .brand-logo {
-                width: 140px;
-            }
-        }
-
-
-        @media (max-width: 850px) {
-
-            .nav-wrap {
-                min-height: 70px;
-            }
-
-            .brand-logo {
-                width: 145px;
-            }
-
-            .menu-btn {
-                display: block;
-                flex-shrink: 0;
-            }
-
-            .nav-links {
-                position: absolute;
-                top: calc(100% + 1px);
-                left: 0;
-                right: 0;
-                display: none;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 0;
-                padding: 10px 18px 18px;
-                margin: 0;
-                background: #fff;
-                border-bottom: 1px solid rgba(8, 11, 16, 0.08);
-                box-shadow: 0 15px 35px rgba(8, 11, 16, 0.08);
-            }
-
-            .nav-links.open {
-                display: flex;
-            }
-
-            .nav-links a {
-                width: 100%;
-                min-height: 48px;
-                justify-content: flex-start;
-                padding: 0 12px;
-                border-radius: 8px;
-            }
-
-            .nav-links a:hover,
-            .nav-links a.active {
-                background: rgba(23, 105, 255, 0.06);
-            }
-
-            .nav-links a::after {
-                display: none;
-            }
-
-            .site-footer .footer-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-
-        @media (max-width: 600px) {
-
-            .site-footer .footer-grid {
-                grid-template-columns: 1fr;
-                gap: 38px;
-                padding: 55px 0 40px;
-            }
-
-            .footer-bottom {
-                flex-direction: column;
-                align-items: flex-start;
-                line-height: 1.6;
-            }
-
-            .footer-logo {
-                width: 145px;
-            }
+            max-height: 280px;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -380,948 +225,49 @@
 
 <body>
 
+    <!-- =========================================================
+         HEADER
+         ========================================================= -->
 
-<!-- =========================================================
-     HEADER / NAVBAR
-========================================================= -->
+    <header class="site-header">
 
-<header class="site-header">
+        <div class="container nav-wrap">
 
-    <div class="container nav-wrap">
-
-        <!-- PRESSZILA LOGO -->
-
-        <a href="/home.html"
-           class="brand"
-           aria-label="PRESSZILA Home">
-
-            <img src="logo.svg"
-                 alt="PRESS ZILA"
-                 class="brand-logo"
-                 width="160"
-                 height="48">
-
-        </a>
-
-
-        <!-- MOBILE MENU -->
-
-        <button class="menu-btn"
-                type="button"
-                aria-label="Open navigation"
-                aria-expanded="false"
-                aria-controls="main-navigation">
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
-
-
-        <!-- NAVIGATION -->
-
-        <nav id="main-navigation"
-             class="nav-links"
-             aria-label="Main navigation">
-
+            <!-- ONLY SVG LOGO -->
             <a href="/home.html"
-               class="active">
-                Home
-            </a>
-
-            <a href="/about.html">
-                About
-            </a>
-
-            <a href="/solutions.html">
-                Solutions
-            </a>
-
-            <a href="/case-studies.html">
-                Case Studies
-            </a>
-
-            <a href="/testimonials.html">
-                Testimonials
-            </a>
-
-            <a href="/blogs.html">
-                Blogs
-            </a>
-
-            <a href="/contact.html">
-                Contact Us
-            </a>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
-<main>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="hero">
-
-    <div class="container hero-grid">
-
-        <div class="hero-content reveal">
-
-            <div class="eyebrow">
-                DIGITAL PR & BRANDING
-            </div>
-
-            <h1>
-                Make Your Brand
-                <span>Impossible to Ignore.</span>
-            </h1>
-
-            <p>
-                PRESSZILA transforms bold ideas into powerful stories,
-                meaningful media attention and brands people remember.
-            </p>
-
-            <div class="actions">
-
-                <a href="/contact.html"
-                   class="btn btn-primary">
-
-                    Start a Conversation
-                    <span aria-hidden="true">→</span>
-
-                </a>
-
-                <a href="/solutions.html"
-                   class="btn btn-light">
-
-                    Explore Solutions
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- HERO VISUAL -->
-
-        <div class="hero-visual reveal"
-             aria-label="PRESSZILA brand spotlight">
-
-            <div class="spotlight-ring ring-one"></div>
-
-            <div class="spotlight-ring ring-two"></div>
-
-            <div class="spotlight-content">
-
-                <div class="spotlight-label">
-                    YOUR BRAND. YOUR MOMENT.
-                </div>
-
-                <h2>
-                    Own Your
-                    <span>Spotlight.</span>
-                </h2>
-
-                <p>
-                    Strategy, storytelling and media relationships
-                    designed to turn attention into lasting influence.
-                </p>
-
-                <a href="/contact.html"
-                   class="spotlight-btn">
-
-                    Let's Talk
-                    <span aria-hidden="true">→</span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     STATS
-========================================================= -->
-
-<section class="container"
-         aria-label="PRESSZILA capabilities">
-
-    <div class="stats reveal">
-
-        <div class="stat">
-            <strong>360°</strong>
-            <span>PR & Brand Thinking</span>
-        </div>
-
-        <div class="stat">
-            <strong>24/7</strong>
-            <span>Always-on Momentum</span>
-        </div>
-
-        <div class="stat">
-            <strong>8+</strong>
-            <span>Core Solutions</span>
-        </div>
-
-        <div class="stat">
-            <strong>01</strong>
-            <span>Strategic Partner</span>
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     SERVICES
-========================================================= -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="section-head reveal">
-
-            <div>
-
-                <div class="eyebrow">
-                    WHAT WE DO
-                </div>
-
-                <h2>
-                    Visibility With a Purpose.
-                </h2>
-
-            </div>
-
-            <p>
-                We connect positioning, publicity and creative execution
-                so your attention has somewhere meaningful to go.
-            </p>
-
-        </div>
-
-
-        <div class="grid-3">
-
-            <article class="card service-card reveal">
-
-                <div class="num">
-                    01 / PR
-                </div>
-
-                <h3>
-                    Digital PR
-                </h3>
-
-                <p>
-                    Earned attention, newsroom-ready narratives and
-                    digital visibility built around your business goals.
-                </p>
-
-            </article>
-
-
-            <article class="card service-card reveal">
-
-                <div class="num">
-                    02 / BRAND
-                </div>
-
-                <h3>
-                    Brand Strategy
-                </h3>
-
-                <p>
-                    Sharper positioning and a distinctive point of view
-                    that makes the right audience lean in.
-                </p>
-
-            </article>
-
-
-            <article class="card service-card reveal">
-
-                <div class="num">
-                    03 / MEDIA
-                </div>
-
-                <h3>
-                    Media Relations
-                </h3>
-
-                <p>
-                    Thoughtful outreach and credible relationships that
-                    put your story into conversations that matter.
-                </p>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     CASE STUDIES
-========================================================= -->
-
-<section class="section section-small">
-
-    <div class="container">
-
-        <div class="section-head reveal">
-
-            <div>
-
-                <div class="eyebrow">
-                    SELECTED WORK
-                </div>
-
-                <h2>
-                    Stories That Created Movement.
-                </h2>
-
-            </div>
-
-            <a href="/case-studies.html"
-               class="btn btn-light">
-
-                View Case Studies
+               class="brand"
+               aria-label="PRESSZILA Home">
+
+                <img src="/logo.svg"
+                     alt="PRESSZILA"
+                     class="brand-logo"
+                     width="155"
+                     height="48">
 
             </a>
 
-        </div>
 
+            <!-- MOBILE MENU -->
+            <button class="menu-btn"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-expanded="false"
+                    aria-controls="main-navigation">
 
-        <div class="grid-4">
+                <span></span>
+                <span></span>
+                <span></span>
 
-            <article class="card case-card reveal">
+            </button>
 
-                <div class="case-image">
 
-                    <img src="/case-1.svg"
-                         alt="Launch Visibility"
-                         loading="lazy">
-
-                </div>
-
-                <div class="case-body">
-
-                    <span class="tag">
-                        LAUNCH / CONSUMER
-                    </span>
-
-                    <h3>
-                        Launch Visibility
-                    </h3>
-
-                    <p>
-                        A launch narrative engineered to move beyond
-                        announcement day.
-                    </p>
-
-                    <span class="result">
-                        Demo result: market entry
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="card case-card reveal">
-
-                <div class="case-image">
-
-                    <img src="/case-2.svg"
-                         alt="Brand Authority"
-                         loading="lazy">
-
-                </div>
-
-                <div class="case-body">
-
-                    <span class="tag">
-                        B2B / TECHNOLOGY
-                    </span>
-
-                    <h3>
-                        Brand Authority
-                    </h3>
-
-                    <p>
-                        Executive positioning built to make expertise
-                        visible, useful and credible.
-                    </p>
-
-                    <span class="result">
-                        Demo result: authority lift
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="card case-card reveal">
-
-                <div class="case-image">
-
-                    <img src="/case-3.svg"
-                         alt="Digital Momentum"
-                         loading="lazy">
-
-                </div>
-
-                <div class="case-body">
-
-                    <span class="tag">
-                        DIGITAL / CULTURE
-                    </span>
-
-                    <h3>
-                        Digital Momentum
-                    </h3>
-
-                    <p>
-                        Story systems that turn individual moments into
-                        sustained attention.
-                    </p>
-
-                    <span class="result">
-                        Demo result: momentum
-                    </span>
-
-                </div>
-
-            </article>
-
-
-            <article class="card case-card reveal">
-
-                <div class="case-image">
-
-                    <img src="/case-4.svg"
-                         alt="Reputation Growth"
-                         loading="lazy">
-
-                </div>
-
-                <div class="case-body">
-
-                    <span class="tag">
-                        REPUTATION / LEADERSHIP
-                    </span>
-
-                    <h3>
-                        Reputation Growth
-                    </h3>
-
-                    <p>
-                        Clear, consistent communications for high-stakes
-                        brand moments.
-                    </p>
-
-                    <span class="result">
-                        Demo result: trust
-                    </span>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     TESTIMONIALS
-========================================================= -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="section-head reveal">
-
-            <div>
-
-                <div class="eyebrow">
-                    CLIENT VOICE
-                </div>
-
-                <h2>
-                    Good Work Travels.
-                </h2>
-
-            </div>
-
-            <a href="/testimonials.html"
-               class="btn btn-light">
-
-                All Testimonials
-
-            </a>
-
-        </div>
-
-
-        <div class="grid-3">
-
-            <article class="card testimonial-card reveal">
-
-                <div class="stars"
-                     aria-label="5 out of 5 stars">
-                    ★★★★★
-                </div>
-
-                <div class="quote-mark"
-                     aria-hidden="true">
-                    “
-                </div>
-
-                <p>
-                    PRESSZILA helped us find the sharpest version
-                    of our story and turn it into real momentum.
-                </p>
-
-                <div class="person">
-
-                    <img src="/avatar-1.svg"
-                         alt="Amelia Carter"
-                         loading="lazy">
-
-                    <div>
-
-                        <strong>
-                            Amelia Carter
-                        </strong>
-
-                        <small>
-                            CMO, Northstar Labs
-                        </small>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <article class="card testimonial-card reveal">
-
-                <div class="stars"
-                     aria-label="5 out of 5 stars">
-                    ★★★★★
-                </div>
-
-                <div class="quote-mark"
-                     aria-hidden="true">
-                    “
-                </div>
-
-                <p>
-                    The team brought strategic calm, creative energy
-                    and a genuinely useful media lens.
-                </p>
-
-                <div class="person">
-
-                    <img src="/avatar-2.svg"
-                         alt="Daniel Brooks"
-                         loading="lazy">
-
-                    <div>
-
-                        <strong>
-                            Daniel Brooks
-                        </strong>
-
-                        <small>
-                            Founder, Field & Form
-                        </small>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-
-            <article class="card testimonial-card reveal">
-
-                <div class="stars"
-                     aria-label="5 out of 5 stars">
-                    ★★★★★
-                </div>
-
-                <div class="quote-mark"
-                     aria-hidden="true">
-                    “
-                </div>
-
-                <p>
-                    We stopped trying to say everything and started
-                    saying the right thing — consistently.
-                </p>
-
-                <div class="person">
-
-                    <img src="/avatar-3.svg"
-                         alt="Sofia Malik"
-                         loading="lazy">
-
-                    <div>
-
-                        <strong>
-                            Sofia Malik
-                        </strong>
-
-                        <small>
-                            Brand Director, Lumen
-                        </small>
-
-                    </div>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     BLOG
-========================================================= -->
-
-<section class="section section-small">
-
-    <div class="container">
-
-        <div class="section-head reveal">
-
-            <div>
-
-                <div class="eyebrow">
-                    FROM THE JOURNAL
-                </div>
-
-                <h2>
-                    Ideas Worth Circulating.
-                </h2>
-
-            </div>
-
-            <a href="/blogs.html"
-               class="btn btn-light">
-
-                Read the Blog
-
-            </a>
-
-        </div>
-
-
-        <div class="grid-3">
-
-            <article class="card blog-card reveal">
-
-                <div class="blog-image">
-
-                    <img src="/blog-1.svg"
-                         alt="How Modern Brands Earn Attention"
-                         loading="lazy">
-
-                </div>
-
-                <span class="tag">
-                    PR / 6 MIN
-                </span>
-
-                <h3>
-                    How Modern Brands Earn Attention
-                </h3>
-
-                <p>
-                    Why relevance, timing and a strong point of view
-                    beat volume.
-                </p>
-
-                <a href="/blogs.html"
-                   class="text-link">
-
-                    Read Article
-                    <span aria-hidden="true">→</span>
-
-                </a>
-
-            </article>
-
-
-            <article class="card blog-card reveal">
-
-                <div class="blog-image">
-
-                    <img src="/blog-2.svg"
-                         alt="Building Stories Journalists Want"
-                         loading="lazy">
-
-                </div>
-
-                <span class="tag">
-                    MEDIA / 5 MIN
-                </span>
-
-                <h3>
-                    Building Stories Journalists Want
-                </h3>
-
-                <p>
-                    A practical lens for making your expertise useful
-                    to the newsroom.
-                </p>
-
-                <a href="/blogs.html"
-                   class="text-link">
-
-                    Read Article
-                    <span aria-hidden="true">→</span>
-
-                </a>
-
-            </article>
-
-
-            <article class="card blog-card reveal">
-
-                <div class="blog-image">
-
-                    <img src="/blog-3.svg"
-                         alt="Turning Ideas Into Narratives"
-                         loading="lazy">
-
-                </div>
-
-                <span class="tag">
-                    BRAND / 7 MIN
-                </span>
-
-                <h3>
-                    Turning Ideas Into Narratives
-                </h3>
-
-                <p>
-                    How to turn a good idea into a repeatable
-                    communications platform.
-                </p>
-
-                <a href="/blogs.html"
-                   class="text-link">
-
-                    Read Article
-                    <span aria-hidden="true">→</span>
-
-                </a>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================================================
-     FINAL CTA
-========================================================= -->
-
-<section class="container">
-
-    <div class="cta reveal">
-
-        <div>
-
-            <div class="eyebrow">
-                YOUR NEXT BIG MOMENT
-            </div>
-
-            <h2>
-                Own Your Spotlight.
-            </h2>
-
-            <p>
-                Tell us what you are building, launching or changing.
-                We will help shape the story and strategy around it.
-            </p>
-
-        </div>
-
-        <div class="actions">
-
-            <a href="/contact.html"
-               class="btn btn-primary">
-
-                Contact PRESSZILA
-                <span aria-hidden="true">→</span>
-
-            </a>
-
-            <a href="/about.html"
-               class="btn btn-light">
-
-                Learn About Us
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="site-footer">
-
-    <div class="container">
-
-        <div class="footer-grid">
-
-
-            <!-- BRAND -->
-
-            <div class="footer-brand">
+            <!-- NAVIGATION -->
+            <nav id="main-navigation"
+                 class="nav-links"
+                 aria-label="Main navigation">
 
                 <a href="/home.html"
-                   aria-label="PRESSZILA Home">
-
-                    <img src="/logo.svg"
-                         alt="PRESSZILA"
-                         class="footer-logo"
-                         width="155"
-                         height="50">
-
-                </a>
-
-                <p>
-                    Digital PR, brand strategy and storytelling built
-                    to make ambitious brands impossible to ignore.
-                </p>
-
-
-                <!-- SOCIAL MEDIA -->
-
-                <div class="socials">
-
-
-                    <!-- FACEBOOK -->
-
-                    <a href="https://www.facebook.com/share/1Jgj4YyDNM/"
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="PRESSZILA on Facebook">
-
-                        <svg viewBox="0 0 24 24"
-                             aria-hidden="true">
-
-                            <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z">
-                            </path>
-
-                        </svg>
-
-                    </a>
-
-
-                    <!-- INSTAGRAM -->
-
-                    <a href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw=="
-                       target="_blank"
-                       rel="noopener noreferrer"
-                       aria-label="PRESSZILA on Instagram">
-
-                        <svg viewBox="0 0 24 24"
-                             class="instagram-icon"
-                             aria-hidden="true">
-
-                            <rect x="3"
-                                  y="3"
-                                  width="18"
-                                  height="18"
-                                  rx="5">
-                            </rect>
-
-                            <circle cx="12"
-                                    cy="12"
-                                    r="4">
-                            </circle>
-
-                            <circle cx="17.5"
-                                    cy="6.5"
-                                    r="1"
-                                    class="instagram-dot">
-                            </circle>
-
-                        </svg>
-
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- EXPLORE -->
-
-            <div class="footer-col">
-
-                <h4>
-                    Explore
-                </h4>
-
-                <a href="/home.html">
+                   class="active">
                     Home
                 </a>
 
@@ -1337,21 +283,6 @@
                     Case Studies
                 </a>
 
-            </div>
-
-
-            <!-- CONNECT -->
-
-            <div class="footer-col">
-
-                <h4>
-                    Connect
-                </h4>
-
-                <a href="/contact.html">
-                    Contact Us
-                </a>
-
                 <a href="/testimonials.html">
                     Testimonials
                 </a>
@@ -1360,117 +291,1084 @@
                     Blogs
                 </a>
 
+                <a href="/contact.html">
+                    Contact Us
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="container">
+
+                <div class="hero-content">
+
+                    <div class="hero-copy">
+
+                        <span class="eyebrow">
+                            DIGITAL PR · BRAND STRATEGY · MEDIA
+                        </span>
+
+                        <h1>
+                            Make Your Brand
+                            <span>Impossible to Ignore.</span>
+                        </h1>
+
+                        <p>
+                            PRESSZILA helps ambitious brands earn attention,
+                            build authority and become impossible to overlook
+                            through digital PR, strategic storytelling and
+                            meaningful media relationships.
+                        </p>
+
+                        <div class="hero-actions">
+
+                            <a href="/contact.html"
+                               class="btn btn-primary">
+                                Let's Talk
+                                <span aria-hidden="true">→</span>
+                            </a>
+
+                            <a href="/solutions.html"
+                               class="btn btn-secondary">
+                                Explore Solutions
+                                <span aria-hidden="true">→</span>
+                            </a>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-visual"
+                         aria-hidden="true">
+
+                        <div class="hero-card hero-card-main">
+
+                            <span>BRAND VISIBILITY</span>
+
+                            <strong>
+                                +247%
+                            </strong>
+
+                            <small>
+                                Average visibility growth
+                            </small>
+
+                        </div>
+
+                        <div class="hero-card hero-card-small">
+
+                            <span>MEDIA REACH</span>
+
+                            <strong>
+                                8.4M+
+                            </strong>
+
+                        </div>
+
+                        <div class="hero-orbit"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             STATS
+             ===================================================== -->
+
+        <section class="stats-section">
+
+            <div class="container">
+
+                <div class="stats-grid">
+
+                    <div class="stat-item">
+                        <strong>8+</strong>
+                        <span>Core Services</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <strong>360°</strong>
+                        <span>Brand Thinking</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <strong>24/7</strong>
+                        <span>Always-On Mindset</span>
+                    </div>
+
+                    <div class="stat-item">
+                        <strong>01</strong>
+                        <span>Clear Partner</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             SERVICES
+             ===================================================== -->
+
+        <section class="section services-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        WHAT WE DO
+                    </span>
+
+                    <h2>
+                        Built to Put Your Brand
+                        <span>in the Spotlight.</span>
+                    </h2>
+
+                    <p>
+                        From strategy to storytelling, we build the visibility
+                        your brand needs to earn attention and stay relevant.
+                    </p>
+
+                </div>
+
+
+                <div class="cards-grid services-grid">
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            01
+                        </span>
+
+                        <h3>
+                            Digital PR
+                        </h3>
+
+                        <p>
+                            Strategic campaigns that put your brand in front
+                            of the right audiences and publications.
+                        </p>
+
+                        <a href="/solutions.html">
+                            Explore Service →
+                        </a>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            02
+                        </span>
+
+                        <h3>
+                            Media Relations
+                        </h3>
+
+                        <p>
+                            Build meaningful relationships with journalists,
+                            editors and influential media voices.
+                        </p>
+
+                        <a href="/solutions.html">
+                            Explore Service →
+                        </a>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            03
+                        </span>
+
+                        <h3>
+                            Brand Strategy
+                        </h3>
+
+                        <p>
+                            Positioning and messaging designed to give your
+                            brand a clear and memorable point of view.
+                        </p>
+
+                        <a href="/solutions.html">
+                            Explore Service →
+                        </a>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            04
+                        </span>
+
+                        <h3>
+                            Content & Storytelling
+                        </h3>
+
+                        <p>
+                            Stories that turn ideas, products and expertise
+                            into content people actually want to remember.
+                        </p>
+
+                        <a href="/solutions.html">
+                            Explore Service →
+                        </a>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            05
+                        </span>
+
+                        <h3>
+                            Reputation
+                        </h3>
+
+                        <p>
+                            Protect and strengthen your brand reputation
+                            across every important touchpoint.
+                        </p>
+
+                        <a href="/solutions.html">
+                            Explore Service →
+                        </a>
+
+                    </article>
+
+
+                    <article class="service-card">
+
+                        <span class="service-number">
+                            06
+                        </span>
+
+                        <h3>
+                            Creator Relations
+                        </h3>
+
+                        <p>
+                            Connect your brand with creators and voices that
+                            naturally influence your audience.
+                        </p>
+
+                        <a href="/solutions.html">
+                            Explore Service →
+                        </a>
+
+                    </article>
+
+                </div>
+
+
+                <div class="section-link">
+
+                    <a href="/solutions.html"
+                       class="text-link">
+                        View All Solutions
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             CASE STUDIES
+             ===================================================== -->
+
+        <section class="section case-section">
+
+            <div class="container">
+
+                <div class="section-heading section-heading-row">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            SELECTED WORK
+                        </span>
+
+                        <h2>
+                            Stories That
+                            <span>Made an Impact.</span>
+                        </h2>
+
+                    </div>
+
+                    <a href="/case-studies.html"
+                       class="text-link">
+                        View Case Studies →
+                    </a>
+
+                </div>
+
+
+                <div class="cases-grid">
+
+                    <article class="case-card">
+
+                        <div class="case-image">
+
+                            <img src="/case-1.svg"
+                                 alt="PRESSZILA case study"
+                                 loading="lazy">
+
+                        </div>
+
+                        <div class="case-content">
+
+                            <span>
+                                DIGITAL PR
+                            </span>
+
+                            <h3>
+                                From Unknown to Unmissable
+                            </h3>
+
+                            <p>
+                                A strategic visibility campaign built to
+                                introduce a growing brand to a wider audience.
+                            </p>
+
+                            <a href="/case-studies.html">
+                                View Story →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="case-card">
+
+                        <div class="case-image">
+
+                            <img src="/case-2.svg"
+                                 alt="PRESSZILA case study"
+                                 loading="lazy">
+
+                        </div>
+
+                        <div class="case-content">
+
+                            <span>
+                                BRAND STRATEGY
+                            </span>
+
+                            <h3>
+                                Turning Positioning Into Power
+                            </h3>
+
+                            <p>
+                                Reframing the brand story to create stronger
+                                recognition and market authority.
+                            </p>
+
+                            <a href="/case-studies.html">
+                                View Story →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="case-card">
+
+                        <div class="case-image">
+
+                            <img src="/case-3.svg"
+                                 alt="PRESSZILA case study"
+                                 loading="lazy">
+
+                        </div>
+
+                        <div class="case-content">
+
+                            <span>
+                                MEDIA
+                            </span>
+
+                            <h3>
+                                The Story Journalists Wanted
+                            </h3>
+
+                            <p>
+                                Creating a media-first narrative that generated
+                                meaningful conversations and coverage.
+                            </p>
+
+                            <a href="/case-studies.html">
+                                View Story →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="case-card">
+
+                        <div class="case-image">
+
+                            <img src="/case-4.svg"
+                                 alt="PRESSZILA case study"
+                                 loading="lazy">
+
+                        </div>
+
+                        <div class="case-content">
+
+                            <span>
+                                CAMPAIGN
+                            </span>
+
+                            <h3>
+                                Launching With Momentum
+                            </h3>
+
+                            <p>
+                                A launch campaign designed to create attention
+                                before, during and after the big moment.
+                            </p>
+
+                            <a href="/case-studies.html">
+                                View Story →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             TESTIMONIALS
+             ===================================================== -->
+
+        <section class="section testimonials-section">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <span class="eyebrow">
+                        CLIENT VOICES
+                    </span>
+
+                    <h2>
+                        Don't Just Take
+                        <span>Our Word for It.</span>
+                    </h2>
+
+                </div>
+
+
+                <div class="testimonials-grid">
+
+                    <article class="testimonial-card">
+
+                        <div class="testimonial-person">
+
+                            <img src="/avatar-1.svg"
+                                 alt="Client testimonial"
+                                 loading="lazy">
+
+                            <div>
+                                <strong>
+                                    Sarah Mitchell
+                                </strong>
+
+                                <span>
+                                    Founder & CEO
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p>
+                            “PRESSZILA helped us find the story inside our
+                            business and turn it into something people wanted
+                            to talk about.”
+                        </p>
+
+                    </article>
+
+
+                    <article class="testimonial-card">
+
+                        <div class="testimonial-person">
+
+                            <img src="/avatar-2.svg"
+                                 alt="Client testimonial"
+                                 loading="lazy">
+
+                            <div>
+                                <strong>
+                                    Daniel Carter
+                                </strong>
+
+                                <span>
+                                    Marketing Director
+                                </span>
+                            </div>
+
+                        </div>
+
+                        <p>
+                            “The team brought strategy, creativity and speed
+                            together in a way we had not experienced before.”
+                        </p>
+
+                    </article>
+
+
+                    <article class="testimonial-card">
+
+                        <div class="testimonial-person">
+
+                            <img src="/avatar-3.svg"
+                                 alt="Client testimonial"
+                                 loading="lazy">
+
+                            <div>
+                                <strong>
+                                    Olivia Brooks
+                                </strong>
+
+                                <span>
+                                    Brand Director
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <p>
+                            “Our positioning became clearer, our message became
+                            stronger and our visibility grew significantly.”
+                        </p>
+
+                    </article>
+
+
+                    <article class="testimonial-card">
+
+                        <div class="testimonial-person">
+
+                            <img src="/avatar-4.svg"
+                                 alt="Client testimonial"
+                                 loading="lazy">
+
+                            <div>
+                                <strong>
+                                    Michael Reed
+                                </strong>
+
+                                <span>
+                                    Founder
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                        <p>
+                            “PRESSZILA feels less like an agency and more like
+                            a strategic partner invested in our success.”
+                        </p>
+
+                    </article>
+
+                </div>
+
+
+                <div class="section-link">
+
+                    <a href="/testimonials.html"
+                       class="text-link">
+                        See All Testimonials →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             BLOG
+             ===================================================== -->
+
+        <section class="section blog-section">
+
+            <div class="container">
+
+                <div class="section-heading section-heading-row">
+
+                    <div>
+
+                        <span class="eyebrow">
+                            INSIGHTS
+                        </span>
+
+                        <h2>
+                            Ideas Worth
+                            <span>Sharing.</span>
+                        </h2>
+
+                    </div>
+
+                    <a href="/blogs.html"
+                       class="text-link">
+                        View All Blogs →
+                    </a>
+
+                </div>
+
+
+                <div class="blog-grid">
+
+                    <article class="blog-card">
+
+                        <a href="/blogs.html"
+                           class="blog-image-link">
+
+                            <img src="/blog-1.svg"
+                                 alt="How Modern Brands Earn Attention"
+                                 class="blog-img"
+                                 loading="lazy">
+
+                        </a>
+
+                        <div class="blog-content">
+
+                            <div class="blog-meta">
+                                <span>PR</span>
+                                <span>12 Aug 2026</span>
+                                <span>6 min</span>
+                            </div>
+
+                            <h3>
+                                How Modern Brands Earn Attention
+                            </h3>
+
+                            <p>
+                                Why visibility today is about more than simply
+                                being seen.
+                            </p>
+
+                            <a href="/blogs.html">
+                                Read More →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="blog-card">
+
+                        <a href="/blogs.html"
+                           class="blog-image-link">
+
+                            <img src="/blog-2.svg"
+                                 alt="Building Stories Journalists Want"
+                                 class="blog-img"
+                                 loading="lazy">
+
+                        </a>
+
+                        <div class="blog-content">
+
+                            <div class="blog-meta">
+                                <span>MEDIA</span>
+                                <span>05 Aug 2026</span>
+                                <span>5 min</span>
+                            </div>
+
+                            <h3>
+                                Building Stories Journalists Want
+                            </h3>
+
+                            <p>
+                                How to turn a brand message into a story worth
+                                covering.
+                            </p>
+
+                            <a href="/blogs.html">
+                                Read More →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+
+                    <article class="blog-card">
+
+                        <a href="/blogs.html"
+                           class="blog-image-link">
+
+                            <img src="/blog-3.svg"
+                                 alt="Turning Ideas Into Narratives"
+                                 class="blog-img"
+                                 loading="lazy">
+
+                        </a>
+
+                        <div class="blog-content">
+
+                            <div class="blog-meta">
+                                <span>BRAND</span>
+                                <span>28 Jul 2026</span>
+                                <span>7 min</span>
+                            </div>
+
+                            <h3>
+                                Turning Ideas Into Narratives
+                            </h3>
+
+                            <p>
+                                The art of creating a brand story people can
+                                understand, remember and repeat.
+                            </p>
+
+                            <a href="/blogs.html">
+                                Read More →
+                            </a>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =====================================================
+             FINAL CTA
+             ===================================================== -->
+
+        <section class="section final-cta">
+
+            <div class="container">
+
+                <div class="cta-box">
+
+                    <span class="eyebrow">
+                        READY TO BE SEEN?
+                    </span>
+
+                    <h2>
+                        Your Brand Has a Story.
+                        <span>Let's Make It Impossible to Ignore.</span>
+                    </h2>
+
+                    <p>
+                        Tell us where you want to go. We'll help you build
+                        the strategy, story and visibility to get there.
+                    </p>
+
+                    <div class="cta-actions">
+
+                        <a href="/contact.html"
+                           class="btn btn-primary">
+                            Contact Us
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                        <a href="/solutions.html"
+                           class="btn btn-secondary">
+                            Explore Solutions
+                            <span aria-hidden="true">→</span>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         FOOTER
+         ========================================================= -->
+
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-grid">
+
+                <div class="footer-brand">
+
+                    <a href="/home.html"
+                       aria-label="PRESSZILA Home">
+
+                        <img src="/logo.svg"
+                             alt="PRESSZILA"
+                             class="footer-logo"
+                             width="155"
+                             height="50">
+
+                    </a>
+
+                    <p>
+                        Digital PR, brand strategy and storytelling built to
+                        make ambitious brands impossible to ignore.
+                    </p>
+
+
+                    <div class="socials">
+
+                        <!-- FACEBOOK -->
+                        <a href="https://www.facebook.com/share/1Jgj4YyDNM/"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="PRESSZILA on Facebook">
+
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"></path>
+
+                            </svg>
+
+                        </a>
+
+
+                        <!-- INSTAGRAM -->
+                        <a href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw=="
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           aria-label="PRESSZILA on Instagram">
+
+                            <svg viewBox="0 0 24 24"
+                                 class="instagram-icon"
+                                 aria-hidden="true">
+
+                                <rect x="3"
+                                      y="3"
+                                      width="18"
+                                      height="18"
+                                      rx="5">
+                                </rect>
+
+                                <circle cx="12"
+                                        cy="12"
+                                        r="4">
+                                </circle>
+
+                                <circle cx="17.5"
+                                        cy="6.5"
+                                        r="1"
+                                        class="instagram-dot">
+                                </circle>
+
+                            </svg>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>
+                        Explore
+                    </h4>
+
+                    <a href="/home.html">
+                        Home
+                    </a>
+
+                    <a href="/about.html">
+                        About
+                    </a>
+
+                    <a href="/solutions.html">
+                        Solutions
+                    </a>
+
+                    <a href="/case-studies.html">
+                        Case Studies
+                    </a>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>
+                        Connect
+                    </h4>
+
+                    <a href="/contact.html">
+                        Contact Us
+                    </a>
+
+                    <a href="/testimonials.html">
+                        Testimonials
+                    </a>
+
+                    <a href="/blogs.html">
+                        Blogs
+                    </a>
+
+                </div>
+
+
+                <div class="footer-col">
+
+                    <h4>
+                        Services
+                    </h4>
+
+                    <a href="/solutions.html">
+                        Digital PR
+                    </a>
+
+                    <a href="/solutions.html">
+                        Brand Strategy
+                    </a>
+
+                    <a href="/solutions.html">
+                        Media Relations
+                    </a>
+
+                    <a href="/solutions.html">
+                        Reputation
+                    </a>
+
+                </div>
+
             </div>
 
 
-            <!-- SERVICES -->
+            <div class="footer-bottom">
 
-            <div class="footer-col">
+                <span>
+                    © 2026 PRESSZILA. All rights reserved.
+                </span>
 
-                <h4>
-                    Services
-                </h4>
-
-                <a href="/solutions.html">
-                    Digital PR
-                </a>
-
-                <a href="/solutions.html">
-                    Brand Strategy
-                </a>
-
-                <a href="/solutions.html">
-                    Media Relations
-                </a>
-
-                <a href="/solutions.html">
-                    Reputation
-                </a>
+                <span>
+                    Built for ambitious brands.
+                </span>
 
             </div>
 
         </div>
 
-
-        <!-- FOOTER BOTTOM -->
-
-        <div class="footer-bottom">
-
-            <span>
-                © 2026 PRESSZILA. All rights reserved.
-            </span>
-
-            <span>
-                Built for ambitious brands.
-            </span>
-
-        </div>
-
-    </div>
-
-</footer>
+    </footer>
 
 
+    <!-- =========================================================
+         MOBILE MENU JS
+         ========================================================= -->
 
-<!-- =========================================================
-     MOBILE MENU SCRIPT
-========================================================= -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+            const menuButton = document.querySelector(".menu-btn");
+            const navigation = document.querySelector(".nav-links");
 
-        const menuButton = document.querySelector(".menu-btn");
-        const navigation = document.querySelector(".nav-links");
-
-        if (!menuButton || !navigation) return;
-
-        menuButton.addEventListener("click", function () {
-
-            const isOpen =
-                navigation.classList.toggle("open");
-
-            menuButton.setAttribute(
-                "aria-expanded",
-                isOpen ? "true" : "false"
-            );
-
-            menuButton.setAttribute(
-                "aria-label",
-                isOpen
-                    ? "Close navigation"
-                    : "Open navigation"
-            );
-
-        });
+            if (!menuButton || !navigation) return;
 
 
-        /* Close menu after clicking a link */
+            menuButton.addEventListener("click", function () {
 
-        navigation.querySelectorAll("a").forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-                navigation.classList.remove("open");
+                const isOpen =
+                    navigation.classList.toggle("open");
 
                 menuButton.setAttribute(
                     "aria-expanded",
-                    "false"
+                    isOpen ? "true" : "false"
                 );
 
                 menuButton.setAttribute(
                     "aria-label",
-                    "Open navigation"
+                    isOpen
+                        ? "Close navigation"
+                        : "Open navigation"
                 );
 
             });
 
+
+            navigation
+                .querySelectorAll("a")
+                .forEach(function (link) {
+
+                    link.addEventListener("click", function () {
+
+                        navigation.classList.remove("open");
+
+                        menuButton.setAttribute(
+                            "aria-expanded",
+                            "false"
+                        );
+
+                        menuButton.setAttribute(
+                            "aria-label",
+                            "Open navigation"
+                        );
+
+                    });
+
+                });
+
         });
+    </script>
 
-    });
-</script>
-
-
-<script src="/script.js"></script>
+    <script src="/script.js"></script>
 
 </body>
 </html>

@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="utf-8">
 
     <meta name="viewport"
@@ -15,9 +16,16 @@
     <link rel="stylesheet" href="/style.css">
 
     <title>Contact Us | PRESSZILA</title>
+
 </head>
 
-<body>
+
+<body class="contact-page">
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
 <header class="site-header">
 
@@ -35,6 +43,7 @@
 
         </a>
 
+
         <button class="menu-btn"
                 type="button"
                 aria-label="Open navigation"
@@ -46,6 +55,7 @@
             <span></span>
 
         </button>
+
 
         <nav id="main-navigation"
              class="nav-links"
@@ -63,7 +73,10 @@
 
             <a href="/blogs.html">Blogs</a>
 
-            <a href="/contact.html" class="active">Contact Us</a>
+            <a href="/contact.html"
+               class="active">
+                Contact Us
+            </a>
 
         </nav>
 
@@ -72,9 +85,15 @@
 </header>
 
 
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
 <main>
 
-    <!-- PAGE HERO -->
+
+    <!-- HERO -->
 
     <section class="page-hero">
 
@@ -90,8 +109,9 @@
             </h1>
 
             <p>
-                Have a campaign, launch, brand story or reputation challenge?
-                Tell us what you're building and our team will get back to you.
+                Have a campaign, launch, brand story or reputation
+                challenge? Tell us what you're building and our team
+                will get back to you.
             </p>
 
         </div>
@@ -99,15 +119,17 @@
     </section>
 
 
-    <!-- CONTACT SECTION -->
 
-    <section class="section contact-section">
+    <!-- CONTACT -->
+
+    <section class="section">
 
         <div class="container">
 
             <div class="contact-grid">
 
-                <!-- LEFT SIDE -->
+
+                <!-- LEFT -->
 
                 <div class="contact-info">
 
@@ -119,7 +141,7 @@
                         Let's start a conversation.
                     </h2>
 
-                    <p class="contact-intro">
+                    <p>
                         Whether you need strategic PR, media attention,
                         brand positioning or creative storytelling,
                         we're ready to help.
@@ -189,7 +211,7 @@
                             <p>
                                 We combine strategy, storytelling and
                                 media relationships to create meaningful
-                                visibility for brands that want to grow.
+                                visibility for ambitious brands.
                             </p>
 
                         </div>
@@ -199,7 +221,8 @@
                 </div>
 
 
-                <!-- RIGHT SIDE FORM -->
+
+                <!-- FORM -->
 
                 <div class="form-card">
 
@@ -221,8 +244,7 @@
 
 
                     <form action="#"
-                          method="post"
-                          class="contact-form">
+                          method="post">
 
 
                         <div class="form-grid">
@@ -247,6 +269,7 @@
                             </div>
 
 
+
                             <!-- EMAIL -->
 
                             <div class="field">
@@ -266,6 +289,7 @@
                             </div>
 
 
+
                             <!-- PHONE -->
 
                             <div class="field full">
@@ -274,13 +298,13 @@
                                     Phone Number
                                 </label>
 
+
                                 <div class="phone-group">
 
 
-                                    <!-- CUSTOM COUNTRY SELECT -->
-
                                     <div class="country-picker"
                                          id="country-picker">
+
 
                                         <button
                                             type="button"
@@ -289,6 +313,7 @@
                                             aria-haspopup="listbox"
                                             aria-expanded="false">
 
+
                                             <span class="country-selected-inner">
 
                                                 <img
@@ -296,17 +321,16 @@
                                                     src="https://flagcdn.com/w40/pk.png"
                                                     alt="Pakistan">
 
-                                                <span
-                                                    id="selected-country">
+                                                <span id="selected-country">
                                                     Pakistan
                                                 </span>
 
-                                                <span
-                                                    id="selected-code">
+                                                <span id="selected-code">
                                                     +92
                                                 </span>
 
                                             </span>
+
 
                                             <span class="country-arrow">
                                                 ▾
@@ -315,20 +339,17 @@
                                         </button>
 
 
-                                        <!-- COUNTRY LIST -->
 
-                                        <div
-                                            class="country-dropdown"
-                                            id="country-dropdown"
-                                            role="listbox">
+                                        <div class="country-dropdown"
+                                             id="country-dropdown"
+                                             role="listbox">
 
 
                                             <button type="button"
                                                     class="country-option selected"
                                                     data-country="Pakistan"
                                                     data-code="+92"
-                                                    data-flag="pk"
-                                                    role="option">
+                                                    data-flag="pk">
 
                                                 <img src="https://flagcdn.com/w40/pk.png"
                                                      alt="Pakistan">
@@ -344,8 +365,7 @@
                                                     class="country-option"
                                                     data-country="United States"
                                                     data-code="+1"
-                                                    data-flag="us"
-                                                    role="option">
+                                                    data-flag="us">
 
                                                 <img src="https://flagcdn.com/w40/us.png"
                                                      alt="United States">
@@ -361,8 +381,7 @@
                                                     class="country-option"
                                                     data-country="Canada"
                                                     data-code="+1"
-                                                    data-flag="ca"
-                                                    role="option">
+                                                    data-flag="ca">
 
                                                 <img src="https://flagcdn.com/w40/ca.png"
                                                      alt="Canada">
@@ -378,8 +397,7 @@
                                                     class="country-option"
                                                     data-country="United Kingdom"
                                                     data-code="+44"
-                                                    data-flag="gb"
-                                                    role="option">
+                                                    data-flag="gb">
 
                                                 <img src="https://flagcdn.com/w40/gb.png"
                                                      alt="United Kingdom">
@@ -395,8 +413,7 @@
                                                     class="country-option"
                                                     data-country="United Arab Emirates"
                                                     data-code="+971"
-                                                    data-flag="ae"
-                                                    role="option">
+                                                    data-flag="ae">
 
                                                 <img src="https://flagcdn.com/w40/ae.png"
                                                      alt="United Arab Emirates">
@@ -412,8 +429,7 @@
                                                     class="country-option"
                                                     data-country="Saudi Arabia"
                                                     data-code="+966"
-                                                    data-flag="sa"
-                                                    role="option">
+                                                    data-flag="sa">
 
                                                 <img src="https://flagcdn.com/w40/sa.png"
                                                      alt="Saudi Arabia">
@@ -429,8 +445,7 @@
                                                     class="country-option"
                                                     data-country="Qatar"
                                                     data-code="+974"
-                                                    data-flag="qa"
-                                                    role="option">
+                                                    data-flag="qa">
 
                                                 <img src="https://flagcdn.com/w40/qa.png"
                                                      alt="Qatar">
@@ -446,8 +461,7 @@
                                                     class="country-option"
                                                     data-country="Kuwait"
                                                     data-code="+965"
-                                                    data-flag="kw"
-                                                    role="option">
+                                                    data-flag="kw">
 
                                                 <img src="https://flagcdn.com/w40/kw.png"
                                                      alt="Kuwait">
@@ -463,8 +477,7 @@
                                                     class="country-option"
                                                     data-country="Oman"
                                                     data-code="+968"
-                                                    data-flag="om"
-                                                    role="option">
+                                                    data-flag="om">
 
                                                 <img src="https://flagcdn.com/w40/om.png"
                                                      alt="Oman">
@@ -480,8 +493,7 @@
                                                     class="country-option"
                                                     data-country="Bahrain"
                                                     data-code="+973"
-                                                    data-flag="bh"
-                                                    role="option">
+                                                    data-flag="bh">
 
                                                 <img src="https://flagcdn.com/w40/bh.png"
                                                      alt="Bahrain">
@@ -497,8 +509,7 @@
                                                     class="country-option"
                                                     data-country="India"
                                                     data-code="+91"
-                                                    data-flag="in"
-                                                    role="option">
+                                                    data-flag="in">
 
                                                 <img src="https://flagcdn.com/w40/in.png"
                                                      alt="India">
@@ -514,8 +525,7 @@
                                                     class="country-option"
                                                     data-country="Australia"
                                                     data-code="+61"
-                                                    data-flag="au"
-                                                    role="option">
+                                                    data-flag="au">
 
                                                 <img src="https://flagcdn.com/w40/au.png"
                                                      alt="Australia">
@@ -531,8 +541,7 @@
                                                     class="country-option"
                                                     data-country="Germany"
                                                     data-code="+49"
-                                                    data-flag="de"
-                                                    role="option">
+                                                    data-flag="de">
 
                                                 <img src="https://flagcdn.com/w40/de.png"
                                                      alt="Germany">
@@ -548,8 +557,7 @@
                                                     class="country-option"
                                                     data-country="France"
                                                     data-code="+33"
-                                                    data-flag="fr"
-                                                    role="option">
+                                                    data-flag="fr">
 
                                                 <img src="https://flagcdn.com/w40/fr.png"
                                                      alt="France">
@@ -563,44 +571,9 @@
 
                                             <button type="button"
                                                     class="country-option"
-                                                    data-country="Italy"
-                                                    data-code="+39"
-                                                    data-flag="it"
-                                                    role="option">
-
-                                                <img src="https://flagcdn.com/w40/it.png"
-                                                     alt="Italy">
-
-                                                <span>Italy</span>
-
-                                                <strong>+39</strong>
-
-                                            </button>
-
-
-                                            <button type="button"
-                                                    class="country-option"
-                                                    data-country="Spain"
-                                                    data-code="+34"
-                                                    data-flag="es"
-                                                    role="option">
-
-                                                <img src="https://flagcdn.com/w40/es.png"
-                                                     alt="Spain">
-
-                                                <span>Spain</span>
-
-                                                <strong>+34</strong>
-
-                                            </button>
-
-
-                                            <button type="button"
-                                                    class="country-option"
                                                     data-country="Turkey"
                                                     data-code="+90"
-                                                    data-flag="tr"
-                                                    role="option">
+                                                    data-flag="tr">
 
                                                 <img src="https://flagcdn.com/w40/tr.png"
                                                      alt="Turkey">
@@ -612,103 +585,15 @@
                                             </button>
 
 
-                                            <button type="button"
-                                                    class="country-option"
-                                                    data-country="Malaysia"
-                                                    data-code="+60"
-                                                    data-flag="my"
-                                                    role="option">
-
-                                                <img src="https://flagcdn.com/w40/my.png"
-                                                     alt="Malaysia">
-
-                                                <span>Malaysia</span>
-
-                                                <strong>+60</strong>
-
-                                            </button>
-
-
-                                            <button type="button"
-                                                    class="country-option"
-                                                    data-country="Singapore"
-                                                    data-code="+65"
-                                                    data-flag="sg"
-                                                    role="option">
-
-                                                <img src="https://flagcdn.com/w40/sg.png"
-                                                     alt="Singapore">
-
-                                                <span>Singapore</span>
-
-                                                <strong>+65</strong>
-
-                                            </button>
-
-
-                                            <button type="button"
-                                                    class="country-option"
-                                                    data-country="Japan"
-                                                    data-code="+81"
-                                                    data-flag="jp"
-                                                    role="option">
-
-                                                <img src="https://flagcdn.com/w40/jp.png"
-                                                     alt="Japan">
-
-                                                <span>Japan</span>
-
-                                                <strong>+81</strong>
-
-                                            </button>
-
-
-                                            <button type="button"
-                                                    class="country-option"
-                                                    data-country="China"
-                                                    data-code="+86"
-                                                    data-flag="cn"
-                                                    role="option">
-
-                                                <img src="https://flagcdn.com/w40/cn.png"
-                                                     alt="China">
-
-                                                <span>China</span>
-
-                                                <strong>+86</strong>
-
-                                            </button>
-
-
-                                            <button type="button"
-                                                    class="country-option"
-                                                    data-country="South Africa"
-                                                    data-code="+27"
-                                                    data-flag="za"
-                                                    role="option">
-
-                                                <img src="https://flagcdn.com/w40/za.png"
-                                                     alt="South Africa">
-
-                                                <span>South Africa</span>
-
-                                                <strong>+27</strong>
-
-                                            </button>
-
-
                                         </div>
 
                                     </div>
 
 
-                                    <!-- PHONE INPUT -->
-
                                     <input
                                         type="tel"
                                         id="phone"
                                         name="phone"
-                                        class="phone-input"
                                         placeholder="300 1234567"
                                         autocomplete="tel-national"
                                         inputmode="tel"
@@ -726,6 +611,7 @@
                             </div>
 
 
+
                             <!-- COMPANY -->
 
                             <div class="field">
@@ -738,10 +624,10 @@
                                     type="text"
                                     id="company"
                                     name="company"
-                                    placeholder="Company name"
-                                    autocomplete="organization">
+                                    placeholder="Company name">
 
                             </div>
+
 
 
                             <!-- SERVICE -->
@@ -752,50 +638,36 @@
                                     What do you need?
                                 </label>
 
-                                <select
-                                    id="service"
-                                    name="service"
-                                    required>
+                                <select id="service"
+                                        name="service"
+                                        required>
 
-                                    <option value="" selected disabled>
+                                    <option value=""
+                                            selected
+                                            disabled>
                                         Select a service
                                     </option>
 
-                                    <option value="digital-pr">
-                                        Digital PR
-                                    </option>
+                                    <option>Digital PR</option>
 
-                                    <option value="media-relations">
-                                        Media Relations
-                                    </option>
+                                    <option>Media Relations</option>
 
-                                    <option value="brand-strategy">
-                                        Brand Strategy
-                                    </option>
+                                    <option>Brand Strategy</option>
 
-                                    <option value="content-storytelling">
-                                        Content & Storytelling
-                                    </option>
+                                    <option>Content & Storytelling</option>
 
-                                    <option value="reputation">
-                                        Reputation Management
-                                    </option>
+                                    <option>Reputation Management</option>
 
-                                    <option value="creator-relations">
-                                        Creator Relations
-                                    </option>
+                                    <option>Creator Relations</option>
 
-                                    <option value="launch-campaigns">
-                                        Launch Campaigns
-                                    </option>
+                                    <option>Launch Campaigns</option>
 
-                                    <option value="social-creative">
-                                        Social & Creative
-                                    </option>
+                                    <option>Social & Creative</option>
 
                                 </select>
 
                             </div>
+
 
 
                             <!-- MESSAGE -->
@@ -815,7 +687,8 @@
                             </div>
 
 
-                            <!-- SUBMIT -->
+
+                            <!-- BUTTON -->
 
                             <div class="field full">
 
@@ -830,6 +703,7 @@
 
                             </div>
 
+
                         </div>
 
                     </form>
@@ -842,51 +716,13 @@
 
     </section>
 
-
-    <!-- FINAL CTA -->
-
-    <section class="section final-cta">
-
-        <div class="container">
-
-            <div class="cta-box">
-
-                <div>
-
-                    <span class="eyebrow">
-                        READY TO MOVE?
-                    </span>
-
-                    <h2>
-                        Your next big story
-                        starts here.
-                    </h2>
-
-                    <p>
-                        Let's turn your ideas into attention,
-                        credibility and real brand momentum.
-                    </p>
-
-                </div>
-
-                <a href="/solutions.html"
-                   class="cta-button">
-
-                    Explore Solutions
-                    <span>→</span>
-
-                </a>
-
-            </div>
-
-        </div>
-
-    </section>
-
 </main>
 
 
-<!-- FOOTER -->
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
 
 <footer class="site-footer">
 
@@ -908,6 +744,7 @@
 
                 </a>
 
+
                 <p>
                     Digital PR, brand strategy and storytelling built
                     to make ambitious brands impossible to ignore.
@@ -916,15 +753,12 @@
 
                 <div class="socials">
 
-                    <!-- FACEBOOK -->
-
                     <a href="https://www.facebook.com/share/1Jgj4YyDNM/"
                        target="_blank"
                        rel="noopener noreferrer"
                        aria-label="PRESSZILA on Facebook">
 
-                        <svg viewBox="0 0 24 24"
-                             aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
 
                             <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"></path>
 
@@ -933,16 +767,13 @@
                     </a>
 
 
-                    <!-- INSTAGRAM -->
-
                     <a href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw=="
                        target="_blank"
                        rel="noopener noreferrer"
                        aria-label="PRESSZILA on Instagram">
 
                         <svg viewBox="0 0 24 24"
-                             class="instagram-icon"
-                             aria-hidden="true">
+                             class="instagram-icon">
 
                             <rect x="3"
                                   y="3"
@@ -1030,14 +861,17 @@
 </footer>
 
 
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
 
-    /* =========================
-       MOBILE MENU
-    ========================= */
+    /* MOBILE MENU */
 
     const menuButton =
         document.querySelector(".menu-btn");
@@ -1068,8 +902,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        navigation
-            .querySelectorAll("a")
+        navigation.querySelectorAll("a")
             .forEach(function (link) {
 
                 link.addEventListener("click", function () {
@@ -1093,9 +926,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* =========================
-       COUNTRY SELECTOR
-    ========================= */
+
+    /* COUNTRY DROPDOWN */
 
     const picker =
         document.getElementById("country-picker");
@@ -1118,7 +950,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const hiddenCode =
         document.getElementById("country-code");
 
-    const phoneInput =
+    const phone =
         document.getElementById("phone");
 
 
@@ -1129,30 +961,25 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
 
 
-        /* OPEN / CLOSE */
-
         selectedButton.addEventListener(
             "click",
             function (event) {
 
                 event.stopPropagation();
 
-                const isOpen =
+                const open =
                     picker.classList.toggle("open");
 
                 selectedButton.setAttribute(
                     "aria-expanded",
-                    isOpen ? "true" : "false"
+                    open ? "true" : "false"
                 );
 
             }
         );
 
 
-        /* SELECT COUNTRY */
-
-        dropdown
-            .querySelectorAll(".country-option")
+        dropdown.querySelectorAll(".country-option")
             .forEach(function (option) {
 
                 option.addEventListener(
@@ -1183,42 +1010,12 @@ document.addEventListener("DOMContentLoaded", function () {
                         selectedFlag.alt =
                             country;
 
-
                         hiddenCode.value =
                             code;
 
 
-                        /* Change placeholder */
-
-                        if (code === "+92") {
-
-                            phoneInput.placeholder =
-                                "300 1234567";
-
-                        } else if (code === "+1") {
-
-                            phoneInput.placeholder =
-                                "555 123 4567";
-
-                        } else if (code === "+44") {
-
-                            phoneInput.placeholder =
-                                "7700 900123";
-
-                        } else {
-
-                            phoneInput.placeholder =
-                                "Phone number";
-
-                        }
-
-
-                        /* Selected state */
-
                         dropdown
-                            .querySelectorAll(
-                                ".country-option"
-                            )
+                            .querySelectorAll(".country-option")
                             .forEach(function (item) {
 
                                 item.classList.remove(
@@ -1233,8 +1030,6 @@ document.addEventListener("DOMContentLoaded", function () {
                         );
 
 
-                        /* Close */
-
                         picker.classList.remove(
                             "open"
                         );
@@ -1244,13 +1039,24 @@ document.addEventListener("DOMContentLoaded", function () {
                             "false"
                         );
 
+
+                        if (code === "+92") {
+
+                            phone.placeholder =
+                                "300 1234567";
+
+                        } else {
+
+                            phone.placeholder =
+                                "Phone number";
+
+                        }
+
                     }
                 );
 
             });
 
-
-        /* CLICK OUTSIDE */
 
         document.addEventListener(
             "click",
@@ -1258,9 +1064,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (!picker.contains(event.target)) {
 
-                    picker.classList.remove(
-                        "open"
-                    );
+                    picker.classList.remove("open");
 
                     selectedButton.setAttribute(
                         "aria-expanded",
@@ -1278,7 +1082,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </script>
 
+
 <script src="/script.js"></script>
 
 </body>
+
 </html>

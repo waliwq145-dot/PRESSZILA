@@ -1,46 +1,416 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <meta
-    name="description"
-    content="PRESSZILA — Digital PR & Branding Agency. Make Your Brand Impossible to Ignore."
-  >
-  <!-- FAVICON -->
-  <link rel="icon" href="/images/favicon.svg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- MAIN CSS -->
-  <link rel="stylesheet" href="/style.css">
+    <meta name="description"
+        content="PRESSZILA — Digital PR, brand strategy and media relations built to make ambitious brands impossible to ignore.">
 
-      <title>PRESSZILA — Digital PR & Branding Agency</title>
+    <meta name="theme-color" content="#1769ff">
+
+    <link rel="icon" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css">
+
+    <title>PRESSZILA — Digital PR & Branding Agency</title>
+
+    <style>
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid rgba(8, 11, 16, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .nav-wrap {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        /* BRAND */
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .brand-logo {
+            display: block;
+            width: 155px;
+            height: auto;
+            max-height: 48px;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        /* If logo SVG contains only the icon, this keeps it compact */
+
+        .brand-name {
+            display: inline-block;
+            margin-left: 10px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.6px;
+            color: #080b10;
+            white-space: nowrap;
+        }
+
+        .brand-name span {
+            color: #1769ff;
+        }
+
+        /* NAV LINKS */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0 12px;
+            color: #080b10;
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 3px;
+            height: 2px;
+            background: #1769ff;
+            border-radius: 99px;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1769ff;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        /* MENU BUTTON */
+
+        .menu-btn {
+            display: none;
+            width: 44px;
+            height: 44px;
+            padding: 9px;
+            border: 1px solid rgba(8, 11, 16, 0.12);
+            border-radius: 10px;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            margin: 5px 0;
+            background: #080b10;
+            border-radius: 10px;
+            transition: 0.25s ease;
+        }
+
+
+        /* =====================================================
+           SOCIAL ICONS
+        ===================================================== */
+
+        .socials {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .socials a {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 50%;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            transition: all 0.25s ease;
+        }
+
+        .socials a:hover {
+            color: #fff;
+            background: #1769ff;
+            border-color: #1769ff;
+            transform: translateY(-3px);
+        }
+
+        .socials svg {
+            width: 19px;
+            height: 19px;
+            fill: currentColor;
+            stroke: none;
+        }
+
+        .socials .instagram-icon {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+        }
+
+        .socials .instagram-dot {
+            fill: currentColor;
+            stroke: none;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .site-footer {
+            margin-top: 90px;
+            background: #080b10;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .site-footer .footer-grid {
+            display: grid;
+            grid-template-columns: 1.7fr 1fr 1fr 1fr;
+            gap: 55px;
+            padding: 70px 0 55px;
+        }
+
+        .footer-brand {
+            max-width: 390px;
+        }
+
+        .footer-logo {
+            display: block;
+            width: 155px;
+            height: auto;
+            max-height: 50px;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .footer-brand p {
+            margin: 20px 0 0;
+            color: rgba(255, 255, 255, 0.66);
+            line-height: 1.75;
+            font-size: 14px;
+            max-width: 360px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .footer-col h4 {
+            margin: 0 0 10px;
+            color: #fff;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .footer-col a {
+            width: fit-content;
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 22px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.48);
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           MOBILE NAVBAR
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .nav-links {
+                gap: 2px;
+            }
+
+            .nav-links a {
+                padding: 0 8px;
+                font-size: 13px;
+            }
+
+            .brand-logo {
+                width: 140px;
+            }
+        }
+
+
+        @media (max-width: 850px) {
+
+            .nav-wrap {
+                min-height: 70px;
+            }
+
+            .brand-logo {
+                width: 145px;
+            }
+
+            .menu-btn {
+                display: block;
+                flex-shrink: 0;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: calc(100% + 1px);
+                left: 0;
+                right: 0;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px 18px 18px;
+                margin: 0;
+                background: #fff;
+                border-bottom: 1px solid rgba(8, 11, 16, 0.08);
+                box-shadow: 0 15px 35px rgba(8, 11, 16, 0.08);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                min-height: 48px;
+                justify-content: flex-start;
+                padding: 0 12px;
+                border-radius: 8px;
+            }
+
+            .nav-links a:hover,
+            .nav-links a.active {
+                background: rgba(23, 105, 255, 0.06);
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .site-footer .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .site-footer .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 38px;
+                padding: 55px 0 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                line-height: 1.6;
+            }
+
+            .footer-logo {
+                width: 145px;
+            }
+        }
+    </style>
 </head>
+
 
 <body>
 
+
 <!-- =========================================================
-     HEADER
+     HEADER / NAVBAR
 ========================================================= -->
 
 <header class="site-header">
 
     <div class="container nav-wrap">
 
-          <a href="/home.html"
+        <!-- PRESSZILA LOGO -->
+
+        <a href="/home.html"
            class="brand"
            aria-label="PRESSZILA Home">
 
-            <img src="logo.svg"
+            <img src="/logo.svg"
                  alt="PRESSZILA"
-                 class="brand-logo">
+                 class="brand-logo"
+                 width="155"
+                 height="48">
+
         </a>
+
+
+        <!-- MOBILE MENU -->
 
         <button class="menu-btn"
                 type="button"
                 aria-label="Open navigation"
-                aria-expanded="false">
+                aria-expanded="false"
+                aria-controls="main-navigation">
 
             <span></span>
             <span></span>
@@ -49,7 +419,10 @@
         </button>
 
 
-        <nav class="nav-links"
+        <!-- NAVIGATION -->
+
+        <nav id="main-navigation"
+             class="nav-links"
              aria-label="Main navigation">
 
             <a href="/home.html"
@@ -104,25 +477,21 @@
 
     <div class="container hero-grid">
 
-
         <div class="hero-content reveal">
 
             <div class="eyebrow">
                 DIGITAL PR & BRANDING
             </div>
 
-
             <h1>
                 Make Your Brand
                 <span>Impossible to Ignore.</span>
             </h1>
 
-
             <p>
                 PRESSZILA transforms bold ideas into powerful stories,
                 meaningful media attention and brands people remember.
             </p>
-
 
             <div class="actions">
 
@@ -133,7 +502,6 @@
                     <span aria-hidden="true">→</span>
 
                 </a>
-
 
                 <a href="/solutions.html"
                    class="btn btn-light">
@@ -147,7 +515,6 @@
         </div>
 
 
-
         <!-- HERO VISUAL -->
 
         <div class="hero-visual reveal"
@@ -157,25 +524,21 @@
 
             <div class="spotlight-ring ring-two"></div>
 
-
             <div class="spotlight-content">
 
                 <div class="spotlight-label">
                     YOUR BRAND. YOUR MOMENT.
                 </div>
 
-
                 <h2>
                     Own Your
                     <span>Spotlight.</span>
                 </h2>
 
-
                 <p>
                     Strategy, storytelling and media relationships
                     designed to turn attention into lasting influence.
                 </p>
-
 
                 <a href="/contact.html"
                    class="spotlight-btn">
@@ -204,48 +567,24 @@
 
     <div class="stats reveal">
 
-
         <div class="stat">
-
             <strong>360°</strong>
-
-            <span>
-                PR & Brand Thinking
-            </span>
-
+            <span>PR & Brand Thinking</span>
         </div>
 
-
         <div class="stat">
-
             <strong>24/7</strong>
-
-            <span>
-                Always-on Momentum
-            </span>
-
+            <span>Always-on Momentum</span>
         </div>
 
-
         <div class="stat">
-
             <strong>8+</strong>
-
-            <span>
-                Core Solutions
-            </span>
-
+            <span>Core Solutions</span>
         </div>
 
-
         <div class="stat">
-
             <strong>01</strong>
-
-            <span>
-                Strategic Partner
-            </span>
-
+            <span>Strategic Partner</span>
         </div>
 
     </div>
@@ -262,7 +601,6 @@
 
     <div class="container">
 
-
         <div class="section-head reveal">
 
             <div>
@@ -277,7 +615,6 @@
 
             </div>
 
-
             <p>
                 We connect positioning, publicity and creative execution
                 so your attention has somewhere meaningful to go.
@@ -286,9 +623,7 @@
         </div>
 
 
-
         <div class="grid-3">
-
 
             <article class="card service-card reveal">
 
@@ -308,7 +643,6 @@
             </article>
 
 
-
             <article class="card service-card reveal">
 
                 <div class="num">
@@ -325,7 +659,6 @@
                 </p>
 
             </article>
-
 
 
             <article class="card service-card reveal">
@@ -361,7 +694,6 @@
 
     <div class="container">
 
-
         <div class="section-head reveal">
 
             <div>
@@ -376,7 +708,6 @@
 
             </div>
 
-
             <a href="/case-studies.html"
                class="btn btn-light">
 
@@ -387,11 +718,7 @@
         </div>
 
 
-
         <div class="grid-4">
-
-
-            <!-- CASE 01 -->
 
             <article class="card case-card reveal">
 
@@ -402,7 +729,6 @@
                          loading="lazy">
 
                 </div>
-
 
                 <div class="case-body">
 
@@ -428,9 +754,6 @@
             </article>
 
 
-
-            <!-- CASE 02 -->
-
             <article class="card case-card reveal">
 
                 <div class="case-image">
@@ -440,7 +763,6 @@
                          loading="lazy">
 
                 </div>
-
 
                 <div class="case-body">
 
@@ -466,9 +788,6 @@
             </article>
 
 
-
-            <!-- CASE 03 -->
-
             <article class="card case-card reveal">
 
                 <div class="case-image">
@@ -478,7 +797,6 @@
                          loading="lazy">
 
                 </div>
-
 
                 <div class="case-body">
 
@@ -504,9 +822,6 @@
             </article>
 
 
-
-            <!-- CASE 04 -->
-
             <article class="card case-card reveal">
 
                 <div class="case-image">
@@ -516,7 +831,6 @@
                          loading="lazy">
 
                 </div>
-
 
                 <div class="case-body">
 
@@ -557,7 +871,6 @@
 
     <div class="container">
 
-
         <div class="section-head reveal">
 
             <div>
@@ -572,7 +885,6 @@
 
             </div>
 
-
             <a href="/testimonials.html"
                class="btn btn-light">
 
@@ -583,11 +895,7 @@
         </div>
 
 
-
         <div class="grid-3">
-
-
-            <!-- TESTIMONIAL 01 -->
 
             <article class="card testimonial-card reveal">
 
@@ -596,18 +904,15 @@
                     ★★★★★
                 </div>
 
-
                 <div class="quote-mark"
                      aria-hidden="true">
                     “
                 </div>
 
-
                 <p>
                     PRESSZILA helped us find the sharpest version
                     of our story and turn it into real momentum.
                 </p>
-
 
                 <div class="person">
 
@@ -632,9 +937,6 @@
             </article>
 
 
-
-            <!-- TESTIMONIAL 02 -->
-
             <article class="card testimonial-card reveal">
 
                 <div class="stars"
@@ -642,18 +944,15 @@
                     ★★★★★
                 </div>
 
-
                 <div class="quote-mark"
                      aria-hidden="true">
                     “
                 </div>
 
-
                 <p>
                     The team brought strategic calm, creative energy
                     and a genuinely useful media lens.
                 </p>
-
 
                 <div class="person">
 
@@ -678,9 +977,6 @@
             </article>
 
 
-
-            <!-- TESTIMONIAL 03 -->
-
             <article class="card testimonial-card reveal">
 
                 <div class="stars"
@@ -688,18 +984,15 @@
                     ★★★★★
                 </div>
 
-
                 <div class="quote-mark"
                      aria-hidden="true">
                     “
                 </div>
 
-
                 <p>
                     We stopped trying to say everything and started
                     saying the right thing — consistently.
                 </p>
-
 
                 <div class="person">
 
@@ -739,7 +1032,6 @@
 
     <div class="container">
 
-
         <div class="section-head reveal">
 
             <div>
@@ -754,7 +1046,6 @@
 
             </div>
 
-
             <a href="/blogs.html"
                class="btn btn-light">
 
@@ -765,11 +1056,7 @@
         </div>
 
 
-
         <div class="grid-3">
-
-
-            <!-- BLOG 01 -->
 
             <article class="card blog-card reveal">
 
@@ -781,22 +1068,18 @@
 
                 </div>
 
-
                 <span class="tag">
                     PR / 6 MIN
                 </span>
-
 
                 <h3>
                     How Modern Brands Earn Attention
                 </h3>
 
-
                 <p>
                     Why relevance, timing and a strong point of view
                     beat volume.
                 </p>
-
 
                 <a href="/blogs.html"
                    class="text-link">
@@ -808,9 +1091,6 @@
 
             </article>
 
-
-
-            <!-- BLOG 02 -->
 
             <article class="card blog-card reveal">
 
@@ -822,22 +1102,18 @@
 
                 </div>
 
-
                 <span class="tag">
                     MEDIA / 5 MIN
                 </span>
-
 
                 <h3>
                     Building Stories Journalists Want
                 </h3>
 
-
                 <p>
                     A practical lens for making your expertise useful
                     to the newsroom.
                 </p>
-
 
                 <a href="/blogs.html"
                    class="text-link">
@@ -850,9 +1126,6 @@
             </article>
 
 
-
-            <!-- BLOG 03 -->
-
             <article class="card blog-card reveal">
 
                 <div class="blog-image">
@@ -863,22 +1136,18 @@
 
                 </div>
 
-
                 <span class="tag">
                     BRAND / 7 MIN
                 </span>
-
 
                 <h3>
                     Turning Ideas Into Narratives
                 </h3>
 
-
                 <p>
                     How to turn a good idea into a repeatable
                     communications platform.
                 </p>
-
 
                 <a href="/blogs.html"
                    class="text-link">
@@ -912,11 +1181,9 @@
                 YOUR NEXT BIG MOMENT
             </div>
 
-
             <h2>
                 Own Your Spotlight.
             </h2>
-
 
             <p>
                 Tell us what you are building, launching or changing.
@@ -924,7 +1191,6 @@
             </p>
 
         </div>
-
 
         <div class="actions">
 
@@ -935,7 +1201,6 @@
                 <span aria-hidden="true">→</span>
 
             </a>
-
 
             <a href="/about.html"
                class="btn btn-light">
@@ -975,10 +1240,11 @@
 
                     <img src="/logo.svg"
                          alt="PRESSZILA"
-                         class="footer-logo">
+                         class="footer-logo"
+                         width="155"
+                         height="50">
 
                 </a>
-
 
                 <p>
                     Digital PR, brand strategy and storytelling built
@@ -986,7 +1252,7 @@
                 </p>
 
 
-                <!-- SOCIALS -->
+                <!-- SOCIAL MEDIA -->
 
                 <div class="socials">
 
@@ -1001,70 +1267,42 @@
                         <svg viewBox="0 0 24 24"
                              aria-hidden="true">
 
-                            <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"/>
+                            <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z">
+                            </path>
 
                         </svg>
 
                     </a>
 
 
-
                     <!-- INSTAGRAM -->
 
-                    <a href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw="
+                    <a href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw=="
                        target="_blank"
                        rel="noopener noreferrer"
                        aria-label="PRESSZILA on Instagram">
 
                         <svg viewBox="0 0 24 24"
+                             class="instagram-icon"
                              aria-hidden="true">
 
                             <rect x="3"
                                   y="3"
                                   width="18"
                                   height="18"
-                                  rx="5"></rect>
+                                  rx="5">
+                            </rect>
 
                             <circle cx="12"
                                     cy="12"
-                                    r="4"></circle>
+                                    r="4">
+                            </circle>
 
                             <circle cx="17.5"
                                     cy="6.5"
                                     r="1"
-                                    class="instagram-dot"></circle>
-
-                        </svg>
-
-                    </a>
-
-
-
-                    <!-- X -->
-
-                    <a href="#"
-                       aria-label="PRESSZILA on X">
-
-                        <svg viewBox="0 0 24 24"
-                             aria-hidden="true">
-
-                            <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.24l-4.89-6.39L6.48 22H3.36l7.24-8.28L3 2h6.4l4.42 5.82L18.9 2zm-1.1 17.8h1.73L8.47 4.08H6.61L17.8 19.8z"/>
-
-                        </svg>
-
-                    </a>
-
-
-
-                    <!-- LINKEDIN -->
-
-                    <a href="#"
-                       aria-label="PRESSZILA on LinkedIn">
-
-                        <svg viewBox="0 0 24 24"
-                             aria-hidden="true">
-
-                            <path d="M6.5 8.5H3V21h3.5V8.5zM4.75 3A2.1 2.1 0 1 0 4.75 7.2 2.1 2.1 0 0 0 4.75 3zM21 13.85c0-3.75-2-5.5-4.7-5.5-2.15 0-3.1 1.18-3.65 2.01V8.5H9.15V21h3.5v-6.2c0-1.64.31-3.23 2.35-3.23 2.01 0 2.04 1.88 2.04 3.35V21H21v-7.15z"/>
+                                    class="instagram-dot">
+                            </circle>
 
                         </svg>
 
@@ -1073,7 +1311,6 @@
                 </div>
 
             </div>
-
 
 
             <!-- EXPLORE -->
@@ -1103,7 +1340,6 @@
             </div>
 
 
-
             <!-- CONNECT -->
 
             <div class="footer-col">
@@ -1125,7 +1361,6 @@
                 </a>
 
             </div>
-
 
 
             <!-- SERVICES -->
@@ -1157,7 +1392,6 @@
         </div>
 
 
-
         <!-- FOOTER BOTTOM -->
 
         <div class="footer-bottom">
@@ -1179,8 +1413,62 @@
 
 
 <!-- =========================================================
-     JAVASCRIPT
+     MOBILE MENU SCRIPT
 ========================================================= -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const menuButton = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".nav-links");
+
+        if (!menuButton || !navigation) return;
+
+        menuButton.addEventListener("click", function () {
+
+            const isOpen =
+                navigation.classList.toggle("open");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+            menuButton.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation"
+                    : "Open navigation"
+            );
+
+        });
+
+
+        /* Close menu after clicking a link */
+
+        navigation.querySelectorAll("a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navigation.classList.remove("open");
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            });
+
+        });
+
+    });
+</script>
+
 
 <script src="/script.js"></script>
 

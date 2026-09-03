@@ -1,757 +1,434 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<meta name="description"
-    content="PRESSZILA — Digital PR, Branding, Media Relations and Brand Storytelling Agency.">
+    <meta name="description"
+        content="PRESSZILA — Digital PR, Branding, Media Relations and Brand Storytelling Agency.">
 
-<link rel="icon" href="/favicon.svg">
-<link rel="stylesheet" href="/style.css">
+    <meta name="theme-color" content="#1769ff">
 
-<title>About Us | PRESSZILA</title>
-```
+    <link rel="icon" href="/favicon.svg">
+    <link rel="stylesheet" href="/style.css">
 
+    <title>About Us | PRESSZILA</title>
+
+    <style>
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid rgba(8, 11, 16, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .nav-wrap {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        /* BRAND */
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .brand-logo {
+            display: block;
+            width: 155px;
+            height: auto;
+            max-height: 48px;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .brand-name {
+            display: inline-block;
+            margin-left: 10px;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.6px;
+            color: #080b10;
+            white-space: nowrap;
+        }
+
+        .brand-name span {
+            color: #1769ff;
+        }
+
+        /* NAV LINKS */
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-left: auto;
+        }
+
+        .nav-links a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0 12px;
+            color: #080b10;
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.25s ease;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 3px;
+            height: 2px;
+            background: #1769ff;
+            border-radius: 99px;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.25s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #1769ff;
+        }
+
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        /* MENU BUTTON */
+
+        .menu-btn {
+            display: none;
+            width: 44px;
+            height: 44px;
+            padding: 9px;
+            border: 1px solid rgba(8, 11, 16, 0.12);
+            border-radius: 10px;
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .menu-btn span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            margin: 5px 0;
+            background: #080b10;
+            border-radius: 10px;
+            transition: 0.25s ease;
+        }
+
+
+        /* =====================================================
+           SOCIAL ICONS
+        ===================================================== */
+
+        .socials {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 22px;
+        }
+
+        .socials a {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 50%;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.06);
+            transition: all 0.25s ease;
+        }
+
+        .socials a:hover {
+            color: #fff;
+            background: #1769ff;
+            border-color: #1769ff;
+            transform: translateY(-3px);
+        }
+
+        .socials svg {
+            width: 19px;
+            height: 19px;
+            fill: currentColor;
+            stroke: none;
+        }
+
+        .socials .instagram-icon {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+        }
+
+        .socials .instagram-dot {
+            fill: currentColor;
+            stroke: none;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        .site-footer {
+            margin-top: 90px;
+            background: #080b10;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .site-footer .footer-grid {
+            display: grid;
+            grid-template-columns: 1.7fr 1fr 1fr 1fr;
+            gap: 55px;
+            padding: 70px 0 55px;
+        }
+
+        .footer-brand {
+            max-width: 390px;
+        }
+
+        .footer-logo {
+            display: block;
+            width: 155px;
+            height: auto;
+            max-height: 50px;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .footer-brand p {
+            margin: 20px 0 0;
+            color: rgba(255, 255, 255, 0.66);
+            line-height: 1.75;
+            font-size: 14px;
+            max-width: 360px;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .footer-col h4 {
+            margin: 0 0 10px;
+            color: #fff;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .footer-col a {
+            width: fit-content;
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 14px;
+            text-decoration: none;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .footer-col a:hover {
+            color: #fff;
+            transform: translateX(3px);
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            padding: 22px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.48);
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           MOBILE NAVBAR
+        ===================================================== */
+
+        @media (max-width: 1050px) {
+
+            .nav-links {
+                gap: 2px;
+            }
+
+            .nav-links a {
+                padding: 0 8px;
+                font-size: 13px;
+            }
+
+            .brand-logo {
+                width: 140px;
+            }
+        }
+
+
+        @media (max-width: 850px) {
+
+            .nav-wrap {
+                min-height: 70px;
+            }
+
+            .brand-logo {
+                width: 145px;
+            }
+
+            .menu-btn {
+                display: block;
+                flex-shrink: 0;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: calc(100% + 1px);
+                left: 0;
+                right: 0;
+                display: none;
+                flex-direction: column;
+                align-items: stretch;
+                gap: 0;
+                padding: 10px 18px 18px;
+                margin: 0;
+                background: #fff;
+                border-bottom: 1px solid rgba(8, 11, 16, 0.08);
+                box-shadow: 0 15px 35px rgba(8, 11, 16, 0.08);
+            }
+
+            .nav-links.open {
+                display: flex;
+            }
+
+            .nav-links a {
+                width: 100%;
+                min-height: 48px;
+                justify-content: flex-start;
+                padding: 0 12px;
+                border-radius: 8px;
+            }
+
+            .nav-links a:hover,
+            .nav-links a.active {
+                background: rgba(23, 105, 255, 0.06);
+            }
+
+            .nav-links a::after {
+                display: none;
+            }
+
+            .site-footer .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .site-footer .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 38px;
+                padding: 55px 0 40px;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                line-height: 1.6;
+            }
+
+            .footer-logo {
+                width: 145px;
+            }
+        }
+    </style>
 </head>
+
 
 <body>
 
+
 <!-- =========================================================
-     HEADER
+     HEADER / NAVBAR
 ========================================================= -->
 
 <header class="site-header">
 
-```
-<div class="container nav">
+    <div class="container nav-wrap">
 
-    <a class="brand"
-       href="/home.html"
-       aria-label="PRESSZILA home">
+        <!-- PRESSZILA LOGO -->
 
-        <img src="/assets/images/logo.svg"
-             alt="PRESSZILA"
-             class="brand-logo">
+        <a href="/home.html"
+           class="brand"
+           aria-label="PRESSZILA Home">
 
-    </a>
+            <img src="/logo.svg"
+                 alt="PRESSZILA"
+                 class="brand-logo"
+                 width="155"
+                 height="48">
 
-
-    <button class="menu-btn"
-            type="button"
-            aria-label="Open navigation"
-            aria-expanded="false">
-
-        ☰
-
-    </button>
-
-
-    <nav class="nav-links"
-         aria-label="Main navigation">
-
-        <a data-page="home.html"
-           href="/home.html">
-            Home
         </a>
 
-        <a data-page="about.html"
-           href="/about.html"
-           class="active">
-            About
-        </a>
 
-        <a data-page="solutions.html"
-           href="/solutions.html">
-            Solutions
-        </a>
+        <!-- MOBILE MENU -->
 
-        <a data-page="case-studies.html"
-           href="/case-studies.html">
-            Case Studies
-        </a>
+        <button class="menu-btn"
+                type="button"
+                aria-label="Open navigation"
+                aria-expanded="false"
+                aria-controls="main-navigation">
 
-        <a data-page="testimonials.html"
-           href="/testimonials.html">
-            Testimonials
-        </a>
+            <span></span>
+            <span></span>
+            <span></span>
 
-        <a data-page="blogs.html"
-           href="/blogs.html">
-            Blogs
-        </a>
+        </button>
 
-        <a data-page="contact.html"
-           href="/contact.html">
-            Contact Us
-        </a>
 
-    </nav>
+        <!-- NAVIGATION -->
 
-</div>
-```
-
-</header>
-
-<!-- =========================================================
-     MAIN
-========================================================= -->
-
-<main>
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<section class="page-hero">
-
-```
-<div class="container reveal">
-
-    <div class="eyebrow">
-        ABOUT PRESSZILA
-    </div>
-
-    <h1>
-        We Make Brands
-        <span>Impossible to Ignore.</span>
-    </h1>
-
-    <p>
-        PRESSZILA is a modern Digital PR and Branding Agency
-        helping ambitious brands build visibility, credibility
-        and meaningful growth through powerful communication.
-    </p>
-
-</div>
-```
-
-</section>
-
-<!-- =========================================================
-     WHO WE ARE
-========================================================= -->
-
-<section class="section">
-
-```
-<div class="container">
-
-    <div class="section-head reveal">
-
-        <div>
-
-            <div class="eyebrow">
-                WHO WE ARE
-            </div>
-
-            <h2>
-                Strategy meets storytelling.
-            </h2>
-
-        </div>
-
-        <p>
-            Great brands are not built by simply being louder.
-            They are built by having something meaningful to say
-            and knowing how to make the right people listen.
-        </p>
-
-    </div>
-
-
-    <div class="grid-3">
-
-        <div class="card reveal">
-
-            <div class="num">
-                01 / MISSION
-            </div>
-
-            <h3>
-                Our Mission
-            </h3>
-
-            <p>
-                Our mission is to help ambitious brands communicate
-                with clarity, confidence and purpose while creating
-                attention that leads to real opportunities.
-            </p>
-
-        </div>
-
-
-        <div class="card reveal">
-
-            <div class="num">
-                02 / VISION
-            </div>
-
-            <h3>
-                Our Vision
-            </h3>
-
-            <p>
-                We believe the future belongs to brands that can
-                create genuine connections, tell memorable stories
-                and earn attention instead of chasing it.
-            </p>
-
-        </div>
-
-
-        <div class="card reveal">
-
-            <div class="num">
-                03 / APPROACH
-            </div>
-
-            <h3>
-                Our Approach
-            </h3>
-
-            <p>
-                We combine PR strategy, branding, media relations,
-                content and digital storytelling to create campaigns
-                designed around real business goals.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- =========================================================
-     WHY PRESSZILA
-========================================================= -->
-
-<section class="section">
-
-```
-<div class="container">
-
-    <div class="section-head reveal">
-
-        <div>
-
-            <div class="eyebrow">
-                WHY PRESSZILA
-            </div>
-
-            <h2>
-                Built for brands with ambition.
-            </h2>
-
-        </div>
-
-        <p>
-            Every brand has a story. Our job is to find the strongest
-            version of that story and turn it into something people
-            remember.
-        </p>
-
-    </div>
-
-
-    <div class="grid-3">
-
-        <div class="card reveal">
-
-            <div class="num">
-                01
-            </div>
-
-            <h3>
-                Strategic Thinking
-            </h3>
-
-            <p>
-                We start by understanding your market, audience,
-                competitors and business objectives before building
-                your communication strategy.
-            </p>
-
-        </div>
-
-
-        <div class="card reveal">
-
-            <div class="num">
-                02
-            </div>
-
-            <h3>
-                Creative Ideas
-            </h3>
-
-            <p>
-                We create campaigns, narratives and communication
-                concepts designed to capture attention and give
-                your brand a distinctive point of view.
-            </p>
-
-        </div>
-
-
-        <div class="card reveal">
-
-            <div class="num">
-                03
-            </div>
-
-            <h3>
-                Real Results
-            </h3>
-
-            <p>
-                We focus on meaningful outcomes including visibility,
-                credibility, engagement, media attention and long-term
-                brand growth.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- =========================================================
-     OUR DIFFERENCE
-========================================================= -->
-
-<section class="section">
-
-```
-<div class="container">
-
-    <div class="section-head reveal">
-
-        <div>
-
-            <div class="eyebrow">
-                OUR DIFFERENCE
-            </div>
-
-            <h2>
-                More than another agency.
-            </h2>
-
-        </div>
-
-        <p>
-            We work as a strategic partner, not just another
-            service provider. Every idea starts with your business
-            and ends with meaningful impact.
-        </p>
-
-    </div>
-
-
-    <div class="grid-3">
-
-        <div class="card reveal">
-
-            <div class="num">
-                360°
-            </div>
-
-            <h3>
-                Full-Spectrum Thinking
-            </h3>
-
-            <p>
-                PR, branding, media relations, content and digital
-                communication work together as one connected strategy.
-            </p>
-
-        </div>
-
-
-        <div class="card reveal">
-
-            <div class="num">
-                24/7
-            </div>
-
-            <h3>
-                Always-On Mindset
-            </h3>
-
-            <p>
-                Opportunities do not always follow a schedule.
-                We keep looking for new conversations and new ways
-                to move your brand forward.
-            </p>
-
-        </div>
-
-
-        <div class="card reveal">
-
-            <div class="num">
-                01
-            </div>
-
-            <h3>
-                One Clear Partner
-            </h3>
-
-            <p>
-                Instead of scattered communication, you get one
-                strategic direction designed to keep your brand
-                consistent and recognizable.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- =========================================================
-     PROCESS
-========================================================= -->
-
-<section class="section">
-
-```
-<div class="container">
-
-    <div class="section-head reveal">
-
-        <div>
-
-            <div class="eyebrow">
-                OUR PROCESS
-            </div>
-
-            <h2>
-                From idea to impact.
-            </h2>
-
-        </div>
-
-        <p>
-            A clear process keeps every campaign focused,
-            creative and connected to your goals.
-        </p>
-
-    </div>
-
-
-    <div class="process">
-
-        <div class="step reveal">
-
-            <div class="num">
-                01
-            </div>
-
-            <h3>
-                Discover
-            </h3>
-
-            <p>
-                We learn about your company, products, audience,
-                competitors and business goals.
-            </p>
-
-        </div>
-
-
-        <div class="step reveal">
-
-            <div class="num">
-                02
-            </div>
-
-            <h3>
-                Define
-            </h3>
-
-            <p>
-                We develop your positioning, key messages,
-                campaign direction and story angles.
-            </p>
-
-        </div>
-
-
-        <div class="step reveal">
-
-            <div class="num">
-                03
-            </div>
-
-            <h3>
-                Deliver
-            </h3>
-
-            <p>
-                Strategy becomes action through PR campaigns,
-                media outreach, content and storytelling.
-            </p>
-
-        </div>
-
-
-        <div class="step reveal">
-
-            <div class="num">
-                04
-            </div>
-
-            <h3>
-                Measure
-            </h3>
-
-            <p>
-                We evaluate performance, identify opportunities
-                and continuously improve the strategy.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- =========================================================
-     STATS
-========================================================= -->
-
-<section class="section">
-
-```
-<div class="container">
-
-    <div class="stats reveal">
-
-        <div class="stat">
-
-            <strong>
-                360°
-            </strong>
-
-            <span>
-                PR & Brand Thinking
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                24/7
-            </strong>
-
-            <span>
-                Always-on Momentum
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                8+
-            </strong>
-
-            <span>
-                Core Solutions
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                01
-            </strong>
-
-            <span>
-                Clear Strategic Partner
-            </span>
-
-        </div>
-
-    </div>
-
-</div>
-```
-
-</section>
-
-<!-- =========================================================
-     CTA
-========================================================= -->
-
-<div class="container">
-
-```
-<section class="cta reveal">
-
-    <div>
-
-        <div class="eyebrow">
-            LET'S WORK TOGETHER
-        </div>
-
-        <h2>
-            Have Something Worth Saying?
-        </h2>
-
-        <p>
-            Tell us what you are building, launching or changing.
-            We'll help shape the story and the strategy around it.
-        </p>
-
-    </div>
-
-
-    <div class="actions">
-
-        <a class="btn btn-primary"
-           href="/contact.html">
-            Contact Us →
-        </a>
-
-        <a class="btn"
-           href="/solutions.html">
-            Explore Solutions
-        </a>
-
-    </div>
-
-</section>
-```
-
-</div>
-
-</main>
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer class="site-footer">
-
-```
-<div class="container">
-
-    <div class="footer-grid">
-
-
-        <!-- BRAND -->
-
-        <div class="footer-brand">
-
-            <a href="/home.html"
-               aria-label="PRESSZILA home">
-
-                <img src="/assets/images/logo.svg"
-                     alt="PRESSZILA"
-                     class="footer-logo">
-
-            </a>
-
-            <p>
-                Digital PR, brand strategy and storytelling built
-                to make ambitious brands impossible to ignore.
-            </p>
-
-
-            <!-- SOCIAL MEDIA -->
-
-            <div class="socials">
-
-
-                <!-- FACEBOOK -->
-
-                <a href="https://www.facebook.com/share/1Jgj4YyDNM/"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="PRESSZILA Facebook">
-
-                    <svg viewBox="0 0 24 24"
-                         aria-hidden="true">
-
-                        <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z">
-                        </path>
-
-                    </svg>
-
-                </a>
-
-
-                <!-- INSTAGRAM -->
-
-                <a href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw=="
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   aria-label="PRESSZILA Instagram">
-
-                    <svg viewBox="0 0 24 24"
-                         aria-hidden="true">
-
-                        <rect x="3"
-                              y="3"
-                              width="18"
-                              height="18"
-                              rx="5">
-                        </rect>
-
-                        <circle cx="12"
-                                cy="12"
-                                r="4">
-                        </circle>
-
-                        <circle cx="17.5"
-                                cy="6.5"
-                                r="1">
-                        </circle>
-
-                    </svg>
-
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <!-- EXPLORE -->
-
-        <div class="footer-col">
-
-            <h4>
-                Explore
-            </h4>
+        <nav id="main-navigation"
+             class="nav-links"
+             aria-label="Main navigation">
 
             <a href="/home.html">
                 Home
             </a>
 
-            <a href="/about.html">
+            <a href="/about.html"
+               class="active">
                 About
             </a>
 
@@ -763,21 +440,6 @@
                 Case Studies
             </a>
 
-        </div>
-
-
-        <!-- CONNECT -->
-
-        <div class="footer-col">
-
-            <h4>
-                Connect
-            </h4>
-
-            <a href="/contact.html">
-                Contact Us
-            </a>
-
             <a href="/testimonials.html">
                 Testimonials
             </a>
@@ -786,56 +448,826 @@
                 Blogs
             </a>
 
+            <a href="/contact.html">
+                Contact Us
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+
+<!-- =========================================================
+     ABOUT HERO
+========================================================= -->
+
+<section class="page-hero">
+
+    <div class="container reveal">
+
+        <div class="eyebrow">
+            ABOUT PRESSZILA
+        </div>
+
+        <h1>
+            We Make Brands
+            <span>Impossible to Ignore.</span>
+        </h1>
+
+        <p>
+            PRESSZILA is a modern Digital PR and Branding Agency
+            helping ambitious brands build visibility, credibility
+            and meaningful growth through powerful communication.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHO WE ARE
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="eyebrow">
+                    WHO WE ARE
+                </div>
+
+                <h2>
+                    Strategy meets storytelling.
+                </h2>
+
+            </div>
+
+            <p>
+                Great brands are not built by simply being louder.
+                They are built by having something meaningful to say
+                and knowing how to make the right people listen.
+            </p>
+
         </div>
 
 
-        <!-- SERVICES -->
+        <div class="grid-3">
 
-        <div class="footer-col">
+            <div class="card reveal">
 
-            <h4>
-                Services
-            </h4>
+                <div class="num">
+                    01 / MISSION
+                </div>
 
-            <a href="/solutions.html">
-                Digital PR
+                <h3>
+                    Our Mission
+                </h3>
+
+                <p>
+                    Our mission is to help ambitious brands communicate
+                    with clarity, confidence and purpose while creating
+                    attention that leads to real opportunities.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="num">
+                    02 / VISION
+                </div>
+
+                <h3>
+                    Our Vision
+                </h3>
+
+                <p>
+                    We believe the future belongs to brands that can
+                    create genuine connections, tell memorable stories
+                    and earn attention instead of chasing it.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="num">
+                    03 / APPROACH
+                </div>
+
+                <h3>
+                    Our Approach
+                </h3>
+
+                <p>
+                    We combine PR strategy, branding, media relations,
+                    content and digital storytelling to create campaigns
+                    designed around real business goals.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY PRESSZILA
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="eyebrow">
+                    WHY PRESSZILA
+                </div>
+
+                <h2>
+                    Built for brands with ambition.
+                </h2>
+
+            </div>
+
+            <p>
+                Every brand has a story. Our job is to find the strongest
+                version of that story and turn it into something people
+                remember.
+            </p>
+
+        </div>
+
+
+        <div class="grid-3">
+
+            <div class="card reveal">
+
+                <div class="num">
+                    01
+                </div>
+
+                <h3>
+                    Strategic Thinking
+                </h3>
+
+                <p>
+                    We start by understanding your market, audience,
+                    competitors and business objectives before building
+                    your communication strategy.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="num">
+                    02
+                </div>
+
+                <h3>
+                    Creative Ideas
+                </h3>
+
+                <p>
+                    We create campaigns, narratives and communication
+                    concepts designed to capture attention and give
+                    your brand a distinctive point of view.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="num">
+                    03
+                </div>
+
+                <h3>
+                    Real Results
+                </h3>
+
+                <p>
+                    We focus on meaningful outcomes including visibility,
+                    credibility, engagement, media attention and long-term
+                    brand growth.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     OUR DIFFERENCE
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="eyebrow">
+                    OUR DIFFERENCE
+                </div>
+
+                <h2>
+                    More than another agency.
+                </h2>
+
+            </div>
+
+            <p>
+                We work as a strategic partner, not just another
+                service provider. Every idea starts with your business
+                and ends with meaningful impact.
+            </p>
+
+        </div>
+
+
+        <div class="grid-3">
+
+            <div class="card reveal">
+
+                <div class="num">
+                    360°
+                </div>
+
+                <h3>
+                    Full-Spectrum Thinking
+                </h3>
+
+                <p>
+                    PR, branding, media relations, content and digital
+                    communication work together as one connected strategy.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="num">
+                    24/7
+                </div>
+
+                <h3>
+                    Always-On Mindset
+                </h3>
+
+                <p>
+                    Opportunities do not always follow a schedule.
+                    We keep looking for new conversations and new ways
+                    to move your brand forward.
+                </p>
+
+            </div>
+
+
+            <div class="card reveal">
+
+                <div class="num">
+                    01
+                </div>
+
+                <h3>
+                    One Clear Partner
+                </h3>
+
+                <p>
+                    Instead of scattered communication, you get one
+                    strategic direction designed to keep your brand
+                    consistent and recognizable.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     PROCESS
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-head reveal">
+
+            <div>
+
+                <div class="eyebrow">
+                    OUR PROCESS
+                </div>
+
+                <h2>
+                    From idea to impact.
+                </h2>
+
+            </div>
+
+            <p>
+                A clear process keeps every campaign focused,
+                creative and connected to your goals.
+            </p>
+
+        </div>
+
+
+        <div class="process">
+
+            <div class="step reveal">
+
+                <div class="num">
+                    01
+                </div>
+
+                <h3>
+                    Discover
+                </h3>
+
+                <p>
+                    We learn about your company, products, audience,
+                    competitors and business goals.
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="num">
+                    02
+                </div>
+
+                <h3>
+                    Define
+                </h3>
+
+                <p>
+                    We develop your positioning, key messages,
+                    campaign direction and story angles.
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="num">
+                    03
+                </div>
+
+                <h3>
+                    Deliver
+                </h3>
+
+                <p>
+                    Strategy becomes action through PR campaigns,
+                    media outreach, content and storytelling.
+                </p>
+
+            </div>
+
+
+            <div class="step reveal">
+
+                <div class="num">
+                    04
+                </div>
+
+                <h3>
+                    Measure
+                </h3>
+
+                <p>
+                    We evaluate performance, identify opportunities
+                    and continuously improve the strategy.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     STATS
+========================================================= -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="stats reveal">
+
+            <div class="stat">
+
+                <strong>
+                    360°
+                </strong>
+
+                <span>
+                    PR & Brand Thinking
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    24/7
+                </strong>
+
+                <span>
+                    Always-on Momentum
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    8+
+                </strong>
+
+                <span>
+                    Core Solutions
+                </span>
+
+            </div>
+
+
+            <div class="stat">
+
+                <strong>
+                    01
+                </strong>
+
+                <span>
+                    Clear Strategic Partner
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FINAL CTA
+========================================================= -->
+
+<section class="container">
+
+    <div class="cta reveal">
+
+        <div>
+
+            <div class="eyebrow">
+                LET'S WORK TOGETHER
+            </div>
+
+            <h2>
+                Have Something Worth Saying?
+            </h2>
+
+            <p>
+                Tell us what you are building, launching or changing.
+                We will help shape the story and the strategy around it.
+            </p>
+
+        </div>
+
+
+        <div class="actions">
+
+            <a href="/contact.html"
+               class="btn btn-primary">
+
+                Contact Us
+                <span aria-hidden="true">→</span>
+
             </a>
 
-            <a href="/solutions.html">
-                Brand Strategy
-            </a>
+            <a href="/solutions.html"
+               class="btn btn-light">
 
-            <a href="/solutions.html">
-                Media Relations
-            </a>
+                Explore Solutions
 
-            <a href="/solutions.html">
-                Reputation
             </a>
 
         </div>
 
     </div>
 
+</section>
 
-    <!-- FOOTER BOTTOM -->
 
-    <div class="footer-bottom">
+</main>
 
-        <span>
-            © 2026 PRESSZILA. All rights reserved.
-        </span>
 
-        <span>
-            Built for ambitious brands.
-        </span>
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer class="site-footer">
+
+    <div class="container">
+
+        <div class="footer-grid">
+
+
+            <!-- BRAND -->
+
+            <div class="footer-brand">
+
+                <a href="/home.html"
+                   aria-label="PRESSZILA Home">
+
+                    <img src="/logo.svg"
+                         alt="PRESSZILA"
+                         class="footer-logo"
+                         width="155"
+                         height="50">
+
+                </a>
+
+                <p>
+                    Digital PR, brand strategy and storytelling built
+                    to make ambitious brands impossible to ignore.
+                </p>
+
+
+                <!-- SOCIAL MEDIA -->
+
+                <div class="socials">
+
+                    <!-- FACEBOOK -->
+
+                    <a href="https://www.facebook.com/share/1Jgj4YyDNM/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="PRESSZILA on Facebook">
+
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
+
+                            <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z">
+                            </path>
+
+                        </svg>
+
+                    </a>
+
+
+                    <!-- INSTAGRAM -->
+
+                    <a href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw=="
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="PRESSZILA on Instagram">
+
+                        <svg viewBox="0 0 24 24"
+                             class="instagram-icon"
+                             aria-hidden="true">
+
+                            <rect x="3"
+                                  y="3"
+                                  width="18"
+                                  height="18"
+                                  rx="5">
+                            </rect>
+
+                            <circle cx="12"
+                                    cy="12"
+                                    r="4">
+                            </circle>
+
+                            <circle cx="17.5"
+                                    cy="6.5"
+                                    r="1"
+                                    class="instagram-dot">
+                            </circle>
+
+                        </svg>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- EXPLORE -->
+
+            <div class="footer-col">
+
+                <h4>
+                    Explore
+                </h4>
+
+                <a href="/home.html">
+                    Home
+                </a>
+
+                <a href="/about.html">
+                    About
+                </a>
+
+                <a href="/solutions.html">
+                    Solutions
+                </a>
+
+                <a href="/case-studies.html">
+                    Case Studies
+                </a>
+
+            </div>
+
+
+            <!-- CONNECT -->
+
+            <div class="footer-col">
+
+                <h4>
+                    Connect
+                </h4>
+
+                <a href="/contact.html">
+                    Contact Us
+                </a>
+
+                <a href="/testimonials.html">
+                    Testimonials
+                </a>
+
+                <a href="/blogs.html">
+                    Blogs
+                </a>
+
+            </div>
+
+
+            <!-- SERVICES -->
+
+            <div class="footer-col">
+
+                <h4>
+                    Services
+                </h4>
+
+                <a href="/solutions.html">
+                    Digital PR
+                </a>
+
+                <a href="/solutions.html">
+                    Brand Strategy
+                </a>
+
+                <a href="/solutions.html">
+                    Media Relations
+                </a>
+
+                <a href="/solutions.html">
+                    Reputation
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOOTER BOTTOM -->
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 PRESSZILA. All rights reserved.
+            </span>
+
+            <span>
+                Built for ambitious brands.
+            </span>
+
+        </div>
 
     </div>
-
-</div>
-```
 
 </footer>
+
+
+
+<!-- =========================================================
+     MOBILE MENU SCRIPT
+========================================================= -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const menuButton = document.querySelector(".menu-btn");
+        const navigation = document.querySelector(".nav-links");
+
+        if (!menuButton || !navigation) return;
+
+        menuButton.addEventListener("click", function () {
+
+            const isOpen =
+                navigation.classList.toggle("open");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                isOpen ? "true" : "false"
+            );
+
+            menuButton.setAttribute(
+                "aria-label",
+                isOpen
+                    ? "Close navigation"
+                    : "Open navigation"
+            );
+
+        });
+
+
+        /* Close menu after clicking a link */
+
+        navigation.querySelectorAll("a").forEach(function (link) {
+
+            link.addEventListener("click", function () {
+
+                navigation.classList.remove("open");
+
+                menuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+
+                menuButton.setAttribute(
+                    "aria-label",
+                    "Open navigation"
+                );
+
+            });
+
+        });
+
+    });
+</script>
+
 
 <script src="/script.js"></script>
 

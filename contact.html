@@ -1,31 +1,1260 @@
+
 <!doctype html>
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="description"
-          content="Contact PRESSZILA — Digital PR, brand strategy, media relations and creative communications agency.">
+        content="Contact PRESSZILA — Digital PR, brand strategy, media relations and creative communications agency.">
 
     <link rel="icon" href="/favicon.svg">
-
     <link rel="stylesheet" href="/style.css">
 
     <title>Contact Us | PRESSZILA</title>
 
+    <!-- =====================================================
+         CONTACT PAGE ONLY CSS
+         ===================================================== -->
+    <style>
+
+        /* -----------------------------------------------------
+           CONTACT PAGE RESET / OVERRIDES
+        ----------------------------------------------------- */
+
+        .contact-page {
+            --contact-blue: #1769ff;
+            --contact-dark: #080b10;
+            --contact-muted: #667085;
+            --contact-line: #e5eaf1;
+            --contact-soft: #f7faff;
+            --contact-light-blue: #eaf2ff;
+        }
+
+        .contact-page *,
+        .contact-page *::before,
+        .contact-page *::after {
+            box-sizing: border-box;
+        }
+
+
+        /* -----------------------------------------------------
+           HEADER
+        ----------------------------------------------------- */
+
+        .contact-page .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 9999;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid rgba(8, 11, 16, 0.08);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .contact-page .nav-wrap {
+            min-height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .contact-page .brand {
+            display: inline-flex;
+            align-items: center;
+            flex-shrink: 0;
+            text-decoration: none;
+            line-height: 1;
+        }
+
+        .contact-page .brand-logo {
+            display: block;
+            width: 155px;
+            height: auto;
+            max-height: 48px;
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .contact-page .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 6px;
+            margin-left: auto;
+        }
+
+        .contact-page .nav-links a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 40px;
+            padding: 0 12px;
+
+            color: #080b10;
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+
+            text-decoration: none;
+            white-space: nowrap;
+
+            transition: color 0.25s ease;
+        }
+
+        .contact-page .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 3px;
+            height: 2px;
+
+            background: #1769ff;
+            border-radius: 99px;
+
+            transform: scaleX(0);
+            transform-origin: center;
+
+            transition: transform 0.25s ease;
+        }
+
+        .contact-page .nav-links a:hover,
+        .contact-page .nav-links a.active {
+            color: #1769ff;
+        }
+
+        .contact-page .nav-links a:hover::after,
+        .contact-page .nav-links a.active::after {
+            transform: scaleX(1);
+        }
+
+        .contact-page .menu-btn {
+            display: none;
+            width: 44px;
+            height: 44px;
+            padding: 9px;
+
+            border: 1px solid rgba(8, 11, 16, 0.12);
+            border-radius: 10px;
+
+            background: #fff;
+            cursor: pointer;
+        }
+
+        .contact-page .menu-btn span {
+            display: block;
+            width: 100%;
+            height: 2px;
+            margin: 5px 0;
+
+            background: #080b10;
+            border-radius: 10px;
+
+            transition: 0.25s ease;
+        }
+
+
+        /* -----------------------------------------------------
+           HERO
+        ----------------------------------------------------- */
+
+        .contact-page .page-hero {
+            padding: 105px 0 90px;
+
+            background:
+                radial-gradient(
+                    circle at 80% 20%,
+                    rgba(23, 105, 255, 0.10),
+                    transparent 34%
+                ),
+                linear-gradient(
+                    180deg,
+                    #ffffff 0%,
+                    #f7faff 100%
+                );
+
+            border-bottom: 1px solid #edf1f6;
+        }
+
+        .contact-page .page-hero .container {
+            max-width: 950px;
+        }
+
+        .contact-page .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-bottom: 18px;
+
+            color: #1769ff;
+            font-family: "DM Sans", sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .contact-page .eyebrow::before {
+            content: "";
+            width: 24px;
+            height: 2px;
+            flex-shrink: 0;
+
+            background: #1769ff;
+            border-radius: 99px;
+        }
+
+        .contact-page .page-hero h1 {
+            max-width: 900px;
+            margin: 0 0 24px;
+
+            color: #080b10;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(48px, 7vw, 82px);
+            font-weight: 700;
+            line-height: 1.02;
+            letter-spacing: -3.5px;
+        }
+
+        .contact-page .page-hero h1 span {
+            display: block;
+            color: #1769ff;
+        }
+
+        .contact-page .page-hero p {
+            max-width: 720px;
+            margin: 0;
+
+            color: #667085;
+            font-family: "DM Sans", sans-serif;
+            font-size: 17px;
+            line-height: 1.75;
+        }
+
+
+        /* -----------------------------------------------------
+           CONTACT SECTION
+        ----------------------------------------------------- */
+
+        .contact-page .contact-section {
+            padding: 100px 0;
+            background: #ffffff;
+        }
+
+        .contact-page .contact-grid {
+            display: grid;
+            grid-template-columns: 0.75fr 1.25fr;
+            gap: 70px;
+            align-items: start;
+        }
+
+        .contact-page .contact-info h2 {
+            max-width: 520px;
+            margin: 0 0 18px;
+
+            color: #080b10;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(36px, 5vw, 55px);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -2.5px;
+        }
+
+        .contact-page .contact-intro {
+            max-width: 510px;
+            margin: 0;
+
+            color: #667085;
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+
+        /* -----------------------------------------------------
+           CONTACT INFORMATION
+        ----------------------------------------------------- */
+
+        .contact-page .contact-list {
+            display: grid;
+            gap: 0;
+            margin-top: 32px;
+        }
+
+        .contact-page .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            padding: 18px 0;
+
+            border-bottom: 1px solid #e5eaf1;
+        }
+
+        .contact-page .contact-item-icon {
+            width: 43px;
+            height: 43px;
+            flex: 0 0 43px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid #dce8fb;
+            border-radius: 12px;
+
+            background: #f1f6ff;
+            color: #1769ff;
+        }
+
+        .contact-page .contact-item-icon svg {
+            display: block;
+            width: 19px;
+            height: 19px;
+
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .contact-page .contact-item-content {
+            min-width: 0;
+        }
+
+        .contact-page .contact-item strong {
+            display: block;
+            margin: 0 0 3px;
+
+            color: #080b10;
+            font-size: 14px;
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .contact-page .contact-item span {
+            display: block;
+
+            color: #667085;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+
+        /* -----------------------------------------------------
+           CONTACT NOTE
+        ----------------------------------------------------- */
+
+        .contact-page .contact-note {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+
+            margin-top: 30px;
+            padding: 20px;
+
+            border: 1px solid rgba(23, 105, 255, 0.15);
+            border-radius: 16px;
+
+            background: #eaf2ff;
+        }
+
+        .contact-page .contact-note-icon {
+            width: 40px;
+            height: 40px;
+            flex: 0 0 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #1769ff;
+            color: #ffffff;
+        }
+
+        .contact-page .contact-note-icon svg {
+            width: 18px;
+            height: 18px;
+
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .contact-page .contact-note strong {
+            display: block;
+            margin: 0 0 4px;
+
+            color: #080b10;
+            font-size: 14px;
+        }
+
+        .contact-page .contact-note p {
+            margin: 0;
+
+            color: #667085;
+            font-size: 13px;
+            line-height: 1.65;
+        }
+
+
+        /* -----------------------------------------------------
+           FORM CARD
+        ----------------------------------------------------- */
+
+        .contact-page .form-card {
+            width: 100%;
+            padding: 34px;
+
+            border: 1px solid #e5eaf1;
+            border-radius: 26px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 25px 70px rgba(20, 35, 60, 0.10);
+        }
+
+        .contact-page .form-heading {
+            margin-bottom: 28px;
+        }
+
+        .contact-page .form-heading h2 {
+            margin: 0 0 10px;
+
+            color: #080b10;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -1.5px;
+        }
+
+        .contact-page .form-heading p {
+            margin: 0;
+
+            color: #667085;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .contact-page .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 17px;
+        }
+
+        .contact-page .field {
+            display: grid;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .contact-page .field.full {
+            grid-column: 1 / -1;
+        }
+
+        .contact-page .field label {
+            display: block;
+
+            color: #344054;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+
+        .contact-page .field input,
+        .contact-page .field select,
+        .contact-page .field textarea {
+            width: 100%;
+            min-width: 0;
+
+            padding: 13px 14px;
+
+            border: 1px solid #d9e0e9;
+            border-radius: 12px;
+
+            outline: none;
+
+            background: #ffffff;
+            color: #080b10;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            line-height: 1.5;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .contact-page .field input {
+            min-height: 48px;
+        }
+
+        .contact-page .field select {
+            min-height: 48px;
+            cursor: pointer;
+            appearance: auto;
+        }
+
+        .contact-page .field textarea {
+            min-height: 155px;
+            resize: vertical;
+        }
+
+        .contact-page .field input::placeholder,
+        .contact-page .field textarea::placeholder {
+            color: #98a2b3;
+        }
+
+        .contact-page .field input:focus,
+        .contact-page .field select:focus,
+        .contact-page .field textarea:focus {
+            border-color: #1769ff;
+            box-shadow: 0 0 0 3px rgba(23, 105, 255, 0.10);
+        }
+
+
+        /* -----------------------------------------------------
+           PHONE
+        ----------------------------------------------------- */
+
+        .contact-page .phone-group {
+            display: grid;
+            grid-template-columns: 245px minmax(0, 1fr);
+            gap: 10px;
+
+            width: 100%;
+        }
+
+        .contact-page .country-picker {
+            position: relative;
+            width: 100%;
+        }
+
+        .contact-page .country-selected {
+            width: 100%;
+            min-height: 48px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+
+            padding: 0 13px;
+
+            border: 1px solid #d9e0e9;
+            border-radius: 12px;
+
+            background: #ffffff;
+            color: #080b10;
+
+            cursor: pointer;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .contact-page .country-selected:hover {
+            border-color: #b8c3d1;
+        }
+
+        .contact-page .country-picker.open .country-selected {
+            border-color: #1769ff;
+            box-shadow: 0 0 0 3px rgba(23, 105, 255, 0.10);
+        }
+
+        .contact-page .country-selected-inner {
+            min-width: 0;
+
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .contact-page .country-selected img {
+            display: block;
+
+            width: 24px;
+            height: 17px;
+            flex: 0 0 24px;
+
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .contact-page #selected-country {
+            min-width: 0;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            color: #080b10;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .contact-page #selected-code {
+            color: #667085;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .contact-page .country-arrow {
+            flex-shrink: 0;
+
+            color: #667085;
+            font-size: 15px;
+            line-height: 1;
+
+            transition: transform 0.2s ease;
+        }
+
+        .contact-page .country-picker.open .country-arrow {
+            transform: rotate(180deg);
+        }
+
+
+        /* -----------------------------------------------------
+           COUNTRY DROPDOWN
+        ----------------------------------------------------- */
+
+        .contact-page .country-dropdown {
+            position: absolute;
+
+            left: 0;
+            right: 0;
+            top: calc(100% + 8px);
+
+            z-index: 99999;
+
+            display: none;
+
+            max-height: 310px;
+            overflow-y: auto;
+
+            padding: 7px;
+
+            border: 1px solid #e5eaf1;
+            border-radius: 14px;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 20px 50px rgba(8, 11, 16, 0.16);
+        }
+
+        .contact-page .country-picker.open .country-dropdown {
+            display: block;
+        }
+
+        .contact-page .country-option {
+            width: 100%;
+            min-height: 43px;
+
+            display: grid;
+            grid-template-columns: 27px minmax(0, 1fr) auto;
+            align-items: center;
+            gap: 9px;
+
+            padding: 7px 9px;
+
+            border: 0;
+            border-radius: 9px;
+
+            background: transparent;
+            color: #080b10;
+
+            text-align: left;
+            cursor: pointer;
+
+            transition: background 0.15s ease;
+        }
+
+        .contact-page .country-option:hover {
+            background: #eaf2ff;
+        }
+
+        .contact-page .country-option.selected {
+            background: rgba(23, 105, 255, 0.08);
+        }
+
+        .contact-page .country-option img {
+            display: block;
+
+            width: 25px;
+            height: 17px;
+
+            object-fit: cover;
+            border-radius: 2px;
+        }
+
+        .contact-page .country-option span {
+            min-width: 0;
+
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+
+            color: #080b10;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .contact-page .country-option strong {
+            color: #667085;
+            font-size: 12px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .contact-page .country-dropdown::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        .contact-page .country-dropdown::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        .contact-page .country-dropdown::-webkit-scrollbar-thumb {
+            background: #d4dbe5;
+            border-radius: 20px;
+        }
+
+
+        /* -----------------------------------------------------
+           SUBMIT
+        ----------------------------------------------------- */
+
+        .contact-page .form-submit {
+            min-height: 52px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            padding: 0 24px;
+
+            border: 0;
+            border-radius: 12px;
+
+            background: #1769ff;
+            color: #ffffff;
+
+            font-family: "DM Sans", sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .contact-page .form-submit:hover {
+            background: #0d5ae5;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 28px rgba(23, 105, 255, 0.22);
+        }
+
+        .contact-page .form-submit span {
+            font-size: 18px;
+            line-height: 1;
+        }
+
+
+        /* -----------------------------------------------------
+           FINAL CTA
+        ----------------------------------------------------- */
+
+        .contact-page .final-cta {
+            padding: 20px 0 100px;
+        }
+
+        .contact-page .cta-box {
+            position: relative;
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+
+            padding: 55px;
+
+            border-radius: 26px;
+
+            background: #080b10;
+            color: #ffffff;
+        }
+
+        .contact-page .cta-box::after {
+            content: "";
+
+            position: absolute;
+
+            width: 320px;
+            height: 320px;
+
+            right: -100px;
+            top: -130px;
+
+            border-radius: 50%;
+
+            background: rgba(23, 105, 255, 0.25);
+
+            filter: blur(10px);
+
+            pointer-events: none;
+        }
+
+        .contact-page .cta-box > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact-page .cta-box .eyebrow {
+            margin-bottom: 12px;
+        }
+
+        .contact-page .cta-box h2 {
+            max-width: 650px;
+            margin: 0 0 12px;
+
+            color: #ffffff;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(32px, 5vw, 52px);
+            font-weight: 700;
+            line-height: 1.05;
+            letter-spacing: -2px;
+        }
+
+        .contact-page .cta-box p {
+            max-width: 600px;
+            margin: 0;
+
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 15px;
+        }
+
+        .contact-page .cta-button {
+            flex-shrink: 0;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+
+            min-height: 50px;
+            padding: 0 20px;
+
+            border-radius: 10px;
+
+            background: #ffffff;
+            color: #080b10;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition:
+                transform 0.2s ease,
+                background 0.2s ease;
+        }
+
+        .contact-page .cta-button:hover {
+            transform: translateY(-2px);
+            background: #eaf2ff;
+        }
+
+
+        /* -----------------------------------------------------
+           FOOTER
+        ----------------------------------------------------- */
+
+        .contact-page .site-footer {
+            margin-top: 90px;
+
+            background: #080b10;
+            color: #ffffff;
+
+            overflow: hidden;
+        }
+
+        .contact-page .site-footer .footer-grid {
+            display: grid;
+            grid-template-columns: 1.7fr 1fr 1fr 1fr;
+            gap: 55px;
+
+            padding: 70px 0 55px;
+        }
+
+        .contact-page .footer-brand {
+            max-width: 390px;
+        }
+
+        .contact-page .footer-logo {
+            display: block;
+
+            width: 155px;
+            height: auto;
+            max-height: 50px;
+
+            object-fit: contain;
+            object-position: left center;
+        }
+
+        .contact-page .footer-brand p {
+            margin: 20px 0 0;
+
+            max-width: 360px;
+
+            color: rgba(255, 255, 255, 0.66);
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .contact-page .footer-col {
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+        }
+
+        .contact-page .footer-col h4 {
+            margin: 0 0 10px;
+
+            color: #ffffff;
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .contact-page .footer-col a {
+            width: fit-content;
+
+            color: rgba(255, 255, 255, 0.62);
+            font-size: 14px;
+
+            text-decoration: none;
+
+            transition:
+                color 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .contact-page .footer-col a:hover {
+            color: #ffffff;
+            transform: translateX(3px);
+        }
+
+
+        /* -----------------------------------------------------
+           SOCIAL ICONS
+        ----------------------------------------------------- */
+
+        .contact-page .socials {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            margin-top: 22px;
+        }
+
+        .contact-page .socials a {
+            width: 40px;
+            height: 40px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0;
+
+            border: 1px solid rgba(255, 255, 255, 0.16);
+            border-radius: 50%;
+
+            color: #ffffff;
+            background: rgba(255, 255, 255, 0.06);
+
+            transition: all 0.25s ease;
+        }
+
+        .contact-page .socials a:hover {
+            color: #ffffff;
+            background: #1769ff;
+            border-color: #1769ff;
+            transform: translateY(-3px);
+        }
+
+        .contact-page .socials svg {
+            display: block;
+
+            width: 19px;
+            height: 19px;
+
+            fill: currentColor;
+            stroke: none;
+        }
+
+        .contact-page .socials .instagram-icon {
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+        }
+
+        .contact-page .socials .instagram-dot {
+            fill: currentColor;
+            stroke: none;
+        }
+
+
+        /* -----------------------------------------------------
+           FOOTER BOTTOM
+        ----------------------------------------------------- */
+
+        .contact-page .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+
+            padding: 22px 0;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+
+            color: rgba(255, 255, 255, 0.48);
+            font-size: 12px;
+        }
+
+
+        /* -----------------------------------------------------
+           TABLET
+        ----------------------------------------------------- */
+
+        @media (max-width: 1050px) {
+
+            .contact-page .nav-links {
+                gap: 2px;
+            }
+
+            .contact-page .nav-links a {
+                padding: 0 8px;
+                font-size: 13px;
+            }
+
+            .contact-page .brand-logo {
+                width: 140px;
+            }
+
+            .contact-page .contact-grid {
+                gap: 45px;
+            }
+
+        }
+
+
+        /* -----------------------------------------------------
+           MOBILE
+        ----------------------------------------------------- */
+
+        @media (max-width: 850px) {
+
+            .contact-page .nav-wrap {
+                min-height: 70px;
+            }
+
+            .contact-page .brand-logo {
+                width: 145px;
+            }
+
+            .contact-page .menu-btn {
+                display: block;
+                flex-shrink: 0;
+            }
+
+            .contact-page .nav-links {
+                position: absolute;
+
+                top: calc(100% + 1px);
+                left: 0;
+                right: 0;
+
+                display: none;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                gap: 0;
+
+                padding: 10px 18px 18px;
+                margin: 0;
+
+                background: #ffffff;
+
+                border-bottom: 1px solid rgba(8, 11, 16, 0.08);
+
+                box-shadow:
+                    0 15px 35px rgba(8, 11, 16, 0.08);
+            }
+
+            .contact-page .nav-links.open {
+                display: flex;
+            }
+
+            .contact-page .nav-links a {
+                width: 100%;
+                min-height: 48px;
+
+                justify-content: flex-start;
+
+                padding: 0 12px;
+
+                border-radius: 8px;
+            }
+
+            .contact-page .nav-links a:hover,
+            .contact-page .nav-links a.active {
+                background: rgba(23, 105, 255, 0.06);
+            }
+
+            .contact-page .nav-links a::after {
+                display: none;
+            }
+
+            .contact-page .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 55px;
+            }
+
+            .contact-page .site-footer .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .contact-page .cta-box {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+        }
+
+
+        /* -----------------------------------------------------
+           SMALL MOBILE
+        ----------------------------------------------------- */
+
+        @media (max-width: 700px) {
+
+            .contact-page .page-hero {
+                padding: 80px 0 65px;
+            }
+
+            .contact-page .page-hero h1 {
+                font-size: clamp(42px, 13vw, 62px);
+                letter-spacing: -2.5px;
+            }
+
+            .contact-page .contact-section {
+                padding: 75px 0;
+            }
+
+            .contact-page .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-page .field.full {
+                grid-column: auto;
+            }
+
+            .contact-page .phone-group {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-page .country-dropdown {
+                max-height: 280px;
+            }
+
+            .contact-page .form-card {
+                padding: 25px;
+            }
+
+            .contact-page .cta-box {
+                padding: 35px 28px;
+            }
+
+            .contact-page .cta-button {
+                width: 100%;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .contact-page .container {
+                width: min(calc(100% - 30px), 1200px);
+            }
+
+            .contact-page .site-footer .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 38px;
+                padding: 55px 0 40px;
+            }
+
+            .contact-page .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+                line-height: 1.6;
+            }
+
+            .contact-page .footer-logo {
+                width: 145px;
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .contact-page #selected-country {
+                max-width: 125px;
+            }
+
+            .contact-page .form-submit {
+                width: 100%;
+            }
+
+            .contact-page .contact-item-icon {
+                width: 39px;
+                height: 39px;
+                flex-basis: 39px;
+            }
+
+        }
+
+    </style>
 </head>
 
 
 <body class="contact-page">
 
-
-<!-- =====================================================
-     HEADER
-===================================================== -->
 
 <header class="site-header">
 
@@ -62,21 +1291,12 @@
              aria-label="Main navigation">
 
             <a href="/home.html">Home</a>
-
             <a href="/about.html">About</a>
-
             <a href="/solutions.html">Solutions</a>
-
             <a href="/case-studies.html">Case Studies</a>
-
             <a href="/testimonials.html">Testimonials</a>
-
             <a href="/blogs.html">Blogs</a>
-
-            <a href="/contact.html"
-               class="active">
-                Contact Us
-            </a>
+            <a href="/contact.html" class="active">Contact Us</a>
 
         </nav>
 
@@ -85,15 +1305,11 @@
 </header>
 
 
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
 <main>
 
-
-    <!-- HERO -->
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
 
     <section class="page-hero">
 
@@ -109,9 +1325,8 @@
             </h1>
 
             <p>
-                Have a campaign, launch, brand story or reputation
-                challenge? Tell us what you're building and our team
-                will get back to you.
+                Have a campaign, launch, brand story or reputation challenge?
+                Tell us what you're building and our team will get back to you.
             </p>
 
         </div>
@@ -119,10 +1334,11 @@
     </section>
 
 
+    <!-- =====================================================
+         CONTACT
+         ===================================================== -->
 
-    <!-- CONTACT -->
-
-    <section class="section">
+    <section class="contact-section">
 
         <div class="container">
 
@@ -141,7 +1357,7 @@
                         Let's start a conversation.
                     </h2>
 
-                    <p>
+                    <p class="contact-intro">
                         Whether you need strategic PR, media attention,
                         brand positioning or creative storytelling,
                         we're ready to help.
@@ -150,56 +1366,148 @@
 
                     <div class="contact-list">
 
+
+                        <!-- EMAIL -->
+
                         <div class="contact-item">
 
-                            <strong>Email</strong>
+                            <div class="contact-item-icon">
 
-                            <span>
-                                hello@presszila.com
-                            </span>
+                                <svg viewBox="0 0 24 24"
+                                     aria-hidden="true">
+
+                                    <rect x="3"
+                                          y="5"
+                                          width="18"
+                                          height="14"
+                                          rx="2"></rect>
+
+                                    <path d="M3 7l9 6 9-6"></path>
+
+                                </svg>
+
+                            </div>
+
+                            <div class="contact-item-content">
+
+                                <strong>Email</strong>
+
+                                <span>
+                                    hello@presszila.com
+                                </span>
+
+                            </div>
 
                         </div>
 
 
+                        <!-- PHONE -->
+
                         <div class="contact-item">
 
-                            <strong>Phone</strong>
+                            <div class="contact-item-icon">
 
-                            <span>
-                                +92 300 1234567
-                            </span>
+                                <svg viewBox="0 0 24 24"
+                                     aria-hidden="true">
+
+                                    <path d="M6.5 3.5l3 1.2 1.2 4-2 1.7a15.5 15.5 0 0 0 4.9 4.9l1.7-2 4 1.2 1.2 3c.3.8-.1 1.7-.9 2A15.8 15.8 0 0 1 4.5 5.4c.3-.8 1.2-1.2 2-.9z"></path>
+
+                                </svg>
+
+                            </div>
+
+                            <div class="contact-item-content">
+
+                                <strong>Phone</strong>
+
+                                <span>
+                                    +92 300 1234567
+                                </span>
+
+                            </div>
 
                         </div>
 
 
+                        <!-- LOCATION -->
+
                         <div class="contact-item">
 
-                            <strong>Location</strong>
+                            <div class="contact-item-icon">
 
-                            <span>
-                                Pakistan
-                            </span>
+                                <svg viewBox="0 0 24 24"
+                                     aria-hidden="true">
+
+                                    <path d="M12 21s7-6.1 7-12a7 7 0 1 0-14 0c0 5.9 7 12 7 12z"></path>
+
+                                    <circle cx="12"
+                                            cy="9"
+                                            r="2.3"></circle>
+
+                                </svg>
+
+                            </div>
+
+                            <div class="contact-item-content">
+
+                                <strong>Location</strong>
+
+                                <span>
+                                    Pakistan
+                                </span>
+
+                            </div>
 
                         </div>
 
 
+                        <!-- HOURS -->
+
                         <div class="contact-item">
 
-                            <strong>Working Hours</strong>
+                            <div class="contact-item-icon">
 
-                            <span>
-                                Monday — Friday · 10:00 AM — 6:00 PM
-                            </span>
+                                <svg viewBox="0 0 24 24"
+                                     aria-hidden="true">
+
+                                    <circle cx="12"
+                                            cy="12"
+                                            r="8.5"></circle>
+
+                                    <path d="M12 7v5l3 2"></path>
+
+                                </svg>
+
+                            </div>
+
+                            <div class="contact-item-content">
+
+                                <strong>Working Hours</strong>
+
+                                <span>
+                                    Monday — Friday · 10:00 AM — 6:00 PM
+                                </span>
+
+                            </div>
 
                         </div>
 
                     </div>
 
 
+                    <!-- NOTE -->
+
                     <div class="contact-note">
 
                         <div class="contact-note-icon">
-                            ✦
+
+                            <svg viewBox="0 0 24 24"
+                                 aria-hidden="true">
+
+                                <path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z"></path>
+
+                            </svg>
+
                         </div>
 
                         <div>
@@ -211,7 +1519,7 @@
                             <p>
                                 We combine strategy, storytelling and
                                 media relationships to create meaningful
-                                visibility for ambitious brands.
+                                visibility for brands that want to grow.
                             </p>
 
                         </div>
@@ -221,8 +1529,7 @@
                 </div>
 
 
-
-                <!-- FORM -->
+                <!-- RIGHT FORM -->
 
                 <div class="form-card">
 
@@ -244,8 +1551,8 @@
 
 
                     <form action="#"
-                          method="post">
-
+                          method="post"
+                          class="contact-form">
 
                         <div class="form-grid">
 
@@ -269,7 +1576,6 @@
                             </div>
 
 
-
                             <!-- EMAIL -->
 
                             <div class="field">
@@ -289,7 +1595,6 @@
                             </div>
 
 
-
                             <!-- PHONE -->
 
                             <div class="field full">
@@ -298,13 +1603,13 @@
                                     Phone Number
                                 </label>
 
-
                                 <div class="phone-group">
 
 
+                                    <!-- COUNTRY PICKER -->
+
                                     <div class="country-picker"
                                          id="country-picker">
-
 
                                         <button
                                             type="button"
@@ -312,7 +1617,6 @@
                                             id="country-selected"
                                             aria-haspopup="listbox"
                                             aria-expanded="false">
-
 
                                             <span class="country-selected-inner">
 
@@ -331,7 +1635,6 @@
 
                                             </span>
 
-
                                             <span class="country-arrow">
                                                 ▾
                                             </span>
@@ -339,17 +1642,18 @@
                                         </button>
 
 
-
-                                        <div class="country-dropdown"
-                                             id="country-dropdown"
-                                             role="listbox">
+                                        <div
+                                            class="country-dropdown"
+                                            id="country-dropdown"
+                                            role="listbox">
 
 
                                             <button type="button"
                                                     class="country-option selected"
                                                     data-country="Pakistan"
                                                     data-code="+92"
-                                                    data-flag="pk">
+                                                    data-flag="pk"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/pk.png"
                                                      alt="Pakistan">
@@ -365,7 +1669,8 @@
                                                     class="country-option"
                                                     data-country="United States"
                                                     data-code="+1"
-                                                    data-flag="us">
+                                                    data-flag="us"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/us.png"
                                                      alt="United States">
@@ -381,7 +1686,8 @@
                                                     class="country-option"
                                                     data-country="Canada"
                                                     data-code="+1"
-                                                    data-flag="ca">
+                                                    data-flag="ca"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/ca.png"
                                                      alt="Canada">
@@ -397,7 +1703,8 @@
                                                     class="country-option"
                                                     data-country="United Kingdom"
                                                     data-code="+44"
-                                                    data-flag="gb">
+                                                    data-flag="gb"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/gb.png"
                                                      alt="United Kingdom">
@@ -413,10 +1720,11 @@
                                                     class="country-option"
                                                     data-country="United Arab Emirates"
                                                     data-code="+971"
-                                                    data-flag="ae">
+                                                    data-flag="ae"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/ae.png"
-                                                     alt="United Arab Emirates">
+                                                     alt="UAE">
 
                                                 <span>UAE</span>
 
@@ -429,7 +1737,8 @@
                                                     class="country-option"
                                                     data-country="Saudi Arabia"
                                                     data-code="+966"
-                                                    data-flag="sa">
+                                                    data-flag="sa"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/sa.png"
                                                      alt="Saudi Arabia">
@@ -445,7 +1754,8 @@
                                                     class="country-option"
                                                     data-country="Qatar"
                                                     data-code="+974"
-                                                    data-flag="qa">
+                                                    data-flag="qa"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/qa.png"
                                                      alt="Qatar">
@@ -461,7 +1771,8 @@
                                                     class="country-option"
                                                     data-country="Kuwait"
                                                     data-code="+965"
-                                                    data-flag="kw">
+                                                    data-flag="kw"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/kw.png"
                                                      alt="Kuwait">
@@ -477,7 +1788,8 @@
                                                     class="country-option"
                                                     data-country="Oman"
                                                     data-code="+968"
-                                                    data-flag="om">
+                                                    data-flag="om"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/om.png"
                                                      alt="Oman">
@@ -493,7 +1805,8 @@
                                                     class="country-option"
                                                     data-country="Bahrain"
                                                     data-code="+973"
-                                                    data-flag="bh">
+                                                    data-flag="bh"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/bh.png"
                                                      alt="Bahrain">
@@ -509,7 +1822,8 @@
                                                     class="country-option"
                                                     data-country="India"
                                                     data-code="+91"
-                                                    data-flag="in">
+                                                    data-flag="in"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/in.png"
                                                      alt="India">
@@ -525,7 +1839,8 @@
                                                     class="country-option"
                                                     data-country="Australia"
                                                     data-code="+61"
-                                                    data-flag="au">
+                                                    data-flag="au"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/au.png"
                                                      alt="Australia">
@@ -541,7 +1856,8 @@
                                                     class="country-option"
                                                     data-country="Germany"
                                                     data-code="+49"
-                                                    data-flag="de">
+                                                    data-flag="de"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/de.png"
                                                      alt="Germany">
@@ -557,7 +1873,8 @@
                                                     class="country-option"
                                                     data-country="France"
                                                     data-code="+33"
-                                                    data-flag="fr">
+                                                    data-flag="fr"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/fr.png"
                                                      alt="France">
@@ -571,9 +1888,44 @@
 
                                             <button type="button"
                                                     class="country-option"
+                                                    data-country="Italy"
+                                                    data-code="+39"
+                                                    data-flag="it"
+                                                    role="option">
+
+                                                <img src="https://flagcdn.com/w40/it.png"
+                                                     alt="Italy">
+
+                                                <span>Italy</span>
+
+                                                <strong>+39</strong>
+
+                                            </button>
+
+
+                                            <button type="button"
+                                                    class="country-option"
+                                                    data-country="Spain"
+                                                    data-code="+34"
+                                                    data-flag="es"
+                                                    role="option">
+
+                                                <img src="https://flagcdn.com/w40/es.png"
+                                                     alt="Spain">
+
+                                                <span>Spain</span>
+
+                                                <strong>+34</strong>
+
+                                            </button>
+
+
+                                            <button type="button"
+                                                    class="country-option"
                                                     data-country="Turkey"
                                                     data-code="+90"
-                                                    data-flag="tr">
+                                                    data-flag="tr"
+                                                    role="option">
 
                                                 <img src="https://flagcdn.com/w40/tr.png"
                                                      alt="Turkey">
@@ -585,15 +1937,102 @@
                                             </button>
 
 
+                                            <button type="button"
+                                                    class="country-option"
+                                                    data-country="Malaysia"
+                                                    data-code="+60"
+                                                    data-flag="my"
+                                                    role="option">
+
+                                                <img src="https://flagcdn.com/w40/my.png"
+                                                     alt="Malaysia">
+
+                                                <span>Malaysia</span>
+
+                                                <strong>+60</strong>
+
+                                            </button>
+
+
+                                            <button type="button"
+                                                    class="country-option"
+                                                    data-country="Singapore"
+                                                    data-code="+65"
+                                                    data-flag="sg"
+                                                    role="option">
+
+                                                <img src="https://flagcdn.com/w40/sg.png"
+                                                     alt="Singapore">
+
+                                                <span>Singapore</span>
+
+                                                <strong>+65</strong>
+
+                                            </button>
+
+
+                                            <button type="button"
+                                                    class="country-option"
+                                                    data-country="Japan"
+                                                    data-code="+81"
+                                                    data-flag="jp"
+                                                    role="option">
+
+                                                <img src="https://flagcdn.com/w40/jp.png"
+                                                     alt="Japan">
+
+                                                <span>Japan</span>
+
+                                                <strong>+81</strong>
+
+                                            </button>
+
+
+                                            <button type="button"
+                                                    class="country-option"
+                                                    data-country="China"
+                                                    data-code="+86"
+                                                    data-flag="cn"
+                                                    role="option">
+
+                                                <img src="https://flagcdn.com/w40/cn.png"
+                                                     alt="China">
+
+                                                <span>China</span>
+
+                                                <strong>+86</strong>
+
+                                            </button>
+
+
+                                            <button type="button"
+                                                    class="country-option"
+                                                    data-country="South Africa"
+                                                    data-code="+27"
+                                                    data-flag="za"
+                                                    role="option">
+
+                                                <img src="https://flagcdn.com/w40/za.png"
+                                                     alt="South Africa">
+
+                                                <span>South Africa</span>
+
+                                                <strong>+27</strong>
+
+                                            </button>
+
                                         </div>
 
                                     </div>
 
 
+                                    <!-- PHONE -->
+
                                     <input
                                         type="tel"
                                         id="phone"
                                         name="phone"
+                                        class="phone-input"
                                         placeholder="300 1234567"
                                         autocomplete="tel-national"
                                         inputmode="tel"
@@ -611,7 +2050,6 @@
                             </div>
 
 
-
                             <!-- COMPANY -->
 
                             <div class="field">
@@ -624,10 +2062,10 @@
                                     type="text"
                                     id="company"
                                     name="company"
-                                    placeholder="Company name">
+                                    placeholder="Company name"
+                                    autocomplete="organization">
 
                             </div>
-
 
 
                             <!-- SERVICE -->
@@ -638,36 +2076,50 @@
                                     What do you need?
                                 </label>
 
-                                <select id="service"
-                                        name="service"
-                                        required>
+                                <select
+                                    id="service"
+                                    name="service"
+                                    required>
 
-                                    <option value=""
-                                            selected
-                                            disabled>
+                                    <option value="" selected disabled>
                                         Select a service
                                     </option>
 
-                                    <option>Digital PR</option>
+                                    <option value="digital-pr">
+                                        Digital PR
+                                    </option>
 
-                                    <option>Media Relations</option>
+                                    <option value="media-relations">
+                                        Media Relations
+                                    </option>
 
-                                    <option>Brand Strategy</option>
+                                    <option value="brand-strategy">
+                                        Brand Strategy
+                                    </option>
 
-                                    <option>Content & Storytelling</option>
+                                    <option value="content-storytelling">
+                                        Content &amp; Storytelling
+                                    </option>
 
-                                    <option>Reputation Management</option>
+                                    <option value="reputation">
+                                        Reputation Management
+                                    </option>
 
-                                    <option>Creator Relations</option>
+                                    <option value="creator-relations">
+                                        Creator Relations
+                                    </option>
 
-                                    <option>Launch Campaigns</option>
+                                    <option value="launch-campaigns">
+                                        Launch Campaigns
+                                    </option>
 
-                                    <option>Social & Creative</option>
+                                    <option value="social-creative">
+                                        Social &amp; Creative
+                                    </option>
 
                                 </select>
 
                             </div>
-
 
 
                             <!-- MESSAGE -->
@@ -687,8 +2139,7 @@
                             </div>
 
 
-
-                            <!-- BUTTON -->
+                            <!-- SUBMIT -->
 
                             <div class="field full">
 
@@ -703,7 +2154,6 @@
 
                             </div>
 
-
                         </div>
 
                     </form>
@@ -716,13 +2166,55 @@
 
     </section>
 
-</main>
 
+    <!-- =====================================================
+         CTA
+         ===================================================== -->
+
+    <section class="final-cta">
+
+        <div class="container">
+
+            <div class="cta-box">
+
+                <div>
+
+                    <span class="eyebrow">
+                        READY TO MOVE?
+                    </span>
+
+                    <h2>
+                        Your next big story
+                        starts here.
+                    </h2>
+
+                    <p>
+                        Let's turn your ideas into attention,
+                        credibility and real brand momentum.
+                    </p>
+
+                </div>
+
+                <a href="/solutions.html"
+                   class="cta-button">
+
+                    Explore Solutions
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
 
 
 <!-- =====================================================
      FOOTER
-===================================================== -->
+     ===================================================== -->
 
 <footer class="site-footer">
 
@@ -744,7 +2236,6 @@
 
                 </a>
 
-
                 <p>
                     Digital PR, brand strategy and storytelling built
                     to make ambitious brands impossible to ignore.
@@ -753,12 +2244,16 @@
 
                 <div class="socials">
 
+
+                    <!-- FACEBOOK -->
+
                     <a href="https://www.facebook.com/share/1Jgj4YyDNM/"
                        target="_blank"
                        rel="noopener noreferrer"
                        aria-label="PRESSZILA on Facebook">
 
-                        <svg viewBox="0 0 24 24">
+                        <svg viewBox="0 0 24 24"
+                             aria-hidden="true">
 
                             <path d="M14 8h3V4h-3c-3.3 0-5 2-5 5v3H6v4h3v8h4v-8h3l1-4h-4V9c0-.7.3-1 1-1z"></path>
 
@@ -767,13 +2262,16 @@
                     </a>
 
 
+                    <!-- INSTAGRAM -->
+
                     <a href="https://www.instagram.com/presszila?igsi=MTF2Nzg2bGpmZXJrMw=="
                        target="_blank"
                        rel="noopener noreferrer"
                        aria-label="PRESSZILA on Instagram">
 
                         <svg viewBox="0 0 24 24"
-                             class="instagram-icon">
+                             class="instagram-icon"
+                             aria-hidden="true">
 
                             <rect x="3"
                                   y="3"
@@ -804,11 +2302,8 @@
                 <h4>Explore</h4>
 
                 <a href="/home.html">Home</a>
-
                 <a href="/about.html">About</a>
-
                 <a href="/solutions.html">Solutions</a>
-
                 <a href="/case-studies.html">Case Studies</a>
 
             </div>
@@ -819,9 +2314,7 @@
                 <h4>Connect</h4>
 
                 <a href="/contact.html">Contact Us</a>
-
                 <a href="/testimonials.html">Testimonials</a>
-
                 <a href="/blogs.html">Blogs</a>
 
             </div>
@@ -832,11 +2325,8 @@
                 <h4>Services</h4>
 
                 <a href="/solutions.html">Digital PR</a>
-
                 <a href="/solutions.html">Brand Strategy</a>
-
                 <a href="/solutions.html">Media Relations</a>
-
                 <a href="/solutions.html">Reputation</a>
 
             </div>
@@ -861,17 +2351,17 @@
 </footer>
 
 
-
 <!-- =====================================================
      JAVASCRIPT
-===================================================== -->
+     ===================================================== -->
 
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
-
-    /* MOBILE MENU */
+    /* -----------------------------------------------------
+       MOBILE MENU
+    ----------------------------------------------------- */
 
     const menuButton =
         document.querySelector(".menu-btn");
@@ -902,7 +2392,8 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        navigation.querySelectorAll("a")
+        navigation
+            .querySelectorAll("a")
             .forEach(function (link) {
 
                 link.addEventListener("click", function () {
@@ -926,8 +2417,9 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-
-    /* COUNTRY DROPDOWN */
+    /* -----------------------------------------------------
+       COUNTRY SELECTOR
+    ----------------------------------------------------- */
 
     const picker =
         document.getElementById("country-picker");
@@ -950,7 +2442,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const hiddenCode =
         document.getElementById("country-code");
 
-    const phone =
+    const phoneInput =
         document.getElementById("phone");
 
 
@@ -961,25 +2453,30 @@ document.addEventListener("DOMContentLoaded", function () {
     ) {
 
 
+        /* OPEN / CLOSE */
+
         selectedButton.addEventListener(
             "click",
             function (event) {
 
                 event.stopPropagation();
 
-                const open =
+                const isOpen =
                     picker.classList.toggle("open");
 
                 selectedButton.setAttribute(
                     "aria-expanded",
-                    open ? "true" : "false"
+                    isOpen ? "true" : "false"
                 );
 
             }
         );
 
 
-        dropdown.querySelectorAll(".country-option")
+        /* SELECT COUNTRY */
+
+        dropdown
+            .querySelectorAll(".country-option")
             .forEach(function (option) {
 
                 option.addEventListener(
@@ -1002,20 +2499,57 @@ document.addEventListener("DOMContentLoaded", function () {
                         selectedCode.textContent =
                             code;
 
+
                         selectedFlag.src =
                             "https://flagcdn.com/w40/"
                             + flag +
                             ".png";
 
+
                         selectedFlag.alt =
                             country;
+
 
                         hiddenCode.value =
                             code;
 
 
+                        /* PHONE PLACEHOLDER */
+
+                        if (code === "+92") {
+
+                            phoneInput.placeholder =
+                                "300 1234567";
+
+                        } else if (code === "+1") {
+
+                            phoneInput.placeholder =
+                                "555 123 4567";
+
+                        } else if (code === "+44") {
+
+                            phoneInput.placeholder =
+                                "7700 900123";
+
+                        } else if (code === "+971") {
+
+                            phoneInput.placeholder =
+                                "50 123 4567";
+
+                        } else {
+
+                            phoneInput.placeholder =
+                                "Phone number";
+
+                        }
+
+
+                        /* SELECTED STATE */
+
                         dropdown
-                            .querySelectorAll(".country-option")
+                            .querySelectorAll(
+                                ".country-option"
+                            )
                             .forEach(function (item) {
 
                                 item.classList.remove(
@@ -1030,6 +2564,8 @@ document.addEventListener("DOMContentLoaded", function () {
                         );
 
 
+                        /* CLOSE */
+
                         picker.classList.remove(
                             "open"
                         );
@@ -1039,24 +2575,13 @@ document.addEventListener("DOMContentLoaded", function () {
                             "false"
                         );
 
-
-                        if (code === "+92") {
-
-                            phone.placeholder =
-                                "300 1234567";
-
-                        } else {
-
-                            phone.placeholder =
-                                "Phone number";
-
-                        }
-
                     }
                 );
 
             });
 
+
+        /* CLICK OUTSIDE */
 
         document.addEventListener(
             "click",
@@ -1064,7 +2589,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 if (!picker.contains(event.target)) {
 
-                    picker.classList.remove("open");
+                    picker.classList.remove(
+                        "open"
+                    );
 
                     selectedButton.setAttribute(
                         "aria-expanded",
@@ -1086,5 +2613,5 @@ document.addEventListener("DOMContentLoaded", function () {
 <script src="/script.js"></script>
 
 </body>
-
 </html>
+

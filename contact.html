@@ -19,7 +19,9 @@
 
 <body>
 
-<!-- ================= HEADER ================= -->
+<!-- =========================================================
+     HEADER — SAME AS HOME PAGE
+========================================================= -->
 
 <header class="site-header">
 
@@ -88,7 +90,9 @@
 </header>
 
 
-<!-- ================= MAIN ================= -->
+<!-- =========================================================
+     MAIN
+========================================================= -->
 
 <main>
 
@@ -117,7 +121,7 @@
     </section>
 
 
-    <!-- ================= CONTACT SECTION ================= -->
+    <!-- ================= CONTACT ================= -->
 
     <section class="section">
 
@@ -188,7 +192,7 @@
                 </div>
 
 
-                <!-- ================= CONTACT NOTE ================= -->
+                <!-- INFO CARD -->
 
                 <div class="contact-note">
 
@@ -207,11 +211,10 @@
             </div>
 
 
-            <!-- ================= CONTACT FORM ================= -->
+            <!-- ================= FORM ================= -->
 
             <form class="form-card reveal"
                   data-api="contact">
-
 
                 <div class="form-grid">
 
@@ -260,131 +263,139 @@
                             Phone
                         </label>
 
-                        <div class="phone-group">
+                        <div class="phone-wrapper">
 
-                            <select id="country-code"
-                                    name="country_code"
-                                    class="country-select"
-                                    aria-label="Country code">
 
-                                <option value="+92" selected>
-                                    🇵🇰 Pakistan (+92)
-                                </option>
+                            <!-- COUNTRY -->
 
-                                <option value="+1">
-                                    🇺🇸 United States (+1)
-                                </option>
+                            <div class="country-box">
 
-                                <option value="+1">
-                                    🇨🇦 Canada (+1)
-                                </option>
+                                <select id="country-code"
+                                        name="country_code"
+                                        aria-label="Select country">
 
-                                <option value="+44">
-                                    🇬🇧 United Kingdom (+44)
-                                </option>
+                                    <option value="+92" selected>
+                                        🇵🇰 Pakistan +92
+                                    </option>
 
-                                <option value="+61">
-                                    🇦🇺 Australia (+61)
-                                </option>
+                                    <option value="+1">
+                                        🇺🇸 United States +1
+                                    </option>
 
-                                <option value="+64">
-                                    🇳🇿 New Zealand (+64)
-                                </option>
+                                    <option value="+1">
+                                        🇨🇦 Canada +1
+                                    </option>
 
-                                <option value="+971">
-                                    🇦🇪 UAE (+971)
-                                </option>
+                                    <option value="+44">
+                                        🇬🇧 United Kingdom +44
+                                    </option>
 
-                                <option value="+966">
-                                    🇸🇦 Saudi Arabia (+966)
-                                </option>
+                                    <option value="+61">
+                                        🇦🇺 Australia +61
+                                    </option>
 
-                                <option value="+974">
-                                    🇶🇦 Qatar (+974)
-                                </option>
+                                    <option value="+64">
+                                        🇳🇿 New Zealand +64
+                                    </option>
 
-                                <option value="+965">
-                                    🇰🇼 Kuwait (+965)
-                                </option>
+                                    <option value="+971">
+                                        🇦🇪 United Arab Emirates +971
+                                    </option>
 
-                                <option value="+973">
-                                    🇧🇭 Bahrain (+973)
-                                </option>
+                                    <option value="+966">
+                                        🇸🇦 Saudi Arabia +966
+                                    </option>
 
-                                <option value="+968">
-                                    🇴🇲 Oman (+968)
-                                </option>
+                                    <option value="+974">
+                                        🇶🇦 Qatar +974
+                                    </option>
 
-                                <option value="+91">
-                                    🇮🇳 India (+91)
-                                </option>
+                                    <option value="+965">
+                                        🇰🇼 Kuwait +965
+                                    </option>
 
-                                <option value="+880">
-                                    🇧🇩 Bangladesh (+880)
-                                </option>
+                                    <option value="+973">
+                                        🇧🇭 Bahrain +973
+                                    </option>
 
-                                <option value="+86">
-                                    🇨🇳 China (+86)
-                                </option>
+                                    <option value="+968">
+                                        🇴🇲 Oman +968
+                                    </option>
 
-                                <option value="+81">
-                                    🇯🇵 Japan (+81)
-                                </option>
+                                    <option value="+91">
+                                        🇮🇳 India +91
+                                    </option>
 
-                                <option value="+82">
-                                    🇰🇷 South Korea (+82)
-                                </option>
+                                    <option value="+880">
+                                        🇧🇩 Bangladesh +880
+                                    </option>
 
-                                <option value="+49">
-                                    🇩🇪 Germany (+49)
-                                </option>
+                                    <option value="+86">
+                                        🇨🇳 China +86
+                                    </option>
 
-                                <option value="+33">
-                                    🇫🇷 France (+33)
-                                </option>
+                                    <option value="+81">
+                                        🇯🇵 Japan +81
+                                    </option>
 
-                                <option value="+39">
-                                    🇮🇹 Italy (+39)
-                                </option>
+                                    <option value="+82">
+                                        🇰🇷 South Korea +82
+                                    </option>
 
-                                <option value="+34">
-                                    🇪🇸 Spain (+34)
-                                </option>
+                                    <option value="+49">
+                                        🇩🇪 Germany +49
+                                    </option>
 
-                                <option value="+31">
-                                    🇳🇱 Netherlands (+31)
-                                </option>
+                                    <option value="+33">
+                                        🇫🇷 France +33
+                                    </option>
 
-                                <option value="+41">
-                                    🇨🇭 Switzerland (+41)
-                                </option>
+                                    <option value="+39">
+                                        🇮🇹 Italy +39
+                                    </option>
 
-                                <option value="+90">
-                                    🇹🇷 Turkey (+90)
-                                </option>
+                                    <option value="+34">
+                                        🇪🇸 Spain +34
+                                    </option>
 
-                                <option value="+27">
-                                    🇿🇦 South Africa (+27)
-                                </option>
+                                    <option value="+31">
+                                        🇳🇱 Netherlands +31
+                                    </option>
 
-                                <option value="+234">
-                                    🇳🇬 Nigeria (+234)
-                                </option>
+                                    <option value="+41">
+                                        🇨🇭 Switzerland +41
+                                    </option>
 
-                                <option value="+254">
-                                    🇰🇪 Kenya (+254)
-                                </option>
+                                    <option value="+90">
+                                        🇹🇷 Turkey +90
+                                    </option>
 
-                                <option value="+55">
-                                    🇧🇷 Brazil (+55)
-                                </option>
+                                    <option value="+27">
+                                        🇿🇦 South Africa +27
+                                    </option>
 
-                                <option value="+52">
-                                    🇲🇽 Mexico (+52)
-                                </option>
+                                    <option value="+234">
+                                        🇳🇬 Nigeria +234
+                                    </option>
 
-                            </select>
+                                    <option value="+254">
+                                        🇰🇪 Kenya +254
+                                    </option>
 
+                                    <option value="+55">
+                                        🇧🇷 Brazil +55
+                                    </option>
+
+                                    <option value="+52">
+                                        🇲🇽 Mexico +52
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <!-- PHONE NUMBER -->
 
                             <input id="phone"
                                    name="phone"
@@ -496,12 +507,13 @@
                         type="submit">
 
                     Send Message
-                    <span aria-hidden="true">→</span>
+
+                    <span aria-hidden="true">
+                        →
+                    </span>
 
                 </button>
 
-
-                <!-- STATUS -->
 
                 <div class="form-status"
                      aria-live="polite">
@@ -516,7 +528,9 @@
 </main>
 
 
-<!-- ================= FOOTER ================= -->
+<!-- =========================================================
+     FOOTER — SAME AS HOME PAGE
+========================================================= -->
 
 <footer class="site-footer">
 
@@ -685,8 +699,6 @@
         </div>
 
 
-        <!-- FOOTER BOTTOM -->
-
         <div class="footer-bottom">
 
             <span>
@@ -704,7 +716,9 @@
 </footer>
 
 
-<!-- ================= CONTACT PAGE CSS ================= -->
+<!-- =========================================================
+     CONTACT PAGE CSS
+========================================================= -->
 
 <style>
 
@@ -722,6 +736,7 @@
     color: #080b10;
     font-family: "Space Grotesk", sans-serif;
     font-size: 17px;
+    font-weight: 700;
 }
 
 .contact-note p {
@@ -731,20 +746,44 @@
     line-height: 1.7;
 }
 
-.phone-group {
+
+/* ================= PHONE ================= */
+
+.phone-wrapper {
     display: grid;
-    grid-template-columns: minmax(170px, 40%) 1fr;
+    grid-template-columns: 235px minmax(0, 1fr);
     gap: 10px;
     width: 100%;
 }
 
-.country-select {
+.country-box {
+    position: relative;
     width: 100%;
-    min-width: 0;
 }
 
-.phone-group input,
-.phone-group select {
+.country-box select {
+    width: 100%;
+    height: 52px;
+    padding: 0 38px 0 14px;
+    border: 1px solid rgba(8, 11, 16, 0.13);
+    border-radius: 10px;
+    background: #fff;
+    color: #080b10;
+    font-family: "DM Sans", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    outline: none;
+    cursor: pointer;
+    appearance: auto;
+}
+
+.country-box select:focus {
+    border-color: #1769ff;
+    box-shadow: 0 0 0 3px rgba(23, 105, 255, 0.10);
+}
+
+.phone-wrapper input {
+    width: 100%;
     height: 52px;
 }
 
@@ -755,6 +794,9 @@
     font-size: 12px;
     line-height: 1.5;
 }
+
+
+/* ================= BUTTON ================= */
 
 .form-card .btn {
     display: inline-flex;
@@ -773,14 +815,32 @@
     transform: translateX(4px);
 }
 
+
+/* ================= TABLET ================= */
+
+@media (max-width: 850px) {
+
+    .phone-wrapper {
+        grid-template-columns: 210px minmax(0, 1fr);
+    }
+
+}
+
+
+/* ================= MOBILE ================= */
+
 @media (max-width: 600px) {
 
-    .phone-group {
+    .phone-wrapper {
         grid-template-columns: 1fr;
         gap: 9px;
     }
 
-    .country-select {
+    .country-box select {
+        height: 50px;
+    }
+
+    .phone-wrapper input {
         height: 50px;
     }
 
@@ -794,17 +854,25 @@
 </style>
 
 
-<!-- ================= MOBILE MENU + COUNTRY PHONE ================= -->
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
 
 <script>
 
 document.addEventListener("DOMContentLoaded", function () {
 
 
-    /* ================= MOBILE MENU ================= */
+    /* =====================================================
+       MOBILE NAVIGATION
+    ===================================================== */
 
-    const menuButton = document.querySelector(".menu-btn");
-    const navigation = document.querySelector(".nav-links");
+    const menuButton =
+        document.querySelector(".menu-btn");
+
+    const navigation =
+        document.querySelector(".nav-links");
+
 
     if (menuButton && navigation) {
 
@@ -828,77 +896,122 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
 
-        navigation.querySelectorAll("a").forEach(function (link) {
+        navigation
+            .querySelectorAll("a")
+            .forEach(function (link) {
 
-            link.addEventListener("click", function () {
+                link.addEventListener("click", function () {
 
-                navigation.classList.remove("open");
+                    navigation.classList.remove("open");
 
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        "false"
+                    );
 
-                menuButton.setAttribute(
-                    "aria-label",
-                    "Open navigation"
-                );
+                    menuButton.setAttribute(
+                        "aria-label",
+                        "Open navigation"
+                    );
+
+                });
 
             });
-
-        });
 
     }
 
 
-    /* ================= COUNTRY PHONE ================= */
+    /* =====================================================
+       COUNTRY PHONE PLACEHOLDER
+    ===================================================== */
 
-    const countryCode =
+    const country =
         document.getElementById("country-code");
 
     const phone =
         document.getElementById("phone");
 
 
-    if (countryCode && phone) {
+    if (country && phone) {
 
-        function updatePhonePlaceholder() {
+        const placeholders = {
 
-            const code = countryCode.value;
+            "+92": "300 1234567",
 
-            if (code === "+92") {
-                phone.placeholder = "300 1234567";
-            }
+            "+1": "(555) 123-4567",
 
-            else if (code === "+1") {
-                phone.placeholder = "(555) 123-4567";
-            }
+            "+44": "7911 123456",
 
-            else if (code === "+44") {
-                phone.placeholder = "7911 123456";
-            }
+            "+61": "412 345 678",
 
-            else if (code === "+971") {
-                phone.placeholder = "50 123 4567";
-            }
+            "+64": "21 123 4567",
 
-            else if (code === "+91") {
-                phone.placeholder = "98765 43210";
-            }
+            "+971": "50 123 4567",
 
-            else {
-                phone.placeholder = "Phone number";
-            }
+            "+966": "50 123 4567",
+
+            "+974": "3312 3456",
+
+            "+965": "500 12345",
+
+            "+973": "3600 1234",
+
+            "+968": "9123 4567",
+
+            "+91": "98765 43210",
+
+            "+880": "1712 345678",
+
+            "+86": "138 0013 8000",
+
+            "+81": "90 1234 5678",
+
+            "+82": "10 1234 5678",
+
+            "+49": "151 12345678",
+
+            "+33": "6 12 34 56 78",
+
+            "+39": "312 345 6789",
+
+            "+34": "612 345 678",
+
+            "+31": "6 12345678",
+
+            "+41": "79 123 45 67",
+
+            "+90": "532 123 4567",
+
+            "+27": "82 123 4567",
+
+            "+234": "801 234 5678",
+
+            "+254": "712 345678",
+
+            "+55": "11 91234-5678",
+
+            "+52": "55 1234 5678"
+
+        };
+
+
+        function updatePlaceholder() {
+
+            const code = country.value;
+
+            phone.placeholder =
+                placeholders[code] || "Phone number";
 
         }
 
 
-        countryCode.addEventListener(
+        country.addEventListener(
             "change",
-            updatePhonePlaceholder
+            updatePlaceholder
         );
 
-        updatePhonePlaceholder();
+
+        updatePlaceholder();
 
     }
 
